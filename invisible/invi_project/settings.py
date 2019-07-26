@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'invi_app.apps.Invi_appConfig',
+    'invi_app.apps.InviAppConfig',
+    'main.apps.MainConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,7 +122,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(Base_DIR, 'invi_app', 'static')
+    os.path.join(BASE_DIR, 'invi_app/static'),
+    os.path.join(BASE_DIR, 'main/static'),
 ]
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')
