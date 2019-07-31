@@ -56,7 +56,7 @@ ROOT_URLCONF = 'invi_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['invi_project/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

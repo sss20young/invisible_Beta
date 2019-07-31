@@ -1,112 +1,91 @@
+{% extends 'base1.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    <title>Document</title>
+
+{% block styles %}
+
     <style>
-    .PC_main {
-        width: 100%;
-        height: 3283px;
-        background-color: #ffffff;
-    }
-    /* nav */
-    .nav { 
+    html {
         position: relative;
-        height: 90px; 
+        min-height: 100vh;
     }
-    .invisible_logo_gray {
-        position: absolute;
-        top: 26.7px;
-        left: 405px;
-        width: 255px;
-        height: 38.3px;
-        object-fit: contain;
+    .row {
+        justify-content: center;
+        margin: 1rem 0;
+        flex-wrap: 1;
     }
-    .nav_about {
-        position: absolute;
-        top: 36px;
-        bottom: 25px;
-        left: 785px;
-        right: 1073px;
-        width: 62px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 20px;
-        font-weight: normal;
+    .col > span {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .row > .col-2 {
+        padding: 0 1rem;
+    }
+    .round > span {
+        width: 100%;
+        height: 2.813rem;
+        border-radius: 1.375rem;
+        border: solid 0.125rem #cecece;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #6e6e6e;
+        white-space: nowrap;
+    }
+    .grade_title > span {
+        width: 2.250rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
+        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.45;
-        letter-spacing: -1.2px;
-        text-align: left;
-        color: #323232;
-    }
-    .nav_category {
-        position: absolute;
-        top: 36px;
-        bottom: 25px;
-        left: 913px;
-        right: 903px;
-        width: 104px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 18px;    /* 20px */
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.45;
-        letter-spacing: -1.2px;
-        text-align: left;
-        color: #323232;
-    }
-    .nav_login {
-        position: absolute;
-        top: 36px;
-        bottom: 25px;
-        left: 1082px;
-        right: 785px;
-        width: 53px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 18px;    /* 20px */
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.45;
-        letter-spacing: -1.2px;
-        text-align: left;
-        color: #323232;
-    }
-    .nav_index:hover {
+        letter-spacing: -0.075rem;
+        text-align: center;
         color: #1f95ff;
-        text-decoration:none;
+        border-style: none;
     }
-    /* 검색 */
-    .search_box {
+    .grade_text > span {
+        width: 7.250rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.060rem;
+        text-align: center;
+        color: #323232;
+        border-style: none;
+    }
+    .container {
+        justify-content: center;
+    }
+    .banner {
+        width: 100%;
+        object-fit: fill;
+    }
+    .section {
+        position: relative;
+    }
+    .footer {
         position: absolute;
-        top: 30px;
-        left: 1260px;
-        width: 255px;
-        height: 35px;
+        bottom: 0;
+        text-align: center;
+        height: 16rem;
+        
+    }
+    /* 
+    .search_box {
         object-fit: contain;
-        border-radius: 6px;
-        border: solid 1px #cecece;
+        border-radius: 0.375rem;
+        border: solid 0.063rem #cecece;
     }
     .search_text {
-        position: absolute;
         top: 1px;
         width: 127px;
         height: 24px;
-        font-family: SpoqaHanSans;
         font-size: 16px;
         font-weight: normal;
         font-style: normal;
@@ -117,485 +96,181 @@
         color: #cecece;
     }
     .search_button {
-        position: absolute;
-        top: 6px;
-        bottom: 5px;
-        left: 225px;
-        right: 6px;
         width: 24px;
         height: 24px;
         background-color:#ffffff;
     }   
     .search_icon {
-        position: absolute;
-        top: 3px;
-        bottom: 3.5px;
-        left: 3px;
-        right: 3px;
         width: 17.5px;
         height: 17.5px;
         object-fit: contain;
         background-color: #ffffff;
     }
+    */
     .banner {
-        position: relative;
-        width: 1920px;
-        height: 400px;
+        width: 100%;
+        height: auto;
         background-color: #8394a2;
+    }
+    .carousel > img {
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
     /* main */
     .content {
         position: relative;
-        width: 1920px;
-        height: 2543px;
+        width: 120rem;
+        height: 158.938rem;
         background-color: #f5f8fa;
     }
     .content_box {
-        position: absolute;
-        top: 70px;
-        left: 405px;
-        width: 1110px;
-        height: 2403px;
+        width: 100%;
         box-shadow: 10px 10px 30px 0 rgba(206, 206, 206, 0.52);
         background-color: #ffffff;
+        object-fit: cover;
     }
     .content_box_title {
-        position: absolute;
-        width: 1110px;
-        height: 214px;
-        border-radius: 6px;
+        width: 100%;
+        height: 13.375rem;
+        border-radius: 0.375rem 0;
         background-color: #dbf1ff;
+        object-fit: fill;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align
     }
-    .best {
-        position: absolute;
-        top: 36px;
-        left: 511px;
-        width: 88px;
-        height: 88px;
+    .content_best {
+        width: 5.5rem;
+        height: 5.5rem;
+        justify-content: center;
         object-fit: contain;
     }
     .content_box_text {
-        position: absolute;
-        top: 123px;
-        left: 367px;
-        width: 377px;
-        height: 55px;
-        font-family: SpoqaHanSans;
-        font-size: 31px;    /* 37px */
+        width: 23.563rem;
+        height: 3.483rem;
+        font-size: 1.938rem;    /* 37px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.49;
         letter-spacing: -60;
-        text-align: left;
         color: #1f95ff;
     }
-    .question1 {
-        position: absolute;
-        top: 295px;
-        left: 379px;
-        width: 352px;
-        height: 45px;
-        font-family: SpoqaHanSans;
-        font-size: 27px;    /* 30px */
+    .question1, .question2, .question3, .question4, .question5 {
+        width: 22rem;
+        height: 2.813rem;
+        font-size: 1.688rem;   /* 30px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.5;
-        letter-spacing: -1.8px;
-        text-align: left;
+        letter-spacing: -0.113rem;
         color: #323232;
+        display: flex;
+        justify-content:center;
+        white-space: nowrap;
     }
     .field1 {
-        position: absolute;
-        top: 360px;
-        left: 95px;
-        width: 45px;
-        height: 37px;
-        font-family: SpoqaHanSans;
-        font-size: 24px;    /* 25px */
+        width: 2.813rem;
+        height: 2.313rem;
+        font-size: 1.5rem;   /* 25px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.48;
-        letter-spacing: -1.5px;
+        letter-spacing: -0.094rem;
         text-align: left;
         color: #6e6e6e;
     }
     .keywordbox {
-        width: 160px;
-        height: 45px;
+        width: 10rem;
+        height: 2.813rem;
         object-fit: contain;
-        /*
-        해당 부분 포함하면 두줄 생김
         border-radius: 22px;
         border: solid 2px #cecece;
-        */
         background-color: #ffffff;
-        
     }
-    .keywordbox_field1_topic1{
-        position: absolute;
-        top: 402px;
-        left: 95px;
-    }
-    .field1_topic1_text {
-        z-index: 100;
-        position: absolute;
-        top: 8px;
-        left: 62px;
-        width: 36px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 19px;    /* 20px */
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.45;
-        letter-spacing: -1.2px;
-        text-align: center;
-        color: #6e6e6e;
-    }
-    .keywordbox_field1_topic2{
-        position: absolute;
-        top: 402px;
-        left: 285px;
-    }
-    .keywordbox_field1_topic3{
-        position: absolute;
-        top: 402px;
-        left: 475px;
-    }
-    .keywordbox_field1_topic4{
-        position: absolute;
-        top: 402px;
-        left: 665px;
-    }
-    .keywordbox_field1_topic5{
-        position: absolute;
-        top: 402px;
-        left: 855px;
-    }
-    .keywordbox_field1_topic6{
-        position: absolute;
-        top: 465px;
-        left: 95px;
-    }
-    .keywordbox_field1_topic7{
-        position: absolute;
-        top: 465px;
-        left: 285px;
-    }
-    .keywordbox_field1_topic8{
-        position: absolute;
-        top: 462px;
-        left: 475px;
-    }
-    .keywordbox_field1_topic9{
-        position: absolute;
-        top: 462px;
-        left: 665px;
-    }
-    .keywordbox_field1_topic10{
-        position: absolute;
-        top: 462px;
-        left: 855px;
-    }
-    .field2 {
-        position: absolute;
-        top: 527px;
-        left: 95px;
-        width: 45px;
-        height: 37px;
-        font-family: SpoqaHanSans;
-        font-size: 24px;    /* 25px */
+    .field1, .field2, .field3 {
+        width: 2.813rem;
+        height: 2.313rem;
+        font-size: 1.5rem;   /* 25px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.48;
-        letter-spacing: -1.5px;
+        letter-spacing: -0.094rem;
         text-align: left;
         color: #6e6e6e;
-    }
-    .keywordbox_field2_topic1{
-        position: absolute;
-        top: 569px;
-        left: 95px;
-    }
-    .keywordbox_field2_topic2{
-        position: absolute;
-        top: 569px;
-        left: 285px;
-    }
-    .keywordbox_field2_topic3{
-        position: absolute;
-        top: 569px;
-        left: 475px;
-    }
-    .keywordbox_field2_topic4{
-        position: absolute;
-        top: 569px;
-        left: 665px;
-    }
-    .keywordbox_field2_topic5{
-        position: absolute;
-        top: 569px;
-        left: 855px;
-    }
-    .keywordbox_field2_topic6{
-        position: absolute;
-        top: 629px;
-        left: 95px;
-    }
-    .keywordbox_field2_topic7{
-        position: absolute;
-        top: 629px;
-        left: 285px;
-    }
-    .field3 {
-        position: absolute;
-        top: 694px;
-        left: 95px;
-        width: 66px;
-        height: 37px;
-        font-family: SpoqaHanSans;
-        font-size: 23px;    /* 25px */
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.48;
-        letter-spacing: -1.5px;
-        text-align: left;
-        color: #6e6e6e;
-    }
-    .keywordbox_field3_topic1{
-        position: absolute;
-        top: 736px;
-        left: 95px;
-    }
-    .keywordbox_field3_topic2{
-        position: absolute;
-        top: 736px;
-        left: 285px;
-    }
-    .keywordbox_field3_topic3{
-        position: absolute;
-        top: 736px;
-        left: 475px;
-    }
-    .keywordbox_field3_topic4{
-        position: absolute;
-        top: 736px;
-        left: 665px;
-    }
-    .keywordbox_field3_topic5{
-        position: absolute;
-        top: 736px;
-        left: 855px;
-    }
-    .keywordbox_field3_topic6{
-        position: absolute;
-        top: 796px;
-        left: 95px;
-    }
-    .keywordbox_field3_topic7{
-        position: absolute;
-        top: 796px;
-        left: 285px;
-    }
-    .keywordbox_field3_topic8{
-        position: absolute;
-        top: 796px;
-        left: 475px;
-    }
-    .keywordbox_field3_topic9{
-        position: absolute;
-        top: 796px;
-        left: 665px;
-    }
-    .keywordbox_field3_topic10{
-        position: absolute;
-        top: 796px;
-        left: 855px;
-    }
-    .keywordbox_field3_topic11{
-        position: absolute;
-        top: 856px;
-        left: 95px;
-    }
-    .keywordbox_field3_topic12{
-        position: absolute;
-        top: 856px;
-        left: 285px;
-    }
-    .keywordbox_field3_topic13{
-        position: absolute;
-        top: 856px;
-        left: 475px;
-    }
-    .keywordbox_field3_topic14{
-        position: absolute;
-        top: 856px;
-        left: 665px;
-    }
-    .keywordbox_field3_topic15{
-        position: absolute;
-        top: 856px;
-        left: 855px;
-    }
-    .keywordbox_field3_topic16{
-        position: absolute;
-        top: 916px;
-        left: 95px;
-    }
-    .keywordbox_field3_topic17{
-        position: absolute;
-        top: 916px;
-        left: 285px;
-    }
-    .keywordbox_field3_topic18{
-        position: absolute;
-        top: 916px;
-        left: 475px;
-    }
-    .keywordbox_field3_topic19{
-        position: absolute;
-        top: 916px;
-        left: 665px;
-    }
-    .keywordbox_field3_topic20{
-        position: absolute;
-        top: 916px;
-        left: 855px;
-    }
-    .keywordbox_field3_topic21{
-        position: absolute;
-        top: 976px;
-        left: 95px;
-    }
-    .keywordbox_field3_topic22{
-        position: absolute;
-        top: 976px;
-        left: 285px;
-    }
-    .keywordbox_field3_topic23{
-        position: absolute;
-        top: 976px;
-        left: 475px;
-    }
-    .keywordbox_field3_topic24{
-        position: absolute;
-        top: 976px;
-        left: 665px;
+        white-space: nowrap;
     }
     /* 학업수준 */
-    .question2 {
-        position: absolute;
-        top: 1132px;
-        left: 382px;
-        width: 347px;
-        height: 45px;
-        font-family: SpoqaHanSans;
-        font-size: 27px;    /* 30px */
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.5;
-        letter-spacing: -1.8px;
-        text-align: left;
-        color: #585858;
+    input[type=radio] + img {
+        cursor: pointer;
     }
+    /*
+    input[type=radio] {
+        display:none;
+    }
+    */
     .beginner { 
-        position: absolute;
-        top: 1277px;
-        left: 145px;
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
+        width: 3.750rem;
+        height: 3.750rem ;
+        object-fit: cover;
         border-radius: 6px;
-        /* 해당 부분 포함하면 테두리 두줄 생김 
         border: solid 2px #1f95ff;
-        */
     }
-    input[type=radio] .beginner{
-        display: none;
-        position: absolute;
-        top: 1277px;
-        left: 145px;
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        border-radius: 6px;
-    }
-
     .beginner_title {
-        position: absolute;
-        top: 1343px;
-        left: 157px;
-        width: 36px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 19px;    /* 20px */
+        width: 2.250rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.45;
-        letter-spacing: -1.2px;
+        letter-spacing: -0.075rem;
         text-align: center;
         color: #1f95ff;
+        border-style: none;
     }
     .beginner_text {
-        position: absolute;
-        top: 1370px;
-        left: 117px;
-        width: 116px;
-        height: 24px;
-        font-family: SpoqaHanSans;
-        font-size: 14px;    /* 16px */
+        width: 7.250rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.5;
-        letter-spacing: -0.96px;
+        letter-spacing: -0.060rem;
         text-align: center;
         color: #323232;
     }
     .middle_class {
-        position: absolute;
-        top: 1277px;
-        left: 525px;
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        border-radius: 6px;
+        width: 3.750rem;
+        height: 3.750rem;
+        object-fit: cover;
+        border-radius: 0.375rem;
         /* 해당 부분 포함하면 테두리 두줄 생김
         border: solid 2px #1f95ff;
         */
     }
     .middle_class_title {
-        position: absolute;
-        top: 1343px;
-        left: 537px;
-        width: 36px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 19px;    /* 20px */
+        width: 3.750rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.45;
-        letter-spacing: -1.2px;
+        letter-spacing: -0.075rem;
         text-align: center;
         color: #1f95ff;
     }
     .middle_class_text {
-        position: absolute;
-        top: 1370px;
-        left: 498px;
-        width: 114px;
-        height: 24px;
-        font-family: SpoqaHanSans;
-        font-size: 14px;    /* 16px */
+        width: 7.125rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
@@ -605,668 +280,653 @@
         color: #323232;
     }
     .master {
-        position: absolute;
-        top: 1277px;
-        left: 905px;
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        border-radius: 6px;
+        width: 3.750rem;
+        height: 3.750rem;
+        object-fit: cover;
+        border-radius: 0.375rem;
         /* 해당 부분 포함하면 테두리 두줄 생김
         border: solid 2px #1f95ff;
         */
     }
     .master_title {
-        position: absolute;
-        top: 1343px;
-        left: 917px;
-        width: 36px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 19px;    /* 20px */
+        width: 2.250rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.45;
-        letter-spacing: -1.2px;
+        letter-spacing: -0.075rem;
         text-align: center;
         color: #1f95ff;
     }
     .master_text {
-        position: absolute;
-        top: 1370px;
-        left: 870px;
-        width: 130px;
-        height: 24px;
-        font-family: SpoqaHanSans;
-        font-size: 14px;    /* 16px */
+        width: 8.125rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.5;
-        letter-spacing: -0.96px;
+        letter-spacing: -0.060rem;
         text-align: center;
         color: #323232;
     }
     .grade_bar_box {
-        position: absolute;
-        top: 1220px;
-        bottom: 1168px;
-        left: 95px;
-        right: 95px;
-        width: 920px;
-        height: 15px;
-        border-radius: 6px;
+        width: 57.500rem;
+        height: 0.938rem;
+        border-radius: 0.375rem;
         background-color: #acacac;
     }
     .grade_bar {
         width: 10%;
-        height: 20px;
-        border-radius: 6px;
+        height: 1.25rem;
+        border-radius: 0.375rem;
         background-color: #1f95ff;
     }
-    /* 공부 스타일 */
+    /* 공부 스타일 
     .question3 {
-        position: absolute;
-        top:1505px;
-        left:356px;
-        width: 399px;
-        height: 45px;
-        font-family: SpoqaHanSans;
-        font-size: 27px;    /* 30px */
+        width: 24.938rem;
+        height: 2.813rem;
+        font-size: 1.688rem;  /* 30px 
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.5;
-        letter-spacing: -1.8px;
+        letter-spacing: -0.113rem;
         text-align: left;
         color: #585858;
-    }
-    .keywordbox_q3_topic1 {
-        position: absolute;
-        top: 1580px;
-        left: 95px;
-    }
-    .keywordbox_q3_topic2 {
-        position: absolute;
-        top: 1580px;
-        left: 285px;
-    }
-    .keywordbox_q3_topic3 {
-        position: absolute;
-        top: 1580px;
-        left: 475px;
-    }
-    .keywordbox_q3_topic4 {
-        position: absolute;
-        top: 1580px;
-        left: 665px;
-    }
-    .keywordbox_q3_topic5 {
-        position: absolute;
-        top: 1580px;
-        left: 855px;
-    }
-    .keywordbox_q3_topic6 {
-        position: absolute;
-        top: 1640px;
-        left: 95px;
-    }
-    .keywordbox_q3_topic7 {
-        position: absolute;
-        top: 1640px;
-        left: 285px;
-    }
-    .keywordbox_q3_topic8 {
-        position: absolute;
-        top: 1640px;
-        left: 475px;
-    }
-    .keywordbox_q3_topic9 {
-        position: absolute;
-        top: 1640px;
-        left: 665px;
-    }
-    .keywordbox_q3_topic10 {
-        position: absolute;
-        top: 1640px;
-        left: 855px;
-    }
-    /* 선생님 스타일 */
+        justify-content: center;
+    } */
+    /* 선생님 스타일
     .question4 {
-        position: absolute;
-        top:1796px;
-        left:340px;
-        width: 430px;
-        height: 45px;
-        font-family: SpoqaHanSans;
-        font-size: 27px;    /* 30px */
+        width: 26.875rem;
+        height: 2.813rem;
+        font-size: 1.688rem;    /* 30px
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.5;
-        letter-spacing: -1.8px;
+        letter-spacing: -0.113rem;
         text-align: left;
         color: #585858;
-    }
-    .keywordbox_q4_topic1 {
-        position: absolute;
-        top: 1871px;
-        left: 95px;
-    }
-    .keywordbox_q4_topic2 {
-        position: absolute;
-        top: 1871px;
-        left: 285px;
-    }
-    .keywordbox_q4_topic3 {
-        position: absolute;
-        top: 1871px;
-        left: 475px;
-    }
-    .keywordbox_q4_topic4 {
-        position: absolute;
-        top: 1871px;
-        left: 665px;
-    }
-    .keywordbox_q4_topic5 {
-        position: absolute;
-        top: 1871px;
-        left: 855px;
-    }
-    .keywordbox_q4_topic6 {
-        position: absolute;
-        top: 1931px;
-        left: 95px;
-    }
-    .keywordbox_q4_topic7 {
-        position: absolute;
-        top: 1931px;
-        left: 285px;
-    }
-    .keywordbox_q4_topic8 {
-        position: absolute;
-        top: 1931px;
-        left: 475px;
-    }
-    .keywordbox_q4_topic9 {
-        position: absolute;
-        top: 1931px;
-        left: 665px;
-    }
-    .keywordbox_q4_topic10 {
-        position: absolute;
-        top: 1931px;
-        left: 855px;
-    }
-    /* 예상 가격대 */
+    } */
+    /* 예상 가격대 
     .question5 {
-        position: absolute;
-        top:2087px;
-        left:410px;
-        width: 291px;
-        height: 45px;
-        font-family: SpoqaHanSans;
-        font-size: 27px;    /* 30px */
+        width: 18.188rem;
+        height: 2.813rem;
+        font-size: 1.688rem;    /* 30px 
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.5;
-        letter-spacing: -1.8px;
+        letter-spacing: -0.113rem;
         text-align: left;
         color: #585858;
-    }
+    } */
     .price_range_box {
-        width: 920px;
-        height: 15px;
-        border-radius: 6px;
+        width: 100%;
+        height: 0.938rem;
+        border-radius: 0.375rem;
         background-color: #acacac;
     }
     input[type=range].price_range {
-        position: absolute;
-        top: 2172px;
-        bottom: 211px;
-        left: 95px;
-        right: 95px;
-        width: 920px;
-        height: 15px;
-        border-radius: 6px;
+        width: 100%;
+        height: 0.938rem;
+        border-radius: 0.375rem;
         background-color: #acacac;
         -webkit-appearance: none;
     }
     input[type=range].price_range::-webkit-slider-thumb {
         -webkit-appearance: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 25px;
+        width: 3.125rem;
+        height: 3.125rem;
+        border-radius: 1.563rem;
         background-image: url("{% static 'img/check.png' %}") ;
-        box-shadow: -2px 1px 3px 0 rgba(0, 0, 0, 0.16);
-        border: solid 2px #1f95ff;
+        box-shadow: -0.125rem 0.0625rem 0.1875rem 0 rgba(0, 0, 0, 0.16);
+        border: solid 0.125rem #1f95ff;
         background-color: #ffffff;
     }
     .price {
-        position: absolute;
-        top: 2087px;
-        right: 95px;
-        width: 108px;
-        height:29px;
-        font-family: SpoqaHanSans;
-        font-size: 20px;
+        width: 6.75rem;
+        height:1.813rem;
+        font-size: 1.25rem;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         color: #1f95ff;
     }
     .won {
-        position: absolute;
-        top: 2087px;
-        right: 95px;
-        width: 20px;
-        height:29px;
-        font-family: SpoqaHanSans;
-        font-size: 20px;
+        width: 1.25rem;
+        height: 1.813rem;
+        font-size: 1.25rem;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         color: #1f95ff;
+        /* alignment */
+        display: flex;
+    }
+    .prices_range > p {
+        display: flex;
+        justify-content: space-between;
     }
     ._0won {
-        position: absolute;
-        top: 2216px;
-        bottom: 158px;
-        left: 95px;
-        right: 983px;
-        width: 32px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 20px;
+        width: 2rem;
+        height: 1.813rem;
+        font-size: 1.25rem;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.45;
-        letter-spacing: -0.6px;
+        letter-spacing: -0.038rem;
         text-align: center;
         color: #1f95ff;
+        /* alignment */
+        display: flex;
     }
     ._1000000won {
-        position: absolute;
-        top: 2216px;
-        bottom: 158px;
-        left: 907px;
-        right: 95px;
-        width: 108px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 20px;
+        width: 6.75rem;
+        height: 1.813rem;
+        font-size: 1.25rem;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.45;
-        letter-spacing: -0.6px;
+        letter-spacing: -0.038rem;
         text-align: center;
         color: #1f95ff;
+        display: flex;
     }
     /* 제출 */
+    /*
     .submit_button_box {
-        position: absolute;
-        top: 2275px;
-        left: 380px;
-        width: 350px;
-        height: 73px;
+        width: 100%;
+        height: 4.563rem;
         object-fit: contain;
-        border-radius: 6px;
+        border-radius: 0.375rem;
         background-color: #1f95ff;
         background-image: url("{% static 'img/button.png' %}");
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 7.8125rem;
+    } */
     .submit_button{
-        position:absolute;
-        top: 15px;
-        left: 38px;
-        width: 268px;
-        height: 41px;
-        font-family: SpoqaHanSans;
-        font-size: 26px;    /* 28px */
+        width: 21.88rem;
+        height: 4.563rem;
+        object-fit: contain;
+        border-radius: 0.375rem;
+        background-color:#1f95ff;
+        font-size: 1.75rem; /* 28px */
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: 1.46;
-        letter-spacing: -1.68px;
-        text-align: left;
+        letter-spacing: -0.105rem;
+        text-align: center;
         color: #ffffff;
-        background-color:Transparent;
     }
     .kakaotalk {
-        position: absolute;
-        top: 306px;
-        left: 1645.5px;
-        width: 150px;
-        height: 198px;
+        width: 9.375rem;
+        height: 12.375rem;
         object-fit: contain;
-    }
-    /* footer */
-    .footer {
-        position: absolute;
-        width: 1920px;
-        height: 250px;
-        background-color: #8a8a8a;
-    }
-    .invisible_logo_white {
-        position: absolute;
-        top: 70px;
-        left: 405px;
-        width: 277px;
-        height: 40px;
-        object-fit: contain;
-    }
-    .Email-officialinvisible030gmailcom-Insta-_invisible_official_ {
-        position: absolute;
-        top: 146px;
-        left: 405px;
-        width: 350px;
-        height: 52px;
-        font-family: Roboto;
-        font-size: 20px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.3;
-        letter-spacing: -0.06px;
-        text-align: left;
-        color: #ffffff;
-    }
-    .insta_invisible_official {
-        font-family: Roboto;
-        font-size: 20px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.3;
-        letter-spacing: -0.06px;
-        text-align: left;
-        color: #ffffff;
-    }
-    .insta_invisible_official:hover {
-        color: #1f95ff;
-        text-decoration:none;
-    }
-    .-Invisible-Co-Ltd-All-rights-reserved {
-        position: absolute;
-        top: 169px;
-        left: 1174px;
-        width: 341px;
-        height: 29px;
-        font-family: SpoqaHanSans;
-        font-size: 20px;
-        font-weight: 300;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 0.4;
-        letter-spacing: normal;
-        text-align: right;
-        color: #ffffff;
     }
     </style>
-</head>
 
-<body class="container">
-<div class="PC_main">
-<!-- nav -->
-<div class="nav container">
-    <a href="{% url 'main' %}" class="invisible_logo_gray">
-        <img src="{% static 'img/invisible_logo_gray.png' %}"
-        alt="invisible" >
-    </a>
-    <a href="#" class="nav_about nav_index">ABOUT</a>
-    <a href="#" class="nav_category nav_index">강의카테고리</a>
-    <a href="#" class="nav_login nav_index">로그인</a>
-    
-    <!-- 검색 -->
-    <div class="search_box">
-    <form name="search" method="POST" action="#">
-        {% csrf_token %}
-        <input type="text" class="search_text" placeholder="검색어를 입력하세요" style="border:0px">
-        <button type="submit" class="search_button">
-            <img src="{% static 'img/search_icon.png' %}" class="search_icon">
-        </button>
-    </form>
-    </div>
-</div>
 
-<!-- banner -->
-<div class="banner">
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="{% static 'img/main_banner.png' %}" alt="main banner">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="{% static 'img/hackathon_event.png' %}" alt="hackathon event">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-</div>
+{% endblock styles %}
+{% block content %}
 
-<!-- main -->
-<div class="content container">
-    <div class="content_box">
-    <form method="POST" action="{% url 'result' %}">
-        {% csrf_token %}
-        <div class="content_box_title">
-            <img src="{% static 'img/best.png' %}" class="best" alt="best">
-            <span class="content_box_text">나의 BEST 인터넷 강의는?</span>
+<section>
+    <!-- banner -->
+    <div class="banner">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{% static 'img/main_banner.png' %}" alt="main banner">
+                </div>
+                <div class="carousel-item">
+                <img class="d-block w-100" src="{% static 'img/hackathon_event.png' %}" alt="hackathon event">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
         </div>
-        
+    </div>
+</div>
+
+<div class="container">
+<!-- main -->
+    <div class="row no-gutter justify-content-center">
+        <div class="col-12">
+            <div class="content_box">
+                <form method="POST" action="{% url 'result' %}">
+                {% csrf_token %} 
+                <div class="content_box_title">
+                    <img src="{% static 'img/best.png' %}" class="content_best" alt="best">
+                    <span class="content_box_text">나의 BEST 인터넷 강의는?</span>
+                </div>
+    <br><br>
+    <div class="row no-gutter">
+        <div class="col-4"></div>
+        <div class="col-4">
         <!-- 강의 분야 -->
-        <span class="question1">원하는 강의 분야를 선택하세요</span>
-        <span class="field1">어학</span>
-
-        
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic1">
-        <span class="field1_topic1_text">토익</span>
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic2">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic3">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic4">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic5">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic6">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic7">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic8">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic9">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field1_topic10">
-
-        <span class="field2">수능</span>
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic1">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic2">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic3">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic4">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic5">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic6">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field2_topic7">
-
-        <span class="field3">공무원</span>
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic1">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic2">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic3">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic4">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic5">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic6">
-
-        <img src="{% static 'img/keywordbox.svg' %}" class="keywordbox keywordbox_field3_topic7">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic8">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic9">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic10">
-        
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic11">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic12">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic13">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic14">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic15">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic16">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic17">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic18">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic19">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic20">
-        
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic21">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic22">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic23">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_field3_topic24">
-        <hr class="q_hr">
-
+            <span class="question1">원하는 강의 분야를 선택하세요</span>
+        </div>
+        <div class="col-4"></div>
+    </div>
+        <div class="row no-gutter">
+            <div class="col-1"></div>
+            <div class="col-1">
+                <span class="field1">어학</span>
+            </div>
+            <div class="col-10"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="0">토익</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="1">토플</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="2">토스</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="3">오픽</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="4">텝스</span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="5">아이엘츠</span>       
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="6">지텔프</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="7">SAT</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="8">제2외국어</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="subject" value="9">토픽</span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-1">
+                <span class="field2">수능</span>
+            </div>
+            <div class="col-10"></div>
+        </div>
+            <div class="row">
+                <div class="col-2 round">
+                    <span><input type="radio" name="subject" value="10">국어</span>
+                </div>
+                    <span></span>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="11">영어</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="12">수학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="13">한국사</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="14">제2외국어</span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+            <div class="col-2 round">
+               <span><input type="radio" name="subject" value="15">사회</span>
+            </div>
+            <div class="col-2 round">
+               <span><input type="radio" name="subject" value="16">과학</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+            <div class="row justify-content-center">
+                <div class="col-1"></div>
+                <div class="col-1">
+                    <span class="field3">공무원</span>
+                </div>
+                <div class="col-10"></div>
+            </div>
+            <div class="row no-gutter justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="17">국어</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="18">영어</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="19">한국사</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="20">행정법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="21">사회</span>
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="22">행정학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="23">과학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="24">수학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="25">헌법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="26">경제학</span>
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="27">회계학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="28">세법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="29">사회복지학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="30">교육학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="31">공직선거법</span>
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="32">국제법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="33">관세법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="34">경영학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="35">지방자치론</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="36">형소법</span>
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="37">교정학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="38">국제정치학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="39">형법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="40">면접</span>
+                </div>
+                <div class="col-2 round">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <hr>
+                </div>
+            </div>
         <!-- 학업 수준 -->
-        <span class="question2">본인의 학업수준을 선택하세요</span>
-        <input type="radio" class="beginner" id="beginner" name="grade">
-        <label for="beginner" class="beginner">
-            <img src="{% static 'img/beginner.png' %}" id="beginner" onclick="clicked()">
-        </label>
-        <span class="beginner_title">초보</span>
-        <span class="beginner_text">이제 막 시작했어요</span>
-
-        <script language="javascript">
-            function clicked(){
-                if(document.getElementById("beginner").src == "{% static 'img/beginner.png' %}"){
-                    document.getElementById("beginner").src = "{% static 'img/beginner_click.png' %}";
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span class="question2">본인의 학업수준을 선택하세요</span>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <label onclick="imageChange()">
+                    <input type="radio" name="grade" value="beginner" checked="checked">
+                    <img src="{% static 'img/beginner.png' %}" id="beginner">
+                </label>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <label onclick="imageChange()">
+                    <input type="radio" name="grade" value="middle_class">
+                    <img src="{% static 'img/middle_class.png' %}" id="middle_class">
+                </label>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <label onclick="imageChange()">
+                    <input type="radio" name="grade" value="master">
+                    <img src="{% static 'img/master.png' %}" id="master">
+                </lable>
+            </div>
+        </div>
+        <script>
+            function imageChange(){
+                var radio_btn = document.getElementsByName("grade");
+                if(radio_btn[0].checked==true){
+                    document.getElementById(radio_btn[0].value).src="{% static 'img/beginner_click.png' %}";
+                    document.getElementById(radio_btn[1].value).src="{% static 'img/middle_class.png' %}";
+                    document.getElementById(radio_btn[2].value).src="{% static 'img/master.png' %}";
+                }
+                else if(radio_btn[1].checked==true) {
+                    document.getElementById(radio_btn[0].value).src="{% static 'img/beginner.png' %}";
+                    document.getElementById(radio_btn[1].value).src="{% static 'img/middle_class_click.png' %}";
+                    document.getElementById(radio_btn[2].value).src="{% static 'img/master.png' %}";
+                }
+                else if(radio_btn[2].checked==true) {
+                    document.getElementById(radio_btn[0].value).src="{% static 'img/beginner.png' %}";
+                    document.getElementById(radio_btn[1].value).src="{% static 'img/middle_class.png' %}";
+                    document.getElementById(radio_btn[2].value).src="{% static 'img/master_click.png' %}";
                 }
             }
-            clicked();
+            imageChange();
         </script>
-
-        <img src="{% static 'img/middle_class.png' %}"
-            class="middle_class" id="grade">
-        <span class="middle_class_title">보통</span>
-        <span class="middle_class_text">기본기를 다졌어요</span>
-        
-        <img src="{% static 'img/master.png' %}"
-        class="master" id="grade" onclick="clicked()">
-        <span class="master_title">고수</span>
-        <span class="master_text">고지가 멀지 않았어요</span>
-
-        <!-- 공부 스타일 -->
-        <span class="question3">선호하는 공부스타일을 선택하세요</span>
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic1">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic2">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic3">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic4">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic5">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic6">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic7">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic8">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic9">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q3_topic10">
-
-
-
+        <div class="row justify-content-center">
+            <div class="col-2 grade_title">
+                <span class="beginner_title">초보</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_title">
+                <span class="middle_class_title">보통</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_title">
+                <span class="master_title">고수</span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 grade_text">
+                <span class="beginner_text">이제 막 시작했어요</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_text">
+                <span class="middle_class_text">기본기를 다졌어요</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_text">
+                <span class="master_text">고지가 멀지 않았어요</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <hr>
+            </div>
+        </div>
+         <!-- 공부 스타일 -->
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col">
+                <span class="question3">선호하는 공부스타일을 선택하세요</span>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="0">개념꼼꼼</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="1">스토리텔링</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="2">다양한 예시</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="3">공부방향제시</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="4">시험유형 콕콕</span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="5">단기완성</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="6">기출분석</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="7">자료분석</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="8">기출마스터</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="study" value="9">꿀팁</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4">
         <!-- 선생님 스타일 -->
-        <span class="question4">선호하는 선생님 스타일을 선택하세요</span>
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic1">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic2">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic3">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic4">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic5">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic6">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic7">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic8">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic9">
-
-        <img src="{% static 'img/keywordbox.png' %}" class="keywordbox keywordbox_q4_topic10">
-
-
+            <span class="question4">선호하는 선생님 스타일을 선택하세요</span>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="0">유머형</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="1">팩트체크형</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="2">꼼꼼한</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="3">질문형</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="4">동기부여</span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="5">판서형</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="6">열정</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="7">조곤조곤</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="8">집중</span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="radio" name="teacher" value="9">꿀팁</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col">
         <!-- 예상 가격대-->
-        <div class="question5">예상가격대를 선택하세요</div>
-        <div class="price_range_box">
-            <input type="range" step="1000" min="0" max="1000000" class="price_range" oninput="document.getElementById('price').innerHTML=this.value;">
-            <span id="price" class="price"></span><span class="won">￦</span>
+                <div class="question5">예상가격대를 선택하세요</div>
+            </div>
+            <div class="col-4"></div>
         </div>
-        <p class="_0won">0￦</p>
-        <p class="_1000000won">1,000,000￦</p>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="price-range-box">
+                    <input type="range" step="1000" min="0" max="1000000" class="price_range" oninput="document.getElementById('min_price').innerHTML=this.value+'￦';">
+                    <input type="range" step="1000" min="0" max="1000000" class="price_range" oninput="document.getElementById('max_price').innerHTML=this.value+'￦';">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-space-between">
+            <div class="col-10 prices_range">
+                <span class="_0won" id="min_price">0￦</span>
+                <span class="_1000000won" id="max_price">1,000,000￦</span>
+            </div>
+        </div>
         <!-- 나의 BEST강의 보러가기 -->
-        <div class="submit_button_box">
-        <button type="submit" class="submit_button">나의 BEST강의 보러가기</button>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <button type="submit" class="submit_button">나의 BEST강의 보러가기</button>
+            </div>
         </div>
+        <br><br>
     </form>
     </div>
-
-    <!-- 카카오톡 고객센터 -->
+</div>
+<!---
+     카카오톡 고객센터
     <img src="{% static 'img/kakaotalk.png' %}"
      class="kakaotalk" alt="kakaotalk">
-
+--->
 </div>
+</section>
 
-<!-- footer -->
-<div class="footer container">
-    <img src="{% static 'img/invisible_logo_white.png' %}"
-        class="invisible_logo_white" alt="invisible">
-    <div class="Email-officialinvisible030gmailcom-Insta-_invisible_official_">
-        Email  |  officialinvisible030@gmail.com
-        <a href="https://www.instagram.com/_invisible_official_/" target="_blank" class="insta_invisible_official">Insta  |  @_invisible_official_</a>
-    </div>
-    <div class="-Invisible-Co-Ltd-All-rights-reserved">© Invisible Co., Ltd. All rights reserved.</div>
-</div>
-
-</div>
-
-</body>
-</html>
+{% endblock %}

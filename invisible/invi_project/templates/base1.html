@@ -1,0 +1,230 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'img./apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'img/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'img/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'img/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'img/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{% static 'img/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'img/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'img/manifest.json'}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{% static 'img/ms-icon-144x144.png' %}">
+    <meta name="theme-color" content="#ffffff">
+    <!-- bootstrap vol.4.3.2 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+{% block styles %}
+{% endblock styles %}
+
+<style>
+* { font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif'; }
+* {box-sizing: border-box;}
+body {
+    margin: 0;
+    padding: 0;
+}
+/*
+.main {
+    overflow: hidden;
+    display: flex position: relative;
+    padding-bottom: 15.625rem; /* height of your footer */
+    background-color: #f5f8fa
+/*  content container */
+.container {
+    width: 75rem;
+}
+/* navbar */
+header {
+    background-color: #ffffff;
+    height: 5.625rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.navbar {
+    text-align: center;
+    display: center;
+    overflow: hidden;
+    object-fit: contain;
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    padding: 0;
+    white-space: nowrap;
+    
+}
+.navbar > .row {
+    justify-content: space-between;
+    align-items: center;
+}
+.invisible_logo_gray {
+  width: 100%;
+  height:100%;
+  overflow: hidden;
+  object-fit: fill;
+}
+.search_box {
+  width: 100%;
+  height: 2.188rem;
+  object-fit: fill;
+  border-radius: 0.375rem;
+  border: solid 0.063rem #cecece;
+  background-color: #ffffff;
+  position: relative;
+}
+.search_icon {
+  width: 1.094rem;
+  height: 1.094rem;
+  object-fit: contain;
+  background-color: #cecece;
+  position: absolute;
+  text-align: right;
+  z-index: 10;
+}
+/* section */
+section {
+    position: relative;
+    padding-bottom: 15.625rem;
+}
+article {
+    min-height: 120rem;
+    background: linear-gradient(180deg, #fdcd3b 20%, #ffed4b 80%);
+    }
+/* footer */
+footer {
+    background-color: #8a8a8a; !important;
+    height: 15.625rem; !important;
+    width: 100%;
+    bottom: 0; !important;
+    color: #ffffff; !important;
+    white-space:nowrap; !important;
+}
+footer > a:link, a:visited, a[mailto], .Email-officialinvisible030gmailcom-Insta-_invisible_official_ {
+    height: 1.813rem;
+    align-items: baseline;
+    color: #ffffff;
+}
+.invisible_logo_white {
+    padding-top: 4.375rem;
+    padding-bottom: 2.250rem;
+    width: 17.313rem;
+    height:100%;
+    object-fit: contain;
+}
+#copyright {
+    text-align: right;
+}
+</style>
+
+
+</head>
+
+
+<!-- navbar in header; responsive hamburger on mobile  -->
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand navbar-light justify-content-center" style="background: #ffffff;">
+            <div class="row">
+                <div class="col-3">
+                    <a class="navbar-brand" href="#">
+                        <img src="{% static 'img/invisible_logo_gray.svg' %}" alt="">
+                    </a>
+                </div>
+                <div class="col-6 navbar-nav">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <span class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    <span class="nav-item">
+                        <a class="nav-link" href="#">ABOUT</a>
+                    </span>
+                    <span class="nav-item">
+                        <a class="nav-link" href="#">강의카테고리</a>
+                    </span>
+                    <span class="nav-item">
+                        <a class="nav-link" href="#">로그인</a>
+                    </span>
+                        <span class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </span>
+                </div>
+                <div class="col-3">
+                    <div class="search_box">
+                        <form class="form-inline" name="search" method="POST" action="#">
+                            {% csrf_token %}
+                            <input type="text" class="form-control mr-sm-2 search_text" placeholder="검색어를 입력하세요" style="border:0px">
+                            <button type="submit" class="my-2 my-sm-0 search_button">
+                                <img src="{% static 'img/search_icon.png' %}" class="search_icon">
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+</header>
+
+<!-----------------------template block; starts--------------------------->
+{% block content %}
+    <section>
+    </section>
+{% endblock content %}
+<!-----------------------template block; ends---------------------------->
+
+<!-- footer -->
+<footer>
+    <div class="container">
+        <div class="row no-gutter" id="#footer_logo">
+            <div class="col">
+                <img src="{% static 'img/invisible_logo_white.png' %}" class="invisible_logo_white" alt="invisible">
+            </div>
+            <div class="col">
+            </div>
+            <div classd="col">
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col">
+                <div class="Email-officialinvisible030gmailcom-Insta-_invisible_official_" id="sentence">
+                    <a href="mailto:officialinvisible030@gmail.com">Email  |  officialinvisible030@gmail.com</a>
+                </div>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+            </div>
+        </div>
+        <div class="row no-gutter">
+            <div class="col">
+                <a href="https://www.instagram.com/_invisible_official_/" target="_blank" class="insta_invisible_official" id="sentence">Insta  |  @_invisible_official_</a>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+                <div class="-Invisible-Co-Ltd-All-rights-reserved" id="copyright">© Invisible Co., Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</html>
