@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import invi_app.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('about/', invi_app.views.about, name="about"),
+    path('search/', invi_app.views.search, name="search"),
+    path('signup/', invi_app.views.signup, name="signup"),
+    path('login/', invi_app.views.login, name="login"),
+    path('findpw/', invi_app.views.findpw, name="findpw"),
+    path('changepw/', invi_app.views.changepw, name="changepw"),
+    path('auth_number/', invi_app.views.auth_number, name="auth_number"),
 ]

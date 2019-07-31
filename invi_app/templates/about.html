@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles %}
+<style>
+    body {
+    background-color: #f5f8fa;
+    }
+    header {
+        display: block;
+        margin-left: auto;
+        margin-right: auto; 
+        text-align: center;
+    }
+    header > header {
+    object-fit: contain;
+    width: 1110px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .about {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+</style>
+<header>
+    <header>
+        <img src="{% static 'about.jpg' %}" class ="about">
+    </header>
+</header>
+{% endblock %}
