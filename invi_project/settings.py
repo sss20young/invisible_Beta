@@ -28,8 +28,10 @@ SECRET_KEY = '6_58_jcc=xnxc*d8!ijddg!t&my%sh*7dhzvbkm)4wd@be9*(7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+#
+SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 
 # Application definition
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -83,8 +86,8 @@ DATABASES = {
         'NAME': 'invisible',
         'USER': 'invi_back',
         'PASSWORD': 'hardCarryBack',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'HOST': 'ec2-3-87-64-77.compute-1.amazonaws.com',
+        'PORT': '3306'
     }
 }
 
@@ -132,3 +135,4 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')
+
