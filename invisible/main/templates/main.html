@@ -158,8 +158,8 @@
         letter-spacing: -60;
         color: #1f95ff;
     }
+    
     .question1, .question2, .question3, .question4, .question5 {
-        width: 22rem;
         height: 2.813rem;
         font-size: 1.688rem;   /* 30px */
         font-weight: bold;
@@ -172,6 +172,7 @@
         justify-content:center;
         white-space: nowrap;
     }
+    
     .field1 {
         width: 2.813rem;
         height: 2.313rem;
@@ -451,14 +452,14 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 7.8125rem;
-    } */
+    } 
     .submit_button{
         width: 21.88rem;
         height: 4.563rem;
         object-fit: contain;
         border-radius: 0.375rem;
         background-color:#1f95ff;
-        font-size: 1.75rem; /* 28px */
+        font-size: 1.75rem;  28px 
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
@@ -466,7 +467,7 @@
         letter-spacing: -0.105rem;
         text-align: center;
         color: #ffffff;
-    }
+    }*/
     .kakaotalk {
         width: 9.375rem;
         height: 12.375rem;
@@ -512,7 +513,7 @@
     <div class="row no-gutter justify-content-center">
         <div class="col-12">
             <div class="content_box">
-                <form method="POST" action="{% url 'result' %}">
+                <form method="GET" action="{% url 'result' %}">
                 {% csrf_token %} 
                 <div class="content_box_title">
                     <img src="{% static 'img/best.png' %}" class="content_best" alt="best">
@@ -536,36 +537,36 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="0">토익</span>
+                <span><input type="radio" name="subject" value="토익">토익</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="1">토플</span>
+                <span><input type="radio" name="subject" value="토플">토플</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="2">토스</span>
+                <span><input type="radio" name="subject" value="토스">토스</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="3">오픽</span>
+                <span><input type="radio" name="subject" value="오픽">오픽</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="4">텝스</span>
+                <span><input type="radio" name="subject" value="텝스">텝스</span>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="5">아이엘츠</span>       
+                <span><input type="radio" name="subject" value="아이엘츠">아이엘츠</span>       
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="6">지텔프</span>
+                <span><input type="radio" name="subject" value="지텔프">지텔프</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="7">SAT</span>
+                <span><input type="radio" name="subject" value="SAT">SAT</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="8">제2외국어</span>
+                <span><input type="radio" name="subject" value="제2외국어">제2외국어</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="subject" value="9">토픽</span>
+                <span><input type="radio" name="subject" value="토픽">토픽</span>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -577,28 +578,28 @@
         </div>
             <div class="row">
                 <div class="col-2 round">
-                    <span><input type="radio" name="subject" value="10">국어</span>
+                    <span><input type="radio" name="subject" value="국어">국어</span>
                 </div>
                     <span></span>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="11">영어</span>
+                   <span><input type="radio" name="subject" value="영어">영어</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="12">수학</span>
+                   <span><input type="radio" name="subject" value="수학">수학</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="13">한국사</span>
+                   <span><input type="radio" name="subject" value="한국사">한국사</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="14">제2외국어</span>
+                   <span><input type="radio" name="subject" value="제2외국어">제2외국어</span>
                 </div>
             </div>
             <div class="row justify-content-center">
             <div class="col-2 round">
-               <span><input type="radio" name="subject" value="15">사회</span>
+               <span><input type="radio" name="subject" value="사회">사회</span>
             </div>
             <div class="col-2 round">
-               <span><input type="radio" name="subject" value="16">과학</span>
+               <span><input type="radio" name="subject" value="과학">과학</span>
             </div>
             <div class="col-2">
             </div>
@@ -616,84 +617,84 @@
             </div>
             <div class="row no-gutter justify-content-center">
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="17">국어</span>
+                   <span><input type="radio" name="subject" value="국어">국어</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="18">영어</span>
+                   <span><input type="radio" name="subject" value="영어">영어</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="19">한국사</span>
+                   <span><input type="radio" name="subject" value="한국사">한국사</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="20">행정법</span>
+                   <span><input type="radio" name="subject" value="행정법">행정법</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="21">사회</span>
-                </div>
-            </div>            
-            <div class="row justify-content-center">
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="22">행정학</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="23">과학</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="24">수학</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="25">헌법</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="26">경제학</span>
+                   <span><input type="radio" name="subject" value="사회">사회</span>
                 </div>
             </div>            
             <div class="row justify-content-center">
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="27">회계학</span>
+                   <span><input type="radio" name="subject" value="행정학">행정학</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="28">세법</span>
+                   <span><input type="radio" name="subject" value="과학">과학</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="29">사회복지학</span>
+                   <span><input type="radio" name="subject" value="수학">수학</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="30">교육학</span>
+                   <span><input type="radio" name="subject" value="헌법">헌법</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="31">공직선거법</span>
-                </div>
-            </div>            
-            <div class="row justify-content-center">
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="32">국제법</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="33">관세법</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="34">경영학</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="35">지방자치론</span>
-                </div>
-                <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="36">형소법</span>
+                   <span><input type="radio" name="subject" value="경제학">경제학</span>
                 </div>
             </div>            
             <div class="row justify-content-center">
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="37">교정학</span>
+                   <span><input type="radio" name="subject" value="회계학">회계학</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="38">국제정치학</span>
+                   <span><input type="radio" name="subject" value="세법">세법</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="39">형법</span>
+                   <span><input type="radio" name="subject" value="사회복지학">사회복지학</span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="radio" name="subject" value="40">면접</span>
+                   <span><input type="radio" name="subject" value="교육학">교육학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="공직선거법">공직선거법</span>
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="국제법">국제법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="관세법">관세법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="경영학">경영학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="지방자치론">지방자치론</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="형소법">형소법</span>
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="교정학">교정학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="국제정치학">국제정치학</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="형법">형법</span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="radio" name="subject" value="면접">면접</span>
                 </div>
                 <div class="col-2 round">
                 </div>
@@ -718,24 +719,24 @@
         <div class="row justify-content-center">
             <div class="col-2">
                 <label onclick="imageChange()">
-                    <input type="radio" name="grade" value="beginner" checked="checked">
-                    <img src="{% static 'img/beginner.png' %}" id="beginner">
+                    <input type="radio" name="grade" value="초보" checked="checked">
+                    <img src="{% static 'img/beginner.png' %}" id="초보">
                 </label>
             </div>
             <div class="col-2">
             </div>
             <div class="col-2">
                 <label onclick="imageChange()">
-                    <input type="radio" name="grade" value="middle_class">
-                    <img src="{% static 'img/middle_class.png' %}" id="middle_class">
+                    <input type="radio" name="grade" value="보통">
+                    <img src="{% static 'img/middle_class.png' %}" id="보통">
                 </label>
             </div>
             <div class="col-2">
             </div>
             <div class="col-2">
                 <label onclick="imageChange()">
-                    <input type="radio" name="grade" value="master">
-                    <img src="{% static 'img/master.png' %}" id="master">
+                    <input type="radio" name="grade" value="고수">
+                    <img src="{% static 'img/master.png' %}" id="고수">
                 </lable>
             </div>
         </div>
@@ -805,36 +806,36 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="0">개념꼼꼼</span>
+                <span><input type="radio" name="study" value="개념꼼꼼">개념꼼꼼</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="1">스토리텔링</span>
+                <span><input type="radio" name="study" value="스토리텔링">스토리텔링</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="2">다양한 예시</span>
+                <span><input type="radio" name="study" value="다양한 예시">다양한 예시</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="3">공부방향제시</span>
+                <span><input type="radio" name="study" value="공부방향제시">공부방향제시</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="4">시험유형 콕콕</span>
+                <span><input type="radio" name="study" value="시험유형 콕콕">시험유형 콕콕</span>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="5">단기완성</span>
+                <span><input type="radio" name="study" value="단기완성">단기완성</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="6">기출분석</span>
+                <span><input type="radio" name="study" value="기출분석">기출분석</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="7">자료분석</span>
+                <span><input type="radio" name="study" value="자료분석">자료분석</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="8">기출마스터</span>
+                <span><input type="radio" name="study" value="기출마스터">기출마스터</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="study" value="9">꿀팁</span>
+                <span><input type="radio" name="study" value="꿀팁">꿀팁</span>
             </div>
         </div>
         <div class="row">
@@ -852,36 +853,36 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="0">유머형</span>
+                <span><input type="radio" name="teacher" value="유머형">유머형</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="1">팩트체크형</span>
+                <span><input type="radio" name="teacher" value="팩트체크형">팩트체크형</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="2">꼼꼼한</span>
+                <span><input type="radio" name="teacher" value="꼼꼼한">꼼꼼한</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="3">질문형</span>
+                <span><input type="radio" name="teacher" value="질문형">질문형</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="4">동기부여</span>
+                <span><input type="radio" name="teacher" value="동기부여">동기부여</span>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="5">판서형</span>
+                <span><input type="radio" name="teacher" value="판서형">판서형</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="6">열정</span>
+                <span><input type="radio" name="teacher" value="열정">열정</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="7">조곤조곤</span>
+                <span><input type="radio" name="teacher" value="조곤조곤">조곤조곤</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="8">집중</span>
+                <span><input type="radio" name="teacher" value="집중">집중</span>
             </div>
             <div class="col-2 round">
-                <span><input type="radio" name="teacher" value="9">꿀팁</span>
+                <span><input type="radio" name="teacher" value="꿀팁">꿀팁</span>
             </div>
         </div>
         <div class="row">

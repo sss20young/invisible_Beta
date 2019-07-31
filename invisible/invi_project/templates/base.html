@@ -203,7 +203,7 @@
     <!-- nav -->
     <div class="nav container">
         <a href="{% url 'main' %}" class="invisible_logo_gray">
-            <img src="{% static 'img/invisible_logo_gray.png' %}"
+            <img src="{% static 'img/invisible_logo_gray.svg' %}"
             alt="invisible" >
         </a>
         <a href="#" class="nav_about nav_index">ABOUT</a>
@@ -216,7 +216,7 @@
             {% csrf_token %}
             <input type="text" class="search_text" placeholder="검색어를 입력하세요" style="border:0px">
             <button type="submit" class="search_button">
-                <img src="{% static 'img/search_icon.png' %}" class="search_icon">
+                <img src="{% static 'img/search_icon.svg' %}" class="search_icon">
             </button>
         </form>
         </div>
