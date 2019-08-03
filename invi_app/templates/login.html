@@ -150,6 +150,8 @@
             }
         </style>
     </head>
+    {% load socialaccount %}
+    {% providers_media_js %}
     <body class="full-width-div">
         <header>
         <div class="login_a">
@@ -174,9 +176,9 @@
             <a href="{% url 'findpw' %}" class="atag">비밀번호 찾기</a>
             <a href="{% url 'signup' %}" class="atag">회원가입</a>
             <br><br><br>
-            <div><img src="{% static 'naver.png' %}" class="social_login_box"></div>
+            <div><a href="{% provider_login_url 'naver' %}"><img src="{% static 'naver.png' %}" class="social_login_box"></a></div>
             <br>
-            <div><img src="{% static 'google.png' %}" class="social_login_box"></div>
+            <div><a href="{% provider_login_url 'google' %}"><img src="{% static 'google.png' %}" class="social_login_box"></a></div>
         </div>
     </body>
 </html>

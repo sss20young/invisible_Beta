@@ -154,7 +154,7 @@ class Lecture(models.Model):
     lecture_id = models.AutoField(primary_key=True)
     lecture_title = models.CharField(max_length=100, blank=True, null=True)
     lecture_price = models.CharField(max_length=8, blank=True, null=True)
-    company = models.CharField(max_length=20, blank=True, null=True)
+    lecture_company = models.CharField(max_length=20, blank=True, null=True)
     lecture_day = models.IntegerField(blank=True, null=True)
     lecture_totalnum = models.IntegerField(db_column='lecture_totalNum', blank=True, null=True)  # Field name made lowercase.
     lecture_url = models.CharField(max_length=2083, blank=True, null=True)
