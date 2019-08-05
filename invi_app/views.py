@@ -3,6 +3,7 @@ from .models import Lecture, Lecturefeature, Userlecture, Feature, Lectureteache
 from django.contrib import auth
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from django.core.exceptions import ObjectDoesNotExist
 
 q='' # 정렬을 위한 전역 변수 선언
 
@@ -12,9 +13,7 @@ def about(request):
 def search(request):
     #qs = Lecture.objects.all()
     lec_list=[]
-    a=[]
-    a1=[]
-    feat=[]
+    feature=[]
 
     global q # 전역 변수로 사용
     q = request.GET.get('q', '') # GET request의 인자중에 q 값이 있으면 가져오고, 없으면 빈 문자열 넣기
@@ -29,31 +28,25 @@ def search(request):
             lec_list.append(f.lecture_id)
 
         for i in range(len(lec_list)):
-            a.append(Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[i]]).values('feature_name'))
-            print(a)
-            feat.append(str(a[i].values('feature_name')))
-            print(feat)
-
-        '''
-        li1 = Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[1]]).values('feature_name')
-        print(li1)
-        feat = li1.values('feature_name')
-        '''
-        
-
-        for lec in lec_list:
-            a.append(Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec]).values('feature_name'))
-        
-        # a.append(Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.lecture_id=lecture.lecture_id and lecture_id=%s'], params=[f.lecture_id]).values('feature_name')['feature_name'])
-
-        # qs = Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.lecture_id=lecture.lecture_id and lecture_id in %s' %lec_list).values('feature_name')['feature_name']
-
+            featu=Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[i]]).values('feature_name')
+            try:
+                feature.append(featu.get())
+            except ObjectDoesNotExist:
+                empty={}
+                empty['feature_name']='집계중'
+                feature.append(empty)
+            
+     
+    print(lec_list)
+    print(feature)
+    lec_feat=zip(result, feature)
+    print(lec_feat)
     return render(request, 'search.html', {
         'result' : result,
         'q' : q,
         'count' : len(result),
-        'a' : a,
-        'feat' : feat,
+        'len' : len(lec_list),
+        'lec_feat' : lec_feat
     })
 
 

@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.db import connection
 from invi_app.models import Lecture, Lecturefeature, Feature, Lectureteacher, Teacherfeature
 
 ##################################
@@ -27,7 +26,7 @@ def detail(request, lecture_id):
     if teacher_num is 1:
         teacher_id = teacher.values('teacher_id').get()['teacher_id']
         teacher_feature = Feature.objects.extra(tables=['teacherFeature'], where=['teacherFeature.feature_id=feature.feature_id AND teacherFeature.teacher_id=%s'%teacher_id]).values('feature_name')
-        
+        print(teacher_feature)
         tfl = []
         for tf in teacher_feature:
             
