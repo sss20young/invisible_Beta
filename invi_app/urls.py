@@ -15,6 +15,7 @@ urlpatterns = [
     path('selectkeyword/',views.selectkeyword, name='selectkeyword'), #선호하는 키워드 페이지
     path('mytype/',views.mytype, name='mytype'), #나의 강의타입 페이지
     path('accounts/', include('allauth.urls')), #소셜로그인
+    path('hackathon_event/',views.hackathon_event, name="hackathon_event"), #해커톤 이벤트 페이지
 ]
 
 
