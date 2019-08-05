@@ -1,4 +1,4 @@
-{% extends 'base_sy.html' %}
+{% extends 'base_sj.html' %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -175,6 +175,9 @@
             text-align: right;
             color: #323232;
             }
+            section{
+                background: none;
+            }
         </style>
         <script type="text/javascript">
             var flag= new Array();
@@ -201,7 +204,6 @@
         </script>
     </head>
     <body class="full-width-div">
-        <header>
         <div class="search_a">
             <br>
             <br>
@@ -211,7 +213,6 @@
             <span style="font-weight: bold">"{{ q }}"</span>의 검색결과입니다.
             </div>
         </div>
-    </header>
         <div class="box">
             <div class="lecture">
             총 <span style="font-weight: bold; color: #1f95ff">{{ count }}</span>건의 강의
