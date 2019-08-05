@@ -37,6 +37,7 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 
 INSTALLED_APPS = [
     'invi_app.apps.InviAppConfig',
+    'main.apps.MainConfig',
     'hier.apps.HierConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'django.contrib.sites',
 
     #allauth
@@ -71,7 +73,8 @@ ROOT_URLCONF = 'invi_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['main/templates'],
+        'DIRS': ['invi_project/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,7 +144,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'invi_app', 'static')
+    os.path.join(BASE_DIR, 'invi_app/static'),
+    os.path.join(BASE_DIR, 'main/static'),
 ]
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')

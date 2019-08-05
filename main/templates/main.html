@@ -1,0 +1,810 @@
+{% extends 'base_sh.html' %}
+{% load staticfiles %}
+
+{% block styles %}
+
+    <style>
+    html {
+        position: relative;
+        min-height: 100vh;
+    }
+    .row {
+        justify-content: center;
+        margin: 1rem 0;
+        flex-wrap: 1;
+    }
+    .col > span {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .row > .col-2 {
+        padding: 0 1rem;
+    }
+    .round > span {
+        width: 100%;
+        height: 2.813rem;
+        border-radius: 1.375rem;
+        border: solid 0.125rem #cecece;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #6e6e6e;
+        white-space: nowrap;
+    }
+    .grade_title {
+        text-align: center;
+    }
+    .grade_text {
+        text-align: center;
+    }
+    .grade_title > span {
+        width: 2.250rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -0.075rem;
+        text-align: center;
+        color: #1f95ff;
+        border-style: none;
+    }
+    .grade_text > span {
+        width: 7.250rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.060rem;
+        text-align: center;
+        color: #323232;
+        border-style: none;
+    }
+    .container {
+        justify-content: center;
+    }
+    .banner {
+        width: 100%;
+        object-fit: fill;
+    }
+    .carousel > img {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    /* main */
+    .content_box {
+        width: 100%;
+        margin-top:3rem;
+        margin-bottom:5rem;
+        box-shadow: 10px 10px 30px 0 rgba(206, 206, 206, 0.52);
+        background-color: #ffffff;
+        object-fit: cover;
+    }
+    .content_box_title {
+        width: 100%;
+        height: 13.375rem;
+        border-radius: 0.375rem 0;
+        background-color: #dbf1ff;
+        justify-content: center;
+        object-fit: fill;
+        overflow: hidden;
+    }
+    .content_best {
+        width: 5.5rem;
+        height: 5.5rem;
+        justify-content: center;
+        object-fit: contain;
+    }
+    .content_box_text {
+        width: 23.563rem;
+        height: 3.483rem;
+        font-size: 1.938rem;    /* 37px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.49;
+        letter-spacing: -60;
+        color: #1f95ff;
+    }
+    
+    .question {
+        height: 2.813rem;
+        font-size: 1.688rem;   /* 30px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.113rem;
+        color: #323232;
+        display: flex;
+        justify-content:center;
+        white-space: nowrap;
+    }
+    .keywordbox {
+        width: 10rem;
+        height: 2.813rem;
+        object-fit: contain;
+        border-radius: 22px;
+        border: solid 2px #cecece;
+        background-color: #ffffff;
+    }
+    .field {
+        height: 2.313rem;
+        font-size: 1.5rem;   /* 25px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.48;
+        letter-spacing: -0.094rem;
+        text-align: left;
+        color: #6e6e6e;
+        white-space: nowrap;
+    }
+    /* 학업수준 */
+    label {
+        margin: 0;
+        cursor: pointer;
+    }
+    /*
+    input[type=checkbox] {
+        display:none; 
+    }
+    */
+    input[type=checkbox]:checked + .round>span {
+        background-color:#1f95ff;
+        border: solid 0.125rem #1f95ff;
+        color:#ffffff;
+    }
+    .beginner { 
+        width: 3.750rem;
+        height: 3.750rem ;
+        object-fit: cover;
+        border-radius: 6px;
+        border: solid 2px #1f95ff;
+    }
+    .beginner_title {
+        width: 2.250rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -0.075rem;
+        text-align: center;
+        color: #1f95ff;
+        border-style: none;
+    }
+    .beginner_text {
+        width: 7.250rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.060rem;
+        text-align: center;
+        color: #323232;
+    }
+    .middle_class {
+        width: 3.750rem;
+        height: 3.750rem;
+        object-fit: cover;
+        border-radius: 0.375rem;
+        /* 해당 부분 포함하면 테두리 두줄 생김
+        border: solid 2px #1f95ff;
+        */
+    }
+    .middle_class_title {
+        width: 3.750rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -0.075rem;
+        text-align: center;
+        color: #1f95ff;
+    }
+    .middle_class_text {
+        width: 7.125rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.96px;
+        text-align: center;
+        color: #323232;
+    }
+    .master {
+        width: 3.750rem;
+        height: 3.750rem;
+        object-fit: cover;
+        border-radius: 0.375rem;
+        /* 해당 부분 포함하면 테두리 두줄 생김
+        border: solid 2px #1f95ff;
+        */
+    }
+    .master_title {
+        width: 2.250rem;
+        height: 1.813rem;
+        font-size: 1.188rem;    /* 20px */
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -0.075rem;
+        text-align: center;
+        color: #1f95ff;
+    }
+    .master_text {
+        width: 8.125rem;
+        height: 1.5rem;
+        font-size: 0.875rem;    /* 16px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.060rem;
+        text-align: center;
+        color: #323232;
+    }
+    .grade_bar_box {
+        width: 57.500rem;
+        height: 0.938rem;
+        border-radius: 0.375rem;
+        background-color: #acacac;
+    }
+    .grade_bar {
+        width: 10%;
+        height: 1.25rem;
+        border-radius: 0.375rem;
+        background-color: #1f95ff;
+    }
+    .price_range_box {
+        width: 100%;
+        height: 0.938rem;
+        border-radius: 0.375rem;
+        background-color: #acacac;
+    }
+    input[type=range].price_range {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 0.938rem;
+        border-radius: 0.375rem;
+        background-color: #acacac;
+    }
+    input[type=range].price_range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 3.125rem;
+        height: 3.125rem;
+        border-radius: 1.563rem;
+        background-image: url("{% static 'img/check.png' %}") ;
+        background-color: #1f95ff;
+    }
+    .price {
+        width: 6.75rem;
+        height:1.813rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        color: #1f95ff;
+    }
+    .won {
+        width: 1.25rem;
+        height: 1.813rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        color: #1f95ff;
+        /* alignment */
+        display: flex;
+    }
+    .prices_range > p {
+        display: flex;
+        justify-content: space-between;
+    }
+    ._0won {
+        width: 6.75rem;
+        height: 1.813rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -0.038rem;
+        text-align: center;
+        color: #1f95ff;
+        /* alignment */
+        display: flex;
+    }
+    ._1000000won {
+        width: 6.75rem;
+        height: 1.813rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -0.038rem;
+        text-align: center;
+        color: #1f95ff;
+        display: flex;
+    }
+    /* 제출 */
+    .submit_button {
+        width: 21.88rem;
+        height: 4.563rem;
+        object-fit: contain;
+        border-radius: 0.375rem;
+        background-color:#1f95ff;
+        font-size: 1.75rem;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.46;
+        letter-spacing: -0.105rem;
+        text-align: center;
+        color: #ffffff;
+    }
+    hr{
+        margin-top:1.5rem;
+        margin-bottom:1.5rem;
+    }
+    /* 카카오톡 
+    .kakaotalk {
+        width: 9.375rem;
+        height: 12.375rem;
+        object-fit: contain;
+    }
+    */
+    </style>
+
+
+{% endblock styles %}
+{% block content %}
+
+<section>
+    <!-- banner -->
+    <div class="banner">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{% static 'img/main_banner.png' %}" alt="main banner">
+                </div>
+                <div class="carousel-item">
+                     <a href="hackathon_event.html"> 
+                        <img class="d-block w-100" src="{% static 'img/hackathon_event.png' %}" alt="hackathon event">
+                    </a>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- main -->
+<div class="container">
+<form method="GET" action="{% url 'result' %}">
+    {% csrf_token %}
+    <div class="content_box">
+            <div class="content_box_title">
+                <div class="row no-gutter" style="margin-top:1.6rem; margin-bottom:0">
+                    <div class="col-5"></div>
+                    <div class="col-2" style="text-align:center;"><img src="{% static 'img/best.png' %}" class="content_best" alt="best"></div>
+                    <div class="col-5"></div>  
+                </div>
+                <div class="row no-gutter" style="margin-top:0; margin-bottom:1.6rem">
+                    <div class="col-4"></div>
+                    <div class="col-4" style="text-align:center;"><span class="row content_box_text">나의 BEST 인터넷 강의는?</span></div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+    <div class="row no-gutter">
+        <div class="col-4"></div>
+        <div class="col-4">
+        <!-- 강의 분야 -->
+            <span class="question" style="margin-top:4rem">원하는 강의 분야를 선택하세요</span>
+        </div>
+        <div class="col-4"></div>
+    </div>
+        <div class="row no-gutter">
+            <div class="col-1"></div>
+            <div class="col-1">
+                <span class="field">어학</span>
+            </div>
+            <div class="col-10"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject1" value="TOEIC"><label for="subject1">TOEIC</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject2" value="TOFEL"><label for="subject2">TOFEL</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject3" value="TEPS"><label for="subject3">TEPS</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject4" value="Toeic Speaking"><label for="subject4">Toeic Speaking</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject5" value="OPIC"><label for="subject5">OPIC</label></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject6" value="IELTS"><label for="subject6">IELTS</label></span>       
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject7" value="JPT"><label for="subject7">JPT</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject8" value="JLPT"><label for="subject8">JLPT</label></span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1"></div>
+            <div class="col-1">
+                <span class="field">수능</span>
+            </div>
+            <div class="col-10"></div>
+        </div>
+            <div class="row">
+                <div class="col-2 round">
+                    <span><input type="checkbox" name="subject" id="subject11" value="국어"><label for="subject11">국어</label></span>
+                </div>
+                    <span></span>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject12" value="영어"><label for="subject12">영어</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject13" value="수학"><label for="subject13">수학</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject14" value="한국사"><label for="subject14">한국사</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject15" value="제2외국어"><label for="subject15">제2외국어</label></span>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+            <div class="col-2 round">
+               <span><input type="checkbox" name="subject" id="subject16" value="사탐"><label for="subject16">사회</label></span>
+            </div>
+            <div class="col-2 round">
+               <span><input type="checkbox" name="subject" id="subject17" value="과탐"><label for="subject17">과학</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="subject" id="subject18" value="기타"><label for="subject18">기타</label></span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+            <div class="row justify-content-center">
+                <div class="col-1"></div>
+                <div class="col-1">
+                    <span class="field">공무원</span>
+                </div>
+                <div class="col-10"></div>
+            </div>
+            <div class="row no-gutter justify-content-center">
+                <div class="col-1">
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject19" value="9급"><label for="subject19">9급</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject20" value="7급"><label for="subject20">7급</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject21" value="5급"><label for="subject21">5급</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject22" value="군무원"><label for="subject22">군무원</label></span>
+                </div>
+                <div class="col-2 round">
+                    <span><input type="checkbox" name="subject" id="subject23" value="경찰공무원"><label for="subject23">경찰공무원</label></span>
+                </div>
+                <div class="col-1">
+                </div>
+            </div>            
+            <div class="row justify-content-center">
+                <div class="col-1">
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject24" value="소방공무원"><label for="subject24">소방공무원</label></span>
+                </div>
+                <div class="col-2 round">
+                   <span><input type="checkbox" name="subject" id="subject25" value="기타"><label for="subject25">기타</label></span>
+                </div>
+                <div class="col-2">
+                </div>
+                <div class="col-2">
+                </div>     
+                <div class="col-2">
+                </div>     
+                <div class="col-1">
+                </div>    
+            </div>
+            <div class="row">
+                <div class="col">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <hr>
+                </div>
+            </div>
+        <!-- 학업 수준 -->
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span class="question">본인의 학업수준을 선택하세요</span>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center" style="text-align:center; margin-bottom:0.5rem">
+            <div class="col-2">
+                <input type="checkbox" name="grade" id="beginner" value="초보" onclick="imageChange()" unchecked>
+                <label for="beginner">
+                    <img src="{% static 'img/beginner.png' %}" id="beginner_img">
+                </label>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <input type="checkbox" name="grade" id="middle_class" value="보통" onclick="imageChange()" imageChange() unchecked>
+                <label for="middle_class">
+                    <img src="{% static 'img/middle_class.png' %}" id="middle_class_img">
+                </label>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <input type="checkbox" name="grade" id="master" value="고수" onclick="imageChange()" unchecked>
+                <label for="master">
+                    <img src="{% static 'img/master.png' %}" id="master_img">
+                </lable>
+            </div>
+        </div>
+        <script>
+            function imageChange(){
+                if(document.getElementById("beginner").checked==true){
+                    document.getElementById("beginner_img").src="{% static 'img/beginner_click.png' %}";
+                }
+                else if(document.getElementById("beginner").checked==false){
+                    document.getElementById("beginner_img").src="{% static 'img/beginner.png' %}";
+                }
+                if(document.getElementById("middle_class").checked==true){
+                    document.getElementById("middle_class_img").src="{% static 'img/middle_class_click.png' %}";
+                }
+                else if(document.getElementById("middle_class").checked==false){
+                    document.getElementById("middle_class_img").src="{% static 'img/middle_class.png' %}";
+                }
+                if(document.getElementById("master").checked==true){
+                    document.getElementById("master_img").src="{% static 'img/master_click.png' %}";
+                }
+                else if(document.getElementById("master").checked==false){
+                    document.getElementById("master_img").src="{% static 'img/master.png' %}";
+                }
+            }
+            imageChange();
+        </script>
+        <div class="row justify-content-center" style="margin:0">
+            <div class="col-2 grade_title">
+                <span class="beginner_title">초보</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_title">
+                <span class="middle_class_title">보통</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_title">
+                <span class="master_title">고수</span>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="margin:0">
+            <div class="col-2 grade_text">
+                <span class="beginner_text">이제 막 시작했어요</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_text">
+                <span class="middle_class_text">기본기를 다졌어요</span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2 grade_text">
+                <span class="master_text">고지가 멀지 않았어요</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <hr>
+            </div>
+        </div>
+         <!-- 공부 스타일 -->
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <span class="question">선호하는 공부스타일을 선택하세요</span>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char1" value="개념꼼꼼"><label for="lecture_char1">개념꼼꼼</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char2" value="유형탄탄"><label for="lecture_char2">유형탄탄</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char3" value="강화학습"><label for="lecture_char3">강화학습</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char4" value="스토리텔링"><label for="lecture_char4">스토리텔링</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char5" value="다양한 예시"><label for="lecture_char5">다양한 예시</label></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char6" value="공부방향 제시"><label for="lecture_char6">공부방향 제시</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char7" value="시험유형 콕콕"><label for="lecture_char7">시험유형 콕콕</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char8" value="문제풀이"><label for="lecture_char8">문제풀이</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char9" value="단기완성"><label for="lecture_char9">단기완성</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char10" value="기출분석"><label for="lecture_char10">기출분석</label></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="lecture_char11" value="자료분석"><label for="lecture_char11">자료분석</label></span>
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <hr>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col-4">
+        <!-- 선생님 스타일 -->
+            <span class="question">선호하는 선생님 스타일을 선택하세요</span>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char1" value="조곤조곤"><label for="teacher_char1">조곤조곤</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char2" value="열정형"><label for="teacher_char2">열정형</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char3" value="집중형"><label for="teacher_char3">집중형</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char4" value="동기부여형"><label for="teacher_char4">동기부여형</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char5" value="유머형"><label for="teacher_char5">유머형</label></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char6" value="판서형"><label for="teacher_char6">판서형</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char7" value="팩트체크형"><label for="teacher_char7">팩트체크형</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char8" value="꼼꼼형"><label for="teacher_char8">꼼꼼형</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="teacher_char" id="teacher_char9" value="질문형"><label for="teacher_char9">질문형</label></span>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-10">
+                <hr>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-4"></div>
+            <div class="col">
+        <!-- 예상 가격대-->
+                <div class="question">예상가격대를 선택하세요</div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="price-range-box">
+                    <input type="range" name="price" step="1000" min="0" max="1000000" value="500000" class="price_range" oninput="document.getElementById('max_price').innerHTML=addComma(this.value)+'￦';">
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-space-between">
+            <span class="col-2 _0won" id="min_price">0￦</span>
+            <span class="col-6"></span>
+            <span class="col-2 _1000000won" id="max_price" style="display:inline-block;text-align:right">500,000￦</span>
+        </div>
+        <script>
+        function addComma(num) {
+            var regexp = /\B(?=(\d{3})+(?!\d))/g;
+            return num.toString().replace(regexp, ',');
+        }
+        </script>
+        <!-- 나의 BEST강의 보러가기 -->
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <button type="submit" class="submit_button" onclick="selectChkBox()">나의 BEST강의 보러가기</button>
+            </div>
+        </div>
+        <br><br>
+    </div>
+    </form>
+</div>
+</script>
+
+<!---
+     카카오톡 고객센터
+    <img src="{% static 'img/kakaotalk.png' %}"
+     class="kakaotalk" alt="kakaotalk">
+--->
+</section>
+
+{% endblock %}

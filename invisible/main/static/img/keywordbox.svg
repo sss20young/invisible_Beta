@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="45" viewBox="0 0 160 45">
+    <defs>
+        <style>
+            .cls-1{fill:#fff;stroke:#cecece;stroke-linejoin:round;stroke-width:2px}.cls-2{stroke:none}.cls-3{fill:none}
+        </style>
+    </defs>
+    <g id="keywordbox" class="cls-1">
+        <rect width="160" height="45" class="cls-2" rx="22"/>
+        <rect width="158" height="43" x="1" y="1" class="cls-3" rx="21"/>
+    </g>
+</svg>
