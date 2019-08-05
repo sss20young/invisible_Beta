@@ -37,7 +37,6 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 
 INSTALLED_APPS = [
     'invi_app.apps.InviAppConfig',
-    'hier.apps.HierConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
