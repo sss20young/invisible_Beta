@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 
 
-
 def about(request):
     return render(request, 'about.html')
 
@@ -57,3 +56,6 @@ def logout(request):
         auth.logout(request)
         return redirect('main')
     return render(request, 'login.html')
+
+def hackathon_event(request):
+    return render(request, 'hackathon_event.html')
