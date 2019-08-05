@@ -83,8 +83,7 @@
             border: solid 1px #cecece;
             background-color: #f5f8fa;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            margin: auto auto 30px auto;
             padding: 20px;
             text-align: center;
             }
@@ -136,10 +135,20 @@
             text-align: center;
             color: #1f95ff;
             }
-            .image {
+            .heart {
             display: block;
             margin-left: auto;
             margin-right: auto;
+            background-image: url('../../static/unlike.png');
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background-size: 40px 40px;
+            background-position:  0px 0px;
+            background-repeat: no-repeat;
+            border: 0px;
+            cursor:pointer;
+            outline: 0;
             }
             .price {
             font-family: SpoqaHanSans;
@@ -153,6 +162,29 @@
             color: #323232;
             }
         </style>
+        <script type="text/javascript">
+            var flag= new Array();
+            window.onload = function() {
+                var len = document.getElementsByClassName("heart").length;
+                for (var i=0; i<len; i++) {
+                    document.getElementsByClassName("heart")[i].setAttribute("name", i);
+                    flag[i]=0;
+                }
+            }
+        	function heart(obj) {
+                var string_name = obj.getAttribute("name");
+                var int_name = parseInt(obj.getAttribute("name"));
+                if ( flag[int_name] == 0) {
+                    document.getElementsByName(string_name).src="{% static 'like.png' %}";
+                    document.getElementsByClassName("heart")[int_name].src="{% static 'like.png' %}";
+                    flag[int_name] = 1;
+                } else {
+                    document.getElementsByName(string_name).src="{% static 'unlike.png' %}";
+                    document.getElementsByClassName("heart")[int_name].src="{% static 'unlike.png' %}";
+                    flag[int_name] = 0;
+                }
+            }
+        </script>
     </head>
     <body class="container"></div>
         <div>
@@ -163,30 +195,42 @@
             <br>
             <img src="{% static 'search_icon.png' %}" id="search_icon">
             <div class="search_b">
-            <span style="font-weight: bold">"토익<!--{{ q }}-->"</span>의 검색결과입니다.
+            <span style="font-weight: bold">"{{ q }}"</span>의 검색결과입니다.
             </div>
         </div>
     
         <div class="box">
             <div class="lecture">
-            총 <span style="font-weight: bold; color: #1f95ff">123<!--"{{ result|length }}"--></span>건의 강의
+            총 <span style="font-weight: bold; color: #1f95ff">{{ count }}</span>건의 강의
             </div>
             <div class="order" style="text-align: right;">
-                <a>낮은 가격순</a>
-                <a>높은 가격순</a>
-                <a>조회수 순</a>
+                <a href="{% url 'search_lowprice' %}">낮은 가격순</a>
+                <a href="{% url 'search_highprice' %}">높은 가격순</a>
+                <a href="{% url 'search_highhits' %}">조회수 순</a>
             </div>
             <br>
+
+            {% for info in result %} 
             <div class="lecture_box">
                 <table style="display: inline; text-align: center;">
                     <tbody>
                         <tr>
                             <td width="80px" align="left" rowspan="2"><img class="download" style="display: inline-block" src="{% static 'download.png' %}"></td>
-                            <td class="title" width="500px">한 달 안에 끝내는 해커스 토익 기출 보카</td>
-                            <td align="right"><img class="image" style="display: inline-block" src="{% static 'like.png' %}"></td>
+                            <td class="title" width="500px">{{ info.lecture_title }}</td>
+                            <td align="right">
+                                <form action="{% url 'save' %}" method="GET">
+                                    <input type="hidden" value="{{info.lecture_id}}" name="lecture_id">
+                                    <input type="hidden" value="{{user.email}}" name="user_email">
+                                    <input type="submit" value="" class="heart" onclick="heart(this)">
+                                </form>
+                                <!--
+                                <img class="heart" style="display: inline-block" src="{% static 'unlike.png' %}"
+                                    onclick="heart(this);">
+                                -->
+                            </td>
                         </tr>
                         <tr>
-                            <td class="info">모지연 선생님  |  총 30강  |  수강기간 45일  |  평균 50분</td>
+                            <td class="info">{{info.lecture_company}}  |  총 {{info.lecture_totalnum}}강  |  수강기간 {{info.lecture_day}}일</td>
                             <td></td>
                         </tr>
                         <tr>
@@ -194,26 +238,21 @@
 
                             </td>
                             <td align="left" height="50">
+                                {% for f in feat %}
                                 <div class="keyword_box">
                                     <div class="keyword_box_info">
-                                        개념꼼꼼
+                                        {{f.feature_name}}
                                     </div>
                                 </div>
+                                {% endfor %}
                             </td>
-                            <td class="price" align="right" height="50"><div style="display: inline-block;">99,000원</div></td>
+                            <td class="price" align="right" height="50"><div style="display: inline-block;">{{ info.lecture_price }}</div></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            {% endfor %}
 
-            <!--
-                {% for info in result %} 
-                    <div>
-                        {{ info.lecture_title }}
-                        {{ info.company }}
-                    </div>
-                {% endfor %}
-            -->
         </div>
     </body>
 </html>

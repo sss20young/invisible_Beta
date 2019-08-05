@@ -78,3 +78,25 @@ def save(request):
 # restful하게 고치기
 # 쿼리문 좀더 효율적으로 고치기
 '''
+
+def teacher_feature_fromDB(lec_id):
+
+    teacher = Lectureteacher.objects.extra(tables=['lecture'], where=['lectureTeacher.lecture_id=lecture.lecture_id AND lecture.lecture_id =%s'%lec_id])
+    
+    teacher_id = teacher.values('teacher_id').get()['teacher_id']
+    teacher_feature = Feature.objects.extra(tables=['teacherFeature'], where=['teacherFeature.feature_id=feature.feature_id AND teacherFeature.teacher_id=%s'%teacher_id]).values('feature_name')
+        
+    #단일강좌면 
+    if teacher_num is 1:
+        teacher_id = teacher.values('teacher_id').get()['teacher_id']
+        teacher_feature = Feature.objects.extra(tables=['teacherFeature'], where=['teacherFeature.feature_id=feature.feature_id AND teacherFeature.teacher_id=%s'%teacher_id]).values('feature_name')
+        
+        tfl = []
+        for tf in teacher_feature:
+            
+            tfl.append(tf['feature_name'])
+    #아니면 #연합강좌는 특징이 없음
+    else :
+        tfl = "연합강좌입니다."
+
+    return tf1
