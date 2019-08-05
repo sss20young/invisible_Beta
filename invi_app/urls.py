@@ -5,6 +5,9 @@ from . import views
 urlpatterns = [
     path('about/', views.about, name="about"), #about(소개) 페이지
     path('search/', views.search, name="search"), #검색 페이지
+    path('search/highhits/', views.search_highhits, name="search_highhits"),
+    path('search/highprice/', views.search_highprice, name="search_highprice"),
+    path('search/lowprice/', views.search_lowprice, name="search_lowprice"),
     path('signup/', views.signup, name="signup"), #회원가입 페이지
     path('login/', views.login, name="login"), #로그인 페이지
     path('findpw/', views.findpw, name="findpw"), #비밀번호찾기 페이지
