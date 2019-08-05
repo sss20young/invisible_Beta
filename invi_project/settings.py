@@ -37,6 +37,7 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 
 INSTALLED_APPS = [
     'invi_app.apps.InviAppConfig',
+    'hier.apps.HierConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,9 +93,9 @@ WSGI_APPLICATION = 'invi_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'invisible',
-        'USER': 'invi_back',
-        'PASSWORD': 'hardCarryBack',
+        'NAME': 'invisible_db',
+        'USER': 'invisibleFamily',
+        'PASSWORD': 'GOgetMONEY',
         'HOST': 'ec2-3-87-64-77.compute-1.amazonaws.com',
         'PORT': '3306'
     }
