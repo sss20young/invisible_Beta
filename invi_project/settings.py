@@ -38,6 +38,7 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 INSTALLED_APPS = [
     'invi_app.apps.InviAppConfig',
     'main.apps.MainConfig',
+    'hier.apps.HierConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -45,7 +46,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
+    'django.contrib.sites',
 
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #provider 구글 페이스북 카톡 깃허브 등 소셜로그인 제공업체
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +149,20 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')
 
+AUTHENTICATION_BACKENDS = (
+    #Needed to login by username in Django admin, regardless of 'allauth'
+    'django.contrib.auth.backends.ModelBackend',
+    
+    # 'allauth' specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+SOCIALACCOUNT_AUTO_SIGNUP = True

@@ -1,0 +1,184 @@
+{% extends 'base_sj.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    {% load staticfiles %}
+        <style>
+          
+           
+            .login_a {
+            height: 250px;
+            width: 1110px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+            .login {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+            .login_b {
+            height: 59px;
+            font-family: SpoqaHanSans;
+            font-size: 40px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.48;
+            letter-spacing: -2.4px;
+            text-align: center;
+            color: #ffffff;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+            .box {
+            width: 1110px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            }
+            .name {
+            width: 540px;
+            font-family: SpoqaHanSans;
+            font-size: 25px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.48;
+            letter-spacing: -1.5px;
+            text-align: left;
+            color: #323232;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            padding-top:10px;
+            padding-bottom:10px;
+            }
+            .email_box {
+            width: 540px;
+            height: 73px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: solid 1px #cecece;
+            background-color: #ffffff;
+            font-family: SpoqaHanSans;
+            font-size: 25px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.48;
+            letter-spacing: -1.5px;
+            text-align: left;
+            color: #cecece;
+            }
+            .password_box {
+            width: 540px;
+            height: 73px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: solid 1px #cecece;
+            background-color: #ffffff;
+            font-family: SpoqaHanSans;
+            font-size: 25px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.48;
+            letter-spacing: -1.5px;
+            text-align: left;
+            color: #cecece;
+            }
+            .login_button {
+            width: 540px;
+            height: 73px;
+            object-fit: contain;
+            border-radius: 6px;
+            background-color: #1f95ff;
+            font-family: SpoqaHanSans;
+            font-size: 30px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: -1.8px;
+            text-align: center;
+            color: #ffffff;
+            }
+            .atag{
+            font-family: SpoqaHanSans;
+            font-size: 16px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: -0.96px;
+            text-align: left;
+            color: #6e6e6e;
+            padding:10px;
+            }
+            .social_login_box {
+            width: 540px;
+            height: 73px;
+            object-fit: contain;
+            text-align: center;
+            }
+            section{
+                padding-bottom: 4.375rem;
+            }
+        </style>
+   
+    {% load socialaccount %}
+    {% providers_media_js %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="{% static 'img/login.svg' %}" class="login">
+            </div>
+        </div>
+        <div class="row" style="text-align: center;">
+            <div class="col-12">
+                <span style="font-size: 2.5rem; color: #ffffff; font-weight: bold">로그인</span>
+            </div>
+        </div>
+        <div class="row" style="padding: 11.125rem 0rem 0rem 0rem;text-align: center;">
+            <div class="col-12">
+                    <a href="{% provider_login_url 'naver' %}"><img src="{% static 'img/naver.svg' %}" class="social_login_box"></a>
+            </div>
+        </div>
+        <div class="row" style="padding: 1.250rem 0rem 0rem 0rem; text-align: center;">
+            <div class="col-12">
+                    <a href="{% provider_login_url 'google' %}"><img src="{% static 'img/google.svg' %}" class="social_login_box"></a>
+            </div>
+        </div>
+
+        
+            <!--
+            <div class="name">이메일</div>
+            <input class="email_box" placeholder="이메일을 입력하세요">
+            <br>
+            <div class="name">비밀번호</div>
+            <input class="password_box" placeholder="비밀번호를 입력하세요">
+            <br><br>
+            <input type="button" class="login_button" value="로그인">
+            <br><br>
+            <a href="{% url 'findpw' %}" class="atag">비밀번호 찾기</a>
+            <a href="{% url 'signup' %}" class="atag">회원가입</a>-->
+            
+    </div>
+  
+    
+        
+        
+  
+
+{% endblock %}
