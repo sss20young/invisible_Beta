@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from invi_app.models import Lecture, Lecturefeature, Feature, Lectureteacher
+from django.db import connection
+from invi_app.models import Lecture, Lecturefeature, Feature, Lectureteacher, Teacherfeature
 
 ##################################
 
@@ -19,12 +20,25 @@ def detail(request, lecture_id):
     lec_feature = Feature.objects.filter(feature_id__lte=11)
     
     #선생님 수
-    teacher_num = Lectureteacher.objects.extra(select=['count(teacher_id)'], tables=['lecture'], where=['lectureTeacher.lecture_id=lecture.lecture_id AND lecture.lecture_id =%s'], select_params=(lecture_id))
-    print(teacher_num)
-    #연합강좌면 
-    #아니면 
+    teacher = Lectureteacher.objects.extra(tables=['lecture'], where=['lectureTeacher.lecture_id=lecture.lecture_id AND lecture.lecture_id =%s'%lecture_id])
+    teacher_num = teacher.count()
     
-    return render(request, 'detail.html', {'lec':lec_detail, 'lec_feature':lec_feature})
+    #단일강좌면 
+    if teacher_num is 1:
+        teacher_id = teacher.values('teacher_id').get()['teacher_id']
+        teacher_feature = Feature.objects.extra(tables=['teacherFeature'], where=['teacherFeature.feature_id=feature.feature_id AND teacherFeature.teacher_id=%s'%teacher_id]).values('feature_name')
+        
+        tfl = []
+        for tf in teacher_feature:
+            
+            tfl.append(tf['feature_name'])
+    #아니면 
+    else :
+        tfl = "연합강좌입니다."
+
+    print(tfl)
+
+    return render(request, 'detail.html', {'lec':lec_detail, 'lec_feature':lec_feature, 'teacher_feature':tfl})
 
 ##################################
 
@@ -62,4 +76,5 @@ def save(request):
 # detail에 선생님 특징 출력
 # url 앱 내로 옮기기
 # restful하게 고치기
+# 쿼리문 좀더 효율적으로 고치기
 '''
