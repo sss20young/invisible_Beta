@@ -30,4 +30,7 @@ urlpatterns = [
     path('changepw/', invi_app.views.changepw, name="changepw"),
     path('auth_number/', invi_app.views.auth_number, name="auth_number"),
     path('accounts/', include('allauth.urls')),
+    path('', invi_app.views.home, name='main_home'),
+    path('save/', invi_app.views.save, name='save'),
+    path('mypage/', invi_app.views.mypage, name='mypage'),
 ]

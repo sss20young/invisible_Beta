@@ -153,6 +153,16 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            background-image: url('../static/unlike.png');
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background-size: 40px 40px;
+            background-position:  0px 0px;
+            background-repeat: no-repeat;
+            border: 0px;
+            cursor:pointer;
+            outline: 0;
             }
             .price {
             font-family: SpoqaHanSans;
@@ -221,8 +231,16 @@
                             <td width="80px" align="left" rowspan="2"><img class="download" style="display: inline-block" src="{% static 'download.png' %}"></td>
                             <td class="title" width="500px">{{ info.lecture_title }}</td>
                             <td align="right">
+                                <form action="{% url 'save' %}" method="GET">
+                                    <input type="hidden" value="{{info.lecture_id}}" name="lecture_id">
+                                    <input type="hidden" value="{{user.email}}" name="user_email">
+                                    <h1>{{user.email}}</h1>
+                                    <input type="submit" value="" class="heart" onclick="heart(this)">
+                                </form>
+                                <!--
                                 <img class="heart" style="display: inline-block" src="{% static 'unlike.png' %}"
                                     onclick="heart(this);">
+                                -->
                             </td>
                         </tr>
                         <tr>
@@ -234,11 +252,13 @@
 
                             </td>
                             <td align="left" height="50">
+                                {% for f in feat %}
                                 <div class="keyword_box">
                                     <div class="keyword_box_info">
-                                        개념꼼꼼
+                                        {{f.feature_name}}
                                     </div>
                                 </div>
+                                {% endfor %}
                             </td>
                             <td class="price" align="right" height="50"><div style="display: inline-block;">{{ info.lecture_price }}</div></td>
                         </tr>

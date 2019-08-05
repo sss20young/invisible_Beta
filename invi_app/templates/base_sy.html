@@ -67,14 +67,14 @@
             margin:20px;
             }
             .border{
+                display: inline-block;
                 width: 255px;
                 height: 35px;
-                display: inline-box;
+                display: block;
                 object-fit: contain;
                 border-radius: 6px;
                 border: solid 1px #cecece;
                 background-color: #ffffff;
-                margin-left:30px;
             }
             .search_box {
             font-family: SpoqaHanSans;
@@ -87,24 +87,22 @@
             text-align: left;
             color: #cecece;
             object-fit: contain;
-            border-radius: 6px;
-            border: solid 1px #cecece;
-            background-color: #ffffff;
-            margin-left:30px;
+            margin-left:20px;
             border: none;
             }
             .search_icon {
             width: 17.5px;
             height: 17.5px;
             object-fit: contain;
-            background-color: #cecece;
-            background-image: url('../static/search_icon.png');
+            background-image: url('../static/search_icon2.png');
             background-size: 17.5px 17.5px;
             background-position:  0px 0px;
             background-repeat: no-repeat;
+            background-color: #ffffff;
             border: 0px;
             cursor:pointer;
             outline: 0;
+            margin-right: 5px; 
             }
             footer {
             background-color: #8a8a8a;
@@ -169,7 +167,7 @@
                     <li><a class="menu" style="text-decoration: none;">강의카테고리</a></li>
                     <li><a href="{% url 'login' %}" class="menu" style="text-decoration: none;">로그인</a></li>
                     <li>
-                        <div class="border">
+                        <div class="border menu" style="display:inline;">
                         <form action="{% url 'search' %}" method="GET" style="display:inline;">
                             <input type="text" name="q" value="{{ q }}" placeholder="검색어를 입력하세요" class="search_box">
                             <input type="submit" value="" class="search_icon">
