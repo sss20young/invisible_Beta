@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
 import main.views
 import invi_app.views
 import hier.views
 
 urlpatterns=[
+    url(r'invi_app/', include('invi_app.urls')),
     url(r'^hier/', include('hier.urls')),
     path('admin/', admin.site.urls),
     path('search/highhits/', invi_app.views.search_highhits, name="search_highhits"),
