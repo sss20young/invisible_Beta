@@ -132,6 +132,9 @@
             object-fit: contain;
             text-align: center;
             }
+            section{
+                padding-bottom: 4.375rem;
+            }
         </style>
    
     {% load socialaccount %}
@@ -152,7 +155,7 @@
                     <a href="{% provider_login_url 'naver' %}"><img src="{% static 'img/naver.svg' %}" class="social_login_box"></a>
             </div>
         </div>
-        <div class="row" style="text-align: center;">
+        <div class="row" style="padding: 1.250rem 0rem 0rem 0rem; text-align: center;">
             <div class="col-12">
                     <a href="{% provider_login_url 'google' %}"><img src="{% static 'img/google.svg' %}" class="social_login_box"></a>
             </div>

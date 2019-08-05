@@ -184,7 +184,8 @@
     </style>
   </head>
   <body>
-    {% load staticfiles %}
+     {% load staticfiles %}
+   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -255,7 +256,19 @@
         
         </header>
 
-    <section>
+    <section> 
+        <div style="
+        background-color: transparent;
+        position:fixed;
+        width:150px;
+        right:6.5%;
+        top:59.4%; 
+        left:85.7%; 
+        ">
+        <a href="https://pf.kakao.com/_YxbYsT">
+            <img src="{% static 'img/kakaotalk@3x.png' %}" height="100%" width="100%" >
+        </a>
+      </div>
     {% load staticfiles %}
     {% block content %}
 
