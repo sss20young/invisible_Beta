@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url, include
 import invi_app.views
 import hier.views
 
@@ -34,7 +35,5 @@ urlpatterns = [
     path('mytype/',invi_app.views.mytype, name='mytype'), #나의 강의타입 페이지
     path('accounts/', include('allauth.urls')), #소셜로그인
     path('admin/', admin.site.urls),
-    path('hier/', hier.views.home, name='home'),
-    path('hier/<int:lecture_id>/', hier.views.detail, name='detail'),
-    path('hier/save/', hier.views.save, name='save')
+    url(r'^hier/', include('hier.urls')),
 ]
