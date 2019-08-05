@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Lecture, Lecturefeature, Userlecture, Feature, Lectureteacher, User
+from django.contrib import auth
+from django.contrib.auth.models import User
+from django.contrib.auth import login
 
 q='' # 정렬을 위한 전역 변수 선언
 
@@ -105,6 +108,9 @@ def search_highhits(request):
         'count' : len(result),
     })
 
+def main(request):
+    return render(request, 'main.html')
+
 def signup(request):
     return render(request, 'signup.html')
 
@@ -119,10 +125,6 @@ def changepw(request):
 
 def auth_number(request):
     return render(request, 'auth_number.html')
-
-def home(request):
-    return render(request, 'home.html')
-
 
 ##############################################################
 
@@ -144,3 +146,17 @@ def save(request):
     like.save()
 
     return redirect('mypage')
+def likedlecture(request):
+    return render(request, 'likedlecture.html')
+
+def mytype(request):
+    return render(request, 'mytype.html')
+
+def selectkeyword(request):
+    return render(request, 'selectkeyword.html')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('main')
+    return render(request, 'login.html')

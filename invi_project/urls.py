@@ -15,22 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url, include
 import invi_app.views
+import hier.views
 
 urlpatterns = [
+    url(r'^invi_app/', include('invi_app.urls')),
+    url(r'^hier/', include('hier.urls')),
     path('admin/', admin.site.urls),
-    path('about/', invi_app.views.about, name="about"),
-    path('search/', invi_app.views.search, name="search"),
     path('search/lowprice/', invi_app.views.search_lowprice, name="search_lowprice"),
     path('search/highprice/', invi_app.views.search_highprice, name="search_highprice"),
     path('search/highhits/', invi_app.views.search_highhits, name="search_highhits"),
-    path('signup/', invi_app.views.signup, name="signup"),
-    path('login/', invi_app.views.login, name="login"),
-    path('findpw/', invi_app.views.findpw, name="findpw"),
-    path('changepw/', invi_app.views.changepw, name="changepw"),
-    path('auth_number/', invi_app.views.auth_number, name="auth_number"),
-    path('accounts/', include('allauth.urls')),
-    path('', invi_app.views.home, name='main_home'),
     path('save/', invi_app.views.save, name='save'),
     path('mypage/', invi_app.views.mypage, name='mypage'),
+    path('', invi_app.views.main, name="main"), #메인 페이지
 ]
