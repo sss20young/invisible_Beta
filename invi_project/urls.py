@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import hier.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('hier/', hier.views.home, name='home'),
+    path('hier/<int:lecture_id>/', hier.views.detail, name='detail'),
+    path('hier/save/', hier.views.save, name='save')
 ]
