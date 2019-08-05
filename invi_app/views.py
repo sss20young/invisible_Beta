@@ -1,5 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Lecture
+from django.contrib import auth
+from django.contrib.auth.models import User
+from django.contrib.auth import login
+
+
 
 def about(request):
     return render(request, 'about.html')
@@ -20,6 +25,9 @@ def search(request):
         'q' : q,
     })
 
+def main(request):
+    return render(request, 'main.html')
+
 def signup(request):
     return render(request, 'signup.html')
 
@@ -34,3 +42,18 @@ def changepw(request):
 
 def auth_number(request):
     return render(request, 'auth_number.html')
+
+def likedlecture(request):
+    return render(request, 'likedlecture.html')
+
+def mytype(request):
+    return render(request, 'mytype.html')
+
+def selectkeyword(request):
+    return render(request, 'selectkeyword.html')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('main')
+    return render(request, 'login.html')

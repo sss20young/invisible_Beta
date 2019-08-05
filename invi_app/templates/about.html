@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_sj.html' %}
 {% block content %}
 
 {% load staticfiles %}
@@ -19,18 +19,22 @@
     margin-left: auto;
     margin-right: auto;
     }
+    section{
+        padding: 0rem 0rem 0rem 0rem;
+        background: none;
+        position: relative;
+    }
     .about {
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 50%;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        width: 100%;
+        margin: 3.125rem 0rem 3.125rem 0rem;
     }
 </style>
-<header>
-    <header>
-        <img src="{% static 'about.jpg' %}" class ="about">
-    </header>
-</header>
+<div class="container">
+    <img src="{% static 'about.jpg' %}" class ="about">
+</div>
+  
+
 {% endblock %}

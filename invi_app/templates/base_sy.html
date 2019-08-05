@@ -144,11 +144,12 @@
         </style>
     </head>
     <body class="full-width-div">
+        
         <nav>
         <nav>
             <div class="navdiv">
                 <ul>
-                    <li><a href=""><img src="{% static 'invisible_logo_gray.png' %}" class="invisible_logo_gray" style="text-decoration: none;"></a></li>
+                    <li><a href="{% url 'main' %}"><img src="{% static 'img/invisible-logo-gray.svg' %}" class="invisible_logo_gray" style="text-decoration: none;"></a></li>
                     <li ><a href="{% url 'about' %}" class="menu" style="text-decoration: none;">ABOUT</a></li>
                     <li><a class="menu" style="text-decoration: none;">강의카테고리</a></li>
                     <li><a href="{% url 'login' %}" class="menu" style="text-decoration: none;">로그인</a></li>
@@ -170,7 +171,7 @@
                 <table style="display: inline; text-align: center middle;">
                     <tbody>
                         <tr>
-                            <td style="padding:70px 0px 36px 0px;" width="500px" height="80px" align="left"><img src="{% static 'invisible_logo_white.png' %}" class="invisible_logo_white" style="display: inline-block"></td>
+                            <td style="padding:70px 0px 36px 0px;" width="500px" height="80px" align="left"><a href="{% url 'main' %}"><img src="{% static 'img/invisible_logo_white.svg' %}" class="invisible_logo_white" style="display: inline-block"></a></td>
                             <td width="500px" height="80px"></td>
                         </tr>
                         <tr>
@@ -178,7 +179,7 @@
                             <td height="30px"></td>
                         </tr>
                         <tr>
-                            <td style="padding:0px 0px 52px 0px;" class="address" width="500px"><a href="" style="text-decoration: none; color: white;">Insta  |  @_invisible_official_</a></td>
+                            <td style="padding:0px 0px 52px 0px;" class="address" width="500px"><a href="https://www.instagram.com/_invisible_official_/" style="text-decoration: none; color: white;">Insta  |  @_invisible_official_</a></td>
                             <td class="copyright" width="500px"><p>© Invisible Co., Ltd. All rights reserved.</p></td>
                         </tr>
                     </tbody>

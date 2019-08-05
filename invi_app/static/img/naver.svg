@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="540" height="73" viewBox="0 0 540 73">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 170 170">
+      <image width="170" height="170" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAACqCAMAAAAKqCSwAAAAn1BMVEUAxzz///8A0DcAzjgA0jYAzzgAzTkA0TYA0TcAzDkAyzoAyTsAyDsAyjoAwjsAuyel3Kfc8uAlvz8lxD0AvSUAvyMAvioAwTul36YAvjIAtgAAuzcAuiDv+vIu3VsAuCcA2ji588ou1F+R2pfh9OVExFVxz3ud3qpPx2Nbymv3/fmz5ryM2ZkwwkyW26C/6ser4rPV8drI7tGA04Z41YfltLoiAAAD9UlEQVR4nO3ba1fiMBAG4GQv7kJLKpe2tlwqiAoCKq7//7dtUjyrYJNMkZDOnnkPfrFO8xCnMa0HNp38QJHJlE2ufSNguZ4w3wR4iOoiRHUR9gtNiOoimKi/0YSoLoKJ+g1NiOoiRHURoroIJupPNCGqixDVRYjqIuw7mhDVRYjqIkR1EXaBJkR1kf+U2mrJV1XKQ6ZCXZ257JBafZKKk7ba5lS/kYu3Om11SzsBhwFS5UidjvrSZHdYW1i/7CtUdeZQvqqijshRqwZV31aHdWXKe1qqkrK+IaGau8+DllJTHYNb4dT4Zt7VZ5VUWpU0NtTNb2IX1CtuyjoOKwZVzRibyq5qUC3X9dtlKtvKQuW9ZGfdq1N9aqHKKtvisguM2g7s1G0iL5Sgs1/XCUI2sFEDmAFGVReVjcofYxaWC9BeYWibVXZY82WqdVY53yRhcDCtalbtDXB+6jb71AJNpfJ72QK+qW0Yld/GBy0Ao8IMTPtn/WOCILBfVjLdPmOhnNj3wjDMLCsAkycHIWDUTgij8udctsCHoUHUEGY4MZUvkr1pbTJ1LlsgeLc2mcpXsgXCf4MHwfmpIZTKl/GHFpALgEgs1PDk1AGQOt9k71Y7dQCnBqAo6iWMyp9yUfZAWccs1EtFhRlg1LAOld8NSiucCrO6oI5VCzAUVP6iWqC0Np7KX2PBkFDHt9nOen5qrRVAZbtbBU67AlQ+g/gUxupR+VqtAkzFSmVQA5Qq6lF3LVBSIzNV+Kbybo6GytcjgYX6sNy1AAIqn6sWEMJ2WTmgRnWp/DmSUJGaZzVqBPVhkSkrBiofj1Iks8r5/ShN0+JUVGiOovK7Ih3aqSfOcdRxPsRC5U8FGipfFk2jjrVHMvsKcF7qH+2RVd4wav58xLvwQ430HanvDT/UoliaDjeKOiye0FCHufE33SRqWtyhoaajexzUNBXpqH4L+Fis5M5UZIsHBNRClBv+2i3gjZrmcxxUeXuaLWu2gC+qtI7WGKjlT6WjLhaqyG5rrVj+qNIa1WoBj1TZAvkWC7VeC/ikqlXgFQlVtcALEqq0bsAt4JsqIvDW1TNVtQD07sU7VbYAcN/im6paAHgD652q9gIrJFQ5rz1QCzSCGi2QUFUL6B9jNYwqWwCwdW0Ctdy3IKGqfYv9BrYZVNmumXXr2hSqyDZeqOZ/B0cVVLUKPNqog/M/CKqiAlrAw6wm1VSR9TzM6jFU+w2sE2pi+rjNPNGMKOd1Zfy4ja7wS+n3DNEOKPeuprq+A2g5qj7HVZnqHGGPLHMHpVAoFAqFQqFQKBQKhUKhUCgUCoVCoVCcBf5JVs8J2Kzt2wBLe8ams8C3ApJgNv0LXOaL0F8EpaAAAAAASUVORK5CYII="/>
+    </pattern>
+  </defs>
+  <g id="naver" transform="translate(-690 -853)">
+    <g id="social_login_box" transform="translate(690 853)" fill="#fff" stroke="#cecece" stroke-width="1">
+      <rect width="540" height="73" rx="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="539" height="72" rx="5.5" fill="none"/>
+    </g>
+    <rect id="naver_icon" width="37" height="37" transform="translate(705 871)" fill="url(#pattern)"/>
+    <text id="네이버_아이디로_로그인" data-name="네이버 아이디로 로그인" transform="translate(847.957 902)" fill="#6e6e6e" font-size="25" font-family="SpoqaHanSans-Regular, SpoqaHanSans" letter-spacing="-0.06em"><tspan x="0" y="0">네이버 아이디로 로그인</tspan></text>
+  </g>
+</svg>

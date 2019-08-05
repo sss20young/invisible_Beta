@@ -1,30 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'base_sj.html' %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
     {% load staticfiles %}
-    <head>
-        <link rel="stylesheet" type="text/css" href="default.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <style>
-            body {
-            background-color: #f5f8fa;
-            }
-            header {
-            background-color: #1f95ff;
-            }
+          
+           
             .login_a {
             height: 250px;
             width: 1110px;
-            background-color: #1f95ff;
             object-fit: contain;
             display: block;
             margin-left: auto;
@@ -149,22 +133,33 @@
             text-align: center;
             }
         </style>
-    </head>
+   
     {% load socialaccount %}
     {% providers_media_js %}
-    <body class="full-width-div">
-        <header>
-        <div class="login_a">
-            <br>
-            <br>
-            <br>
-            <img src="{% static 'login.png' %}" class="login">
-            <div class="login_b">
-            <span style="font-weight: bold">로그인</span>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <img src="{% static 'img/login.svg' %}" class="login">
             </div>
         </div>
-        </header>
-        <div class="box">
+        <div class="row" style="text-align: center;">
+            <div class="col-12">
+                <span style="font-size: 2.5rem; color: #ffffff; font-weight: bold">로그인</span>
+            </div>
+        </div>
+        <div class="row" style="padding: 11.125rem 0rem 0rem 0rem;text-align: center;">
+            <div class="col-12">
+                    <a href="{% provider_login_url 'naver' %}"><img src="{% static 'img/naver.svg' %}" class="social_login_box"></a>
+            </div>
+        </div>
+        <div class="row" style="text-align: center;">
+            <div class="col-12">
+                    <a href="{% provider_login_url 'google' %}"><img src="{% static 'img/google.svg' %}" class="social_login_box"></a>
+            </div>
+        </div>
+
+        
+            <!--
             <div class="name">이메일</div>
             <input class="email_box" placeholder="이메일을 입력하세요">
             <br>
@@ -174,12 +169,13 @@
             <input type="button" class="login_button" value="로그인">
             <br><br>
             <a href="{% url 'findpw' %}" class="atag">비밀번호 찾기</a>
-            <a href="{% url 'signup' %}" class="atag">회원가입</a>
-            <br><br><br>
-            <div><a href="{% provider_login_url 'naver' %}"><img src="{% static 'naver.png' %}" class="social_login_box"></a></div>
-            <br>
-            <div><a href="{% provider_login_url 'google' %}"><img src="{% static 'google.png' %}" class="social_login_box"></a></div>
-        </div>
-    </body>
-</html>
+            <a href="{% url 'signup' %}" class="atag">회원가입</a>-->
+            
+    </div>
+  
+    
+        
+        
+  
+
 {% endblock %}
