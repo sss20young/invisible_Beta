@@ -23,5 +23,10 @@ urlpatterns = [
     url(r'^invi_app/', include('invi_app.urls')),
     url(r'^hier/', include('hier.urls')),
     path('admin/', admin.site.urls),
+    path('search/lowprice/', invi_app.views.search_lowprice, name="search_lowprice"),
+    path('search/highprice/', invi_app.views.search_highprice, name="search_highprice"),
+    path('search/highhits/', invi_app.views.search_highhits, name="search_highhits"),
+    path('save/', invi_app.views.save, name='save'),
+    path('mypage/', invi_app.views.mypage, name='mypage'),
     path('', invi_app.views.main, name="main"), #메인 페이지
 ]
