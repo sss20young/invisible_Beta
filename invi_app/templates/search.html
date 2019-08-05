@@ -1,26 +1,12 @@
-{% extends 'base_sy.html' %}
+{% extends 'base_sj.html' %}
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
     {% load staticfiles %}
     <head>
-        <link rel="stylesheet" type="text/css" href="default.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <style>
-            body {
-            background-color: #f5f8fa;
-            }
-            header {
-            background-color: #1f95ff;
-            }
+         
+           
             .search_a {
             height: 250px;
             width: 1100px;
@@ -200,8 +186,9 @@
             }
         </script>
     </head>
-    <body class="full-width-div">
-        <header>
+    <body class="container"></div>
+        <div>
+        
         <div class="search_a">
             <br>
             <br>
@@ -211,7 +198,7 @@
             <span style="font-weight: bold">"{{ q }}"</span>의 검색결과입니다.
             </div>
         </div>
-    </header>
+    
         <div class="box">
             <div class="lecture">
             총 <span style="font-weight: bold; color: #1f95ff">{{ count }}</span>건의 강의
@@ -234,7 +221,6 @@
                                 <form action="{% url 'save' %}" method="GET">
                                     <input type="hidden" value="{{info.lecture_id}}" name="lecture_id">
                                     <input type="hidden" value="{{user.email}}" name="user_email">
-                                    <h1>{{user.email}}</h1>
                                     <input type="submit" value="" class="heart" onclick="heart(this)">
                                 </form>
                                 <!--
