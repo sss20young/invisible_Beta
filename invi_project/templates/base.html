@@ -1,0 +1,240 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'default.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>Document</title>
+    <style>
+    /* nav */
+    .nav { 
+        position: relative;
+        height: 90px; 
+    }
+    .invisible_logo_gray {
+        position: absolute;
+        top: 26.7px;
+        left: 405px;
+        width: 255px;
+        height: 38.3px;
+        object-fit: contain;
+    }
+    .nav_about {
+        position: absolute;
+        top: 36px;
+        bottom: 25px;
+        left: 785px;
+        right: 1073px;
+        width: 62px;
+        height: 29px;
+        font-family: SpoqaHanSans;
+        font-size: 20px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -1.2px;
+        text-align: left;
+        color: #323232;
+    }
+    .nav_category {
+        position: absolute;
+        top: 36px;
+        bottom: 25px;
+        left: 913px;
+        right: 903px;
+        width: 104px;
+        height: 29px;
+        font-family: SpoqaHanSans;
+        font-size: 18px;    /* 20px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -1.2px;
+        text-align: left;
+        color: #323232;
+    }
+    .nav_login {
+        position: absolute;
+        top: 36px;
+        bottom: 25px;
+        left: 1082px;
+        right: 785px;
+        width: 53px;
+        height: 29px;
+        font-family: SpoqaHanSans;
+        font-size: 18px;    /* 20px */
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.45;
+        letter-spacing: -1.2px;
+        text-align: left;
+        color: #323232;
+    }
+    .nav_index:hover {
+        color: #1f95ff;
+        text-decoration:none;
+    }
+    /* 검색 */
+    .search_box {
+        position: absolute;
+        top: 30px;
+        left: 1260px;
+        width: 255px;
+        height: 35px;
+        object-fit: contain;
+        border-radius: 6px;
+        border: solid 1px #cecece;
+    }
+    .search_text {
+        position: absolute;
+        top: 1px;
+        width: 127px;
+        height: 24px;
+        font-family: SpoqaHanSans;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: -0.96px;
+        text-align: left;
+        color: #cecece;
+    }
+    .search_button {
+        position: absolute;
+        top: 6px;
+        bottom: 5px;
+        left: 225px;
+        right: 6px;
+        width: 24px;
+        height: 24px;
+        background-color:#ffffff;
+    }   
+    .search_icon {
+        position: absolute;
+        top: 3px;
+        bottom: 3.5px;
+        left: 3px;
+        right: 3px;
+        width: 17.5px;
+        height: 17.5px;
+        object-fit: contain;
+        background-color: #ffffff;
+    }
+        /* footer */
+        .footer {
+        position: absolute;
+        width: 1920px;
+        height: 250px;
+        background-color: #8a8a8a;
+    }
+    .invisible_logo_white {
+        position: absolute;
+        top: 70px;
+        left: 405px;
+        width: 277px;
+        height: 40px;
+        object-fit: contain;
+    }
+    .Email-officialinvisible030gmailcom-Insta-_invisible_official_ {
+        position: absolute;
+        top: 146px;
+        left: 405px;
+        width: 350px;
+        height: 52px;
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.3;
+        letter-spacing: -0.06px;
+        text-align: left;
+        color: #ffffff;
+    }
+    .insta_invisible_official {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.3;
+        letter-spacing: -0.06px;
+        text-align: left;
+        color: #ffffff;
+    }
+    .insta_invisible_official:hover {
+        color: #1f95ff;
+        text-decoration:none;
+    }
+    .-Invisible-Co-Ltd-All-rights-reserved {
+        position: absolute;
+        top: 169px;
+        left: 1174px;
+        width: 341px;
+        height: 29px;
+        font-family: SpoqaHanSans;
+        font-size: 20px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 0.4;
+        letter-spacing: normal;
+        text-align: right;
+        color: #ffffff;
+        }
+    </style>
+    {% block style %}
+    {% endblock %}
+</head>
+
+<body class="container">
+    <!-- nav -->
+    <div class="nav container">
+        <a href="{% url 'main' %}" class="invisible_logo_gray">
+            <img src="{% static 'img/invisible_logo_gray.svg' %}"
+            alt="invisible" >
+        </a>
+        <a href="#" class="nav_about nav_index">ABOUT</a>
+        <a href="#" class="nav_category nav_index">강의카테고리</a>
+        <a href="#" class="nav_login nav_index">로그인</a>
+        
+        <!-- 검색 -->
+        <div class="search_box">
+        <form name="search" method="POST" action="#">
+            {% csrf_token %}
+            <input type="text" class="search_text" placeholder="검색어를 입력하세요" style="border:0px">
+            <button type="submit" class="search_button">
+                <img src="{% static 'img/search_icon.svg' %}" class="search_icon">
+            </button>
+        </form>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    
+    <!-- footer -->
+    <div class="footer container">
+        <img src="{% static 'img/invisible_logo_white.png' %}"
+            class="invisible_logo_white" alt="invisible">
+        <div class="Email-officialinvisible030gmailcom-Insta-_invisible_official_">
+            Email  |  officialinvisible030@gmail.com
+            <a href="https://www.instagram.com/_invisible_official_/" target="_blank" class="insta_invisible_official">Insta  |  @_invisible_official_</a>
+        </div>
+        <div class="-Invisible-Co-Ltd-All-rights-reserved">© Invisible Co., Ltd. All rights reserved.</div>
+    </div>
+    
+    </div>
+</body>
+</html>

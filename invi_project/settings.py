@@ -38,7 +38,10 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 INSTALLED_APPS = [
     'invi_app.apps.InviAppConfig',
     'main.apps.MainConfig',
+<<<<<<< HEAD:invi_project/settings.py
     'hier.apps.HierConfig',
+=======
+>>>>>>> fb35967cc788fc8af14fb8056c8a826c71813791:invisible/invi_project/settings.py
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -73,7 +76,11 @@ ROOT_URLCONF = 'invi_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD:invi_project/settings.py
         'DIRS': ['main/templates'],
+=======
+        'DIRS': ['invi_project/templates'],
+>>>>>>> fb35967cc788fc8af14fb8056c8a826c71813791:invisible/invi_project/settings.py
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
