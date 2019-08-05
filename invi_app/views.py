@@ -31,6 +31,7 @@ def search(request):
             featu=Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[i]]).values('feature_name')
             try:
                 feature.append(featu.get())
+                print(feature)
             except ObjectDoesNotExist:
                 empty={}
                 empty['feature_name']='집계중'
@@ -48,6 +49,8 @@ def search(request):
         'len' : len(lec_list),
         'lec_feat' : lec_feat
     })
+
+# TODO: 특징 2개 이상일 때 값을 불러오지 못함
 
 
 def search_lowprice(request):
