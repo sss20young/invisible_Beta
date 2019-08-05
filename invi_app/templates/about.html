@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_sy.html' %}
 {% block content %}
 
 {% load staticfiles %}
@@ -6,13 +6,13 @@
     body {
     background-color: #f5f8fa;
     }
-    header {
+    section {
         display: block;
         margin-left: auto;
         margin-right: auto; 
         text-align: center;
     }
-    header > header {
+    section > section {
     object-fit: contain;
     width: 1110px;
     text-align: center;
@@ -28,9 +28,9 @@
         margin-bottom: 50px;
     }
 </style>
-<header>
-    <header>
+<section>
+    <section>
         <img src="{% static 'about.jpg' %}" class ="about">
-    </header>
-</header>
+    </section>
+</section>
 {% endblock %}

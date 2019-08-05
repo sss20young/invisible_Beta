@@ -66,6 +66,16 @@
             color: #323232;
             margin:20px;
             }
+            .border{
+                width: 255px;
+                height: 35px;
+                display: inline-box;
+                object-fit: contain;
+                border-radius: 6px;
+                border: solid 1px #cecece;
+                background-color: #ffffff;
+                margin-left:30px;
+            }
             .search_box {
             font-family: SpoqaHanSans;
             font-size: 16px;
@@ -76,19 +86,25 @@
             letter-spacing: -0.96px;
             text-align: left;
             color: #cecece;
-            width: 255px;
-            height: 35px;
             object-fit: contain;
             border-radius: 6px;
             border: solid 1px #cecece;
             background-color: #ffffff;
             margin-left:30px;
+            border: none;
             }
             .search_icon {
             width: 17.5px;
             height: 17.5px;
             object-fit: contain;
             background-color: #cecece;
+            background-image: url('../static/search_icon.png');
+            background-size: 17.5px 17.5px;
+            background-position:  0px 0px;
+            background-repeat: no-repeat;
+            border: 0px;
+            cursor:pointer;
+            outline: 0;
             }
             footer {
             background-color: #8a8a8a;
@@ -153,10 +169,12 @@
                     <li><a class="menu" style="text-decoration: none;">강의카테고리</a></li>
                     <li><a href="{% url 'login' %}" class="menu" style="text-decoration: none;">로그인</a></li>
                     <li>
-                        <form action="{% url 'search' %}" method="GET">
+                        <div class="border">
+                        <form action="{% url 'search' %}" method="GET" style="display:inline;">
                             <input type="text" name="q" value="{{ q }}" placeholder="검색어를 입력하세요" class="search_box">
-                            <input type="submit" value="검색">
+                            <input type="submit" value="" class="search_icon">
                         </form>
+                        </div>
                     </li>  
                 </ul>
             </div>

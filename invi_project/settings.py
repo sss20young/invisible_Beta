@@ -92,9 +92,9 @@ WSGI_APPLICATION = 'invi_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'invisible',
-        'USER': 'invi_back',
-        'PASSWORD': 'hardCarryBack',
+        'NAME': 'invisible_db',
+        'USER': 'invisibleFamily',
+        'PASSWORD': 'GOgetMONEY',
         'HOST': 'ec2-3-87-64-77.compute-1.amazonaws.com',
         'PORT': '3306'
     }
@@ -155,3 +155,4 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
