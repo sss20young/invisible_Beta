@@ -287,33 +287,33 @@ def mypage(request):
         lec_list.append(lec.lecture_id)
         lec_company.append(lec.lecture_company)
 
-        # 강의 특징 조인 & 강의 선생님 조인
-        for i in range(len(lec_list)):
-            # 강의 특징 조인
-            featu=Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[i]]).values('feature_name')
-            try:
-                feature.append(featu.get())
-            except ObjectDoesNotExist:
-                empty={}
-                empty['feature_name']='집계중'
-                feature.append(empty)
-            except MultipleObjectsReturned:
-                empty={}
-                empty['feature_name']='집계중'
-                feature.append(empty)
+    # 강의 특징 조인 & 강의 선생님 조인
+    for i in range(len(lec_list)):
+        # 강의 특징 조인
+        featu=Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[i]]).values('feature_name')
+        try:
+            feature.append(featu.get())
+        except ObjectDoesNotExist:
+            empty={}
+            empty['feature_name']='집계중'
+            feature.append(empty)
+        except MultipleObjectsReturned:
+            empty={}
+            empty['feature_name']='집계중'
+            feature.append(empty)
 
-            # 강의 선생님 조인
-            teach=Teacher.objects.extra(tables=['lectureTeacher'], where=['lectureTeacher.teacher_id=teacher.teacher_id and lectureTeacher.lecture_id=%s'%lec_list[i]]).values('teacher_name')
-            try:
-                teacher.append(teach.get())
-            except ObjectDoesNotExist:
-                multiple={}
-                multiple['teacher_name']=lec_company[i]
-                teacher.append(multiple)
-            except MultipleObjectsReturned:
-                multiple={}
-                multiple['teacher_name']=lec_company[i]
-                teacher.append(multiple)
+        # 강의 선생님 조인
+        teach=Teacher.objects.extra(tables=['lectureTeacher'], where=['lectureTeacher.teacher_id=teacher.teacher_id and lectureTeacher.lecture_id=%s'%lec_list[i]]).values('teacher_name')
+        try:
+            teacher.append(teach.get())
+        except ObjectDoesNotExist:
+            multiple={}
+            multiple['teacher_name']=lec_company[i]
+            teacher.append(multiple)
+        except MultipleObjectsReturned:
+            multiple={}
+            multiple['teacher_name']=lec_company[i]
+            teacher.append(multiple)
      
     lec_like=zip(lecture, feature, teacher)
 

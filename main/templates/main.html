@@ -25,12 +25,13 @@
         width: 100%;
         height: 2.813rem;
         border-radius: 1.375rem;
-        border: solid 0.125rem #cecece;
-        background-color: #ffffff;
+        font-size: 1.2rem;
+        border: solid 0.125rem lightgray;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #6e6e6e;
+        color: dimgray;
         white-space: nowrap;
     }
     .grade_title {
@@ -156,11 +157,6 @@
         display:none; 
     }
     */
-    .round input[type=checkbox]:checked + span {
-        background-color:#1f95ff;
-        border: solid 0.125rem #1f95ff;
-        color:#ffffff;
-    }
     .beginner { 
         width: 3.750rem;
         height: 3.750rem ;
@@ -440,30 +436,30 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject1" value="TOEIC"><label for="subject1">TOEIC</label></span>
+                <span><input type="checkbox" name="subject" id="1" value="TOEIC" onClick="subject_bgColor(this);"><label for="1">TOEIC</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject2" value="TOFEL"><label for="subject2">TOFEL</label></span>
+                <span><input type="checkbox" name="subject" id="2" value="TOFEL" onClick="subject_bgColor(this);"><label for="2">TOFEL</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject3" value="TEPS"><label for="subject3">TEPS</label></span>
+                <span><input type="checkbox" name="subject" id="3" value="TEPS" onClick="subject_bgColor(this);"><label for="3">TEPS</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject4" value="Toeic Speaking"><label for="subject4">Toeic Speaking</label></span>
+                <span><input type="checkbox" name="subject" id="4" value="Toeic Speaking" onClick="subject_bgColor(this);"><label for="4">Toeic Speaking</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject5" value="OPIC"><label for="subject5">OPIC</label></span>
+                <span><input type="checkbox" name="subject" id="5" value="OPIC" onClick="subject_bgColor(this);"><label for="5">OPIC</label></span>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject6" value="IELTS"><label for="subject6">IELTS</label></span>       
+                <span><input type="checkbox" name="subject" id="6" value="IELTS" onClick="subject_bgColor(this);"><label for="6">IELTS</label></span>       
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject7" value="JPT"><label for="subject7">JPT</label></span>
+                <span><input type="checkbox" name="subject" id="7" value="JPT" onClick="subject_bgColor(this);"><label for="7">JPT</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject8" value="JLPT"><label for="subject8">JLPT</label></span>
+                <span><input type="checkbox" name="subject" id="8" value="JLPT" onClick="subject_bgColor(this);"><label for="8">JLPT</label></span>
             </div>
             <div class="col-2">
             </div>
@@ -479,31 +475,31 @@
         </div>
             <div class="row">
                 <div class="col-2 round">
-                    <span><input type="checkbox" name="subject" id="subject11" value="국어"><label for="subject11">국어</label></span>
+                    <span><input type="checkbox" name="subject" id="11" value="국어" onClick="subject_bgColor(this);"><label for="11">국어</label></span>
                 </div>
                     <span></span>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject12" value="영어"><label for="subject12">영어</label></span>
+                   <span><input type="checkbox" name="subject" id="12" value="영어" onClick="subject_bgColor(this);"><label for="12">영어</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject13" value="수학"><label for="subject13">수학</label></span>
+                   <span><input type="checkbox" name="subject" id="13" value="수학" onClick="subject_bgColor(this);"><label for="13">수학</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject14" value="한국사"><label for="subject14">한국사</label></span>
+                   <span><input type="checkbox" name="subject" id="14" value="한국사" onClick="subject_bgColor(this);"><label for="14">한국사</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject15" value="제2외국어"><label for="subject15">제2외국어</label></span>
+                   <span><input type="checkbox" name="subject" id="15" value="제2외국어" onClick="subject_bgColor(this);"><label for="15">제2외국어</label></span>
                 </div>
             </div>
             <div class="row justify-content-center">
             <div class="col-2 round">
-               <span><input type="checkbox" name="subject" id="subject16" value="사탐"><label for="subject16">사회</label></span>
+               <span><input type="checkbox" name="subject" id="16" value="사탐" onClick="subject_bgColor(this);"><label for="16">사회</label></span>
             </div>
             <div class="col-2 round">
-               <span><input type="checkbox" name="subject" id="subject17" value="과탐"><label for="subject17">과학</label></span>
+               <span><label for="17"><input type="checkbox" name="subject" id="17" value="과탐" onClick="subject_bgColor(this);">과학</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="subject18" value="기타"><label for="subject18">기타</label></span>
+                <span><label for="18"><input type="checkbox" name="subject" id="18" value="기타" onClick="subject_bgColor(this);">기타</label></span>
             </div>
             <div class="col-2">
             </div>
@@ -521,19 +517,19 @@
                 <div class="col-1">
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject19" value="9급"><label for="subject19">9급</label></span>
+                   <span><input type="checkbox" name="subject" id="19" value="9급" onClick="subject_bgColor(this);"><label for="19">9급</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject20" value="7급"><label for="subject20">7급</label></span>
+                   <span><input type="checkbox" name="subject" id="20" value="7급" onClick="subject_bgColor(this);"><label for="20">7급</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject21" value="5급"><label for="subject21">5급</label></span>
+                   <span><input type="checkbox" name="subject" id="21" value="5급" onClick="subject_bgColor(this);"><label for="21">5급</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject22" value="군무원"><label for="subject22">군무원</label></span>
+                   <span><input type="checkbox" name="subject" id="22" value="군무원" onClick="subject_bgColor(this);"><label for="22">군무원</label></span>
                 </div>
                 <div class="col-2 round">
-                    <span><input type="checkbox" name="subject" id="subject23" value="경찰공무원"><label for="subject23">경찰공무원</label></span>
+                    <span><input type="checkbox" name="subject" id="23" value="경찰공무원" onClick="subject_bgColor(this);"><label for="23">경찰공무원</label></span>
                 </div>
                 <div class="col-1">
                 </div>
@@ -542,10 +538,10 @@
                 <div class="col-1">
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject24" value="소방공무원"><label for="subject24">소방공무원</label></span>
+                   <span><input type="checkbox" name="subject" id="24" value="소방공무원" onClick="subject_bgColor(this);"><label for="24">소방공무원</label></span>
                 </div>
                 <div class="col-2 round">
-                   <span><input type="checkbox" name="subject" id="subject25" value="기타"><label for="subject25">기타</label></span>
+                   <span><input type="checkbox" name="subject" id="25" value="기타" onClick="subject_bgColor(this);"><label for="25">기타</label></span>
                 </div>
                 <div class="col-2">
                 </div>
@@ -565,6 +561,21 @@
                     <hr>
                 </div>
             </div>
+            <script type="text/javascript">
+                function subject_bgColor(obj){
+                    var x = document.getElementsByName("subject");
+                    if(x[obj.id].style.backgroundColor == "dodgerblue"){
+                        x[obj.id].style.backgroundColor = "white";
+                        x[obj.id].style.border = "solid 0.125rem lightgray";
+                        x[obj.id].style.color = "dimgray";
+                    }
+                    else{
+                        x[obj.id].style.backgroundColor = "dodgerblue";
+                        x[obj.id].style.border = "dodgerblue";
+                        x[obj.id].style.color = "white";
+                    }
+                }
+            </script>
         <!-- 학업 수준 -->
         <div class="row justify-content-center">
             <div class="col-4"></div>
@@ -665,41 +676,41 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char1" value="개념꼼꼼"><label for="lecture_char1">개념꼼꼼</label></span>
+                <span><input type="checkbox" name="lecture_char" id="26" value="개념꼼꼼"><label for="26">개념꼼꼼</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char2" value="유형탄탄"><label for="lecture_char2">유형탄탄</label></span>
+                <span><input type="checkbox" name="lecture_char" id="27" value="유형탄탄"><label for="27">유형탄탄</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char3" value="강화학습"><label for="lecture_char3">강화학습</label></span>
+                <span><input type="checkbox" name="lecture_char" id="28" value="강화학습"><label for="28">강화학습</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char4" value="스토리텔링"><label for="lecture_char4">스토리텔링</label></span>
+                <span><input type="checkbox" name="lecture_char" id="29" value="스토리텔링"><label for="29">스토리텔링</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char5" value="다양한 예시"><label for="lecture_char5">다양한 예시</label></span>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char6" value="공부방향 제시"><label for="lecture_char6">공부방향 제시</label></span>
-            </div>
-            <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char7" value="시험유형 콕콕"><label for="lecture_char7">시험유형 콕콕</label></span>
-            </div>
-            <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char8" value="문제풀이"><label for="lecture_char8">문제풀이</label></span>
-            </div>
-            <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char9" value="단기완성"><label for="lecture_char9">단기완성</label></span>
-            </div>
-            <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char10" value="기출분석"><label for="lecture_char10">기출분석</label></span>
+                <span><input type="checkbox" name="lecture_char" id="30" value="다양한 예시"><label for="30">다양한 예시</label></span>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="lecture_char" id="lecture_char11" value="자료분석"><label for="lecture_char11">자료분석</label></span>
+                <span><input type="checkbox" name="lecture_char" id="31" value="공부방향 제시"><label for="31">공부방향 제시</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="32" value="시험유형 콕콕"><label for="32">시험유형 콕콕</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="33" value="문제풀이"><label for="33">문제풀이</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="34" value="단기완성"><label for="34">단기완성</label></span>
+            </div>
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="35" value="기출분석"><label for="35">기출분석</label></span>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2 round">
+                <span><input type="checkbox" name="lecture_char" id="36" value="자료분석"><label for="36">자료분석</label></span>
             </div>
             <div class="col-2">
             </div>
@@ -725,33 +736,33 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char1" value="조곤조곤"><label for="teacher_char1">조곤조곤</label></span>
+                <span><input type="checkbox" name="teacher_char" id="37" value="조곤조곤"><label for="37">조곤조곤</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char2" value="열정형"><label for="teacher_char2">열정형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="38" value="열정형"><label for="38">열정형</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char3" value="집중형"><label for="teacher_char3">집중형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="39" value="집중형"><label for="39">집중형</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char4" value="동기부여형"><label for="teacher_char4">동기부여형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="40" value="동기부여형"><label for="40">동기부여형</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char5" value="유머형"><label for="teacher_char5">유머형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="41" value="유머형"><label for="41">유머형</label></span>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char6" value="판서형"><label for="teacher_char6">판서형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="42" value="판서형"><label for="42">판서형</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char7" value="팩트체크형"><label for="teacher_char7">팩트체크형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="43" value="팩트체크형"><label for="43">팩트체크형</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char8" value="꼼꼼형"><label for="teacher_char8">꼼꼼형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="44" value="꼼꼼형"><label for="44">꼼꼼형</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="teacher_char" id="teacher_char9" value="질문형"><label for="teacher_char9">질문형</label></span>
+                <span><input type="checkbox" name="teacher_char" id="45" value="질문형"><label for="45">질문형</label></span>
             </div>
             <div class="col-2">
             </div>
