@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from invi_app.models import Feature, Lecture, Lecturefeature, Teacherfeature, Teacher, Lectureteacher, Lecturecategory, Category
 from django.db.models import Q
-from django.contrib import auth
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 
 def main(request):
