@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_filters',
     'django.contrib.sites',
 
     #allauth
@@ -73,8 +72,7 @@ ROOT_URLCONF = 'invi_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['main/templates'],
-        'DIRS': ['invi_project/templates'],
+        'DIRS': ['invi_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

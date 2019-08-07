@@ -16,16 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path, include
+from django.conf.urls import url
 import main.views
 import invi_app.views
 import hier.views
 
-urlpatterns = [
-    url(r'^hier/', include('hier.urls')),
+urlpatterns=[
+    path('', include('main.urls')), # 메인페이지
+    path('invi_app/', include('invi_app.urls')),
+    path('hier/', include('hier.urls')),
     path('admin/', admin.site.urls),
-    path('search/highhits/', invi_app.views.search_highhits, name="search_highhits"),
-    path('save/', invi_app.views.save, name='save'),
-    path('mypage/', invi_app.views.mypage, name='mypage'),
-    path('', invi_app.views.main, name="main"), #메인 페이지
-    path('main/', include('main.urls')),
 ]

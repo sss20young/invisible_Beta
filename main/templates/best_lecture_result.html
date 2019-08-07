@@ -193,26 +193,31 @@
         </div>
     </div>
     <br>
-    {% for post in lecture_list %} 
+    {% for one, two, three in lec_feat %} 
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
             <div class="lecture_box">
                 <div class="row" style="padding-top:1.2rem; padding-bottom:0">
                     <div class="col-1" style="padding-left:2rem;"><img class="download" src="{% static 'img/ebs.png' %}" style="width:4rem; height:4rem;"></div>
-                    <div class="col-10 lecture_title" style="padding-left:2rem;">{{ post.lecture_title }}</div>
+                    <div class="col-10 lecture_title" style="padding-left:2rem;">{{ one.lecture_title }}</div>
                     <div class="col-1"><img class="image" src="{% static 'like.png' %}"></div>
                 </div>
                 <div class="row">
                     <div class="col-1"></div>
-                    <div class="col-2 lecture_text">{{ post.lectureteacher.teacher.teacher_name }} 선생님</div>|
-                    <div class="col-2 lecture_text" >총 {{ post.lecture_totalnum }}강</div>|
-                    <div class="col-2 lecture_text">수강기간 {% if post.lecture_day == None %} 0 {% else %} {{ post.lecture_day }} {% endif %}일</div>
+                    <div class="col-2 lecture_text">{{ three.teacher_name }} 선생님</div>|
+                    <div class="col-2 lecture_text" >총 {{ one.lecture_totalnum }}강</div>|
+                    <div class="col-2 lecture_text">수강기간 {% if post.lecture_day == None %} 0 {% else %} {{ one.lecture_day }} {% endif %}일</div>
                     <div class="col-6"></div>
                 </div>
                 <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-2 feature_box">{{ two.feature_name }}</div>
+                    <div class="col-8"></div>
+                </div>
+                <div class="row">
                     <div class="col-9"></div>
-                    <div class="col-2 lecture_price" id="lecture_price" style="display:inline-block;text-align:right">{{ post.lecture_price }}원</div>
+                    <div class="col-2 lecture_price" id="lecture_price" style="display:inline-block;text-align:right">{{ one.lecture_price }}원</div>
                     <div class="col-1"></div>
                 </div>
             </div>
