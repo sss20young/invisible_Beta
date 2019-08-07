@@ -58,14 +58,20 @@ def select_lecture(request):
 
     cate_id = Category.objects.filter(Q(category1=category1s)&Q(category2=category2s)&Q(category3=category3s)&Q(category4=category4s)&Q(category5=category5s))
 
-    #lec_list=Lecturecategory.objects.extra(tables=['lectureCategory'], where=['lectureCategory.category_id=%s'%cate_id.values]).values('lecture_id')
+    lec_list=Lecturecategory.objects.extra(tables=['lectureCategory'], where=['lectureCategory.category_id=%s'%cate_id.get().category_id]).values('lecture_id')
 
-    
+    for lec in lec_list:
+        print(lec['lecture_id'])
+        lec_name=Lecture.objects.get(pk=lec['lecture_id'])
+        print(lec_name.lecture_title)
+
+    print(cate_id.get().category_id)
 
 #    lecture_list = list(set(lecture_list))
 
-        # lecture_list = Lecture.objects.filter(Q(lecturecategory__category__category1__in=category1s))
-    return render(request, 'category.html', {'lecture_list':lecture_list, 'category1s':category1s, 'category2s':category2s, 'category3s':category3s, 'category4s':category4s, 'category5s':category5s})
+    lecture_list = Lecture.objects.filter(Q(lecturecategory__category__category1__in=category1s))
+
+    return render(request, 'category.html', {'lecture_list':lecture_list, 'category1s':category1s, 'category2s':category2s, 'category3s':category3s, 'category4s':category4s, 'category5s':category5s, 'lec_name':lec_name})
 """
     else:
         return render(request, 'category1s','category2s','category3s','category4s','category5')

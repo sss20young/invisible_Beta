@@ -154,8 +154,6 @@ footer > .container {
         sua=document.getElementByclass('cate1').value;
         console.log(sua);
         
-
-        
     }              
 </script>
 
@@ -264,9 +262,7 @@ footer > .container {
         </div>
         <div class="row lecture_boxes">
             <div class="col-8">
-            {% for item in lecture_list %}
                 <span>{{ item }}</span>
-            {% endfor %}
             </div>
                 <div class="lecture_box">
                     <div class="row">
@@ -274,7 +270,9 @@ footer > .container {
                             <img class="download" src="{% static 'img/ebs.png' %}">
                         </div>
                         <div class="col-8">
-                            <span>{{ Lecture.lecture_title }}</span>
+                        {% for lec_name in lecture_list %}
+                            <span>{{ lec_name.lecture_title }}</span>
+                        {% endfor %}
                         </div>
                         <div class="col-1">
                             <img class="heart_blue" src="{% static 'img/heart_blue.svg' %}" onclick=()>
