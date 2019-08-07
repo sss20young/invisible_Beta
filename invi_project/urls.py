@@ -21,11 +21,8 @@ import invi_app.views
 import hier.views
 
 urlpatterns=[
+    path('', include('main.urls')), # 메인페이지
     path('invi_app/', include('invi_app.urls')),
     path('hier/', include('hier.urls')),
-    path('main/', include('main.urls')),
     path('admin/', admin.site.urls),
-    path('save/', invi_app.views.save, name='save'),
-    path('mypage/', invi_app.views.mypage, name='mypage'),
-    path('', main.views.main, name="main"), #메인 페이지
 ]

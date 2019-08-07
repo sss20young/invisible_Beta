@@ -1,9 +1,9 @@
 <!--마이페이지에 적용되는 베이스.html 입니다-->
 <!doctype html>
 <html lang="en">
-  <head>
-        <link rel="stylesheet" type="text/css" href="default.css">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <link rel="stylesheet" type="text/css" href="default.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +14,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Mypage</title>
+    <title>Invisible</title>
     <style>
         @viewport { width: device-width; }
 
@@ -106,12 +106,12 @@
         /* footer */
         footer {
 
-            background-color: #8a8a8a; !important;
-            height: 15.625rem; !important;
+            background-color: #8a8a8a !important;
+            height: 15.625rem !important;
             width: 100%;
-            bottom: 0; !important;
-            color: #ffffff; !important;
-            white-space:nowrap; !important;
+            bottom: 0 !important;
+            color: #ffffff !important;
+            white-space:nowrap !important;
         }
         footer > a:link, a:visited, a[mailto], .Email-officialinvisible030gmailcom-Insta-_invisible_official_ {
             height: 1.813rem;
@@ -182,8 +182,8 @@
         }
 
     </style>
-  </head>
-  <body>
+</head>
+<body>
      {% load staticfiles %}
    
     <!-- Optional JavaScript -->
@@ -252,22 +252,19 @@
             </div>
         </div>
         </div>
-            
-        
-        </header>
+    </header>
 
     <section> 
-            <div style="
-            background-color: transparent;
-            position:fixed;
-            width:150px;
-            top:59.4%; 
-            left:88%; 
-            ">
+        <div style="
+        background-color: transparent;
+        position:fixed;
+        width:150px;
+        top:59.4%; 
+        left:88%; 
+        ">
             <a href="https://pf.kakao.com/_YxbYsT">
                 <img src="{% static 'img/kakaotalk@3x.png' %}" height="100%" width="100%" >
-            </a>
-            
+            </a>       
         </div>
         <div style="
             background-color: transparent;
@@ -281,43 +278,41 @@
     {% block content %}
 
     
-    
     {% endblock content%} 
-    </div>
     </section>
     <footer>
-            <div class="container">
-                <div class="row no-gutter" id="#footer_logo">
-                    <div class="col">
-                        <a href="{% url 'main' %}"><img src="{% static 'img/invisible_logo_white.svg' %}" class="invisible_logo_white" alt="invisible"></a>
-                    </div>
-                    <div class="col">
-                    </div>
-                    <div classd="col">
-                    </div>
+        <div class="container">
+            <div class="row no-gutter" id="#footer_logo">
+                <div class="col">
+                    <a href="{% url 'main' %}"><img src="{% static 'img/invisible_logo_white.svg' %}" class="invisible_logo_white" alt="invisible"></a>
                 </div>
-                <div class="row no-gutter">
-                    <div class="col">
-                        <div class="Email-officialinvisible030gmailcom-Insta-_invisible_official_" id="sentence">
-                            <a href="" style="text-decoration: none; color: white;">Email  |  officialinvisible030@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="col">
-                    </div>
-                    <div class="col">
-                    </div>
+                <div class="col">
                 </div>
-                <div class="row no-gutter">
-                    <div class="col">
-                        <a href="https://www.instagram.com/_invisible_official_/" target="_blank" class="insta_invisible_official" id="sentence" style="text-decoration: none; color: white;">Insta  |  @_invisible_official_</a>
-                    </div>
-                    <div class="col">
-                    </div>
-                    <div class="col">
-                        <div class="-Invisible-Co-Ltd-All-rights-reserved" id="copyright" style="text-decoration: none; color: white;" >© Invisible Co., Ltd. All rights reserved.</div>
-                    </div>
+                <div classd="col">
                 </div>
             </div>
-        </footer>
+            <div class="row no-gutter">
+                <div class="col">
+                    <div class="Email-officialinvisible030gmailcom-Insta-_invisible_official_" id="sentence">
+                        <a href="" style="text-decoration: none; color: white;">Email  |  officialinvisible030@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row no-gutter">
+                <div class="col">
+                    <a href="https://www.instagram.com/_invisible_official_/" target="_blank" class="insta_invisible_official" id="sentence" style="text-decoration: none; color: white;">Insta  |  @_invisible_official_</a>
+                </div>
+                <div class="col">
+                </div>
+                <div class="col">
+                    <div class="-Invisible-Co-Ltd-All-rights-reserved" id="copyright" style="text-decoration: none; color: white;" >© Invisible Co., Ltd. All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
