@@ -4,7 +4,9 @@ from django.contrib import auth
 # from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-
+from .models import User
+from .forms import SigninForm, SignupForm 
+from django.contrib.auth import login,logout
 q='' # 정렬을 위한 전역 변수 선언
 
 def about(request):
@@ -259,11 +261,54 @@ def search_highhits(request):
 def main(request):
     return render(request, 'main.html')
 
-def signup(request):
-    return render(request, 'signup.html')
 
-def login(request):
-    return render(request, 'login.html')
+def signup(request):#역시 GET/POST 방식을 사용하여 구현한다.
+    if request.method == "GET":
+        return render(request, 'signup.html', {'f':SignupForm()} )
+    
+    
+    elif request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            if form.cleaned_data['password']  == form.cleaned_data['password_check']:
+#cleaned_data는 사용자가 입력한 데이터를 뜻한다.
+#즉 사용자가 입력한 password와 password_check가 맞는지 확인하기위해 작성해주었다.
+
+                new_user = User.objects.create_user(form.cleaned_data['user_email'],form.cleaned_data['password'])
+#User.object.create_user는 사용자가 입력한 name, email, password를 가지고 아이디를 만든다.
+#바로 .save를 안해주는 이유는 User.object.create를 먼저 해주어야 비밀번호가 암호화되어 저장된다.
+
+                #new_user.save()
+                
+                
+                return render(request, 'main.html')      
+            else:
+                return render(request, 'signup.html',{'f':form, 'error':'비밀번호와 비밀번호 확인이 다릅니다.'})#password와 password_check가 다를 것을 대비하여 error를 지정해준다.
+
+        else: #form.is_valid()가 아닐 경우, 즉 유효한 값이 들어오지 않았을 경우는
+
+            return render(request, 'signup.html',{'f':form})
+def login(request):#로그인 기능
+    if request.method == "GET":
+        return render(request, 'login.html', {'f':SigninForm()} )
+    
+    elif request.method == "POST":
+        form = SigninForm(request.POST)
+        user_email = request.POST['user_email']
+        password = request.POST['password']
+        u = User(user_email=user_email, password=password)
+        print(u)
+#authenticate를 통해 DB의 username과 password를 클라이언트가 요청한 값과 비교한다.
+#만약 같으면 해당 객체를 반환하고 아니라면 none을 반환한다.
+
+        if u: #u에 특정 값이 있다면
+            u_email=User.objects.get(pk=user_email)#u 객체로 로그인해라
+            request.session['user_email']=user_email
+            request.session['password']=password
+            return render(request,'main.html',{'u_email':u_email})
+        else:
+            return render(request, 'login.html',{'f':form, 'error':'아이디나 비밀번호가 일치하지 않습니다.'})
+    
 
 def findpw(request):
     return render(request, 'findpw.html')
@@ -339,10 +384,9 @@ def selectkeyword(request):
     return render(request, 'selectkeyword.html')
 
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('main')
-    return render(request, 'login.html')
+    del request.session['user_email']
+    del request.session['password']
+    return render(request, 'main.html')
 
 def hackathon_event(request):
     return render(request, 'hackathon_event.html')
