@@ -116,7 +116,7 @@
         footer > a:link, a:visited, a[mailto], .Email-officialinvisible030gmailcom-Insta-_invisible_official_ {
             height: 1.813rem;
             align-items: baseline;
-            color: #ffffff;
+        
         }
         .invisible_logo_white {
             padding-top: 4.375rem;
@@ -220,12 +220,13 @@
             
             <div class="col-2" style="margin: 2.250rem 0rem 1.563rem 0rem;">
                  
-            {% if user.is_authenticated %}
+            {% if request.session.user_email %}
             <a href="{% url 'likedlecture' %}" style="
                     text-decoration: none;
                     color: #323232;
                     font-size: 1.250rem;">
                     마이페이지
+                    
                 </a>
             {% else %}
             
@@ -234,6 +235,7 @@
                     color: #323232;
                     font-size: 1.250rem;">
                     로그인
+
                 </a>
             {% endif %}
             
