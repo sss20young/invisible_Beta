@@ -327,6 +327,7 @@ def mypage(request):
 
     user = userLecture.objects.filter(user_email=유저)
     lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture=lecture.lecture_id AND userLecture.user_email = %s'%user])
+    
     for lec in lecture:
         lec_list.append(lec.lecture_id)
         lec_company.append(lec.lecture_company)
