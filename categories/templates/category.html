@@ -1,0 +1,312 @@
+<!-- {% extends "base_ej.html" %} -->
+
+{% load staticfiles %}
+
+{% block styles %}
+
+<style>
+
+/* page layout */
+.html {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #ffffff;
+    height: 5.625rem;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    width: 75rem;
+    margin: 0 auto;
+}
+
+
+section {
+    justify-content: center;
+    width: 100%;
+    background-color: #f5f8fa;
+    padding-bottom: 15.625rem;
+    position: absolute;
+}
+
+
+/* categories classification */
+
+.category_boxes {
+    margin-bottom: 3.4375rem;
+    border-radius: 0.375rem;
+}
+
+thead > tr > th {
+    background-color: #dbf1ff;
+    text-align: center;
+    height: 
+    }
+
+
+ul  {
+    background-color: #ffffff;
+    overflow: scroll;
+    word-break: break-all;
+    height: 21.875em;
+}
+
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+  height: 4.6875rem;
+}
+
+
+::-webkit-scrollbar-track {
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: #dbf1ff;
+  border-radius: 0.0625rem;
+}
+
+
+/* categories boxes */
+
+.categories {
+}
+
+.controls {
+    justify-content: space-between;
+    padding-top: 3.4375rem;
+    padding-bottom: 2.1875rem;
+    align-items: baseline;
+}
+
+.lectures_in_total {
+    white-space: nowrap;
+    font-size: 2.3125rem;
+}
+
+.standards {
+    justify-content: space-between;
+    white-space: nowrap;
+    align-items: baseline;
+}
+
+.box {
+    margin-bottom: 4.375rem;
+    box-shadow: 0.625rem 0.625rem 1.875rem 0 rgba(206, 206, 206, 0.52);
+    background-color: #ffffff;
+}
+
+.box {
+    width: 75rem;
+    
+}
+
+.lecture_box {
+    width: 75rem;
+    height: 100%;
+    border: 1px solid black;
+    background-color: #cecece;
+    }
+
+.lecture_box_liked {
+    width: 75rem;
+    height: 11.75rem;
+    object-fit: contain;
+    opacity: 0.67;
+    box-shadow: 0 5px 10px 0 #cecece;
+    border: solid 1px #cecece;
+    background-color: #f5f8fa;
+}
+
+.keyword_box {
+  width: 4.6875rem;
+  object-fit: contain;
+  border-radius: 18px;
+  border: solid 1px #1f95ff;
+  background-color: #ffffff;
+}
+/* footer */
+footer {
+    bottom: 0;
+    position: absolute;
+    min-height: 15.625rem;
+}
+
+footer > .container {
+    height: 15.625rem;
+    bottom: 0
+    
+}
+
+</style>
+
+{% endblock styles %}
+
+<script>
+    function abd(obj) {
+        console.log(obj.getAttribute("value"));
+        var sua;
+        sua=document.getElementByclass('cate1').value;
+        console.log(sua);
+        
+
+        
+    }              
+</script>
+
+{% block content %}
+
+<section>
+
+<!-- classification -->
+
+    <div class="container category_boxes">
+        <form action="{% url 'categoryresult' %}" method="POST">
+        {% csrf_token %}
+        <table class="categories">
+            <thead class="classification_depths">
+            <tr>
+                <th>category1</th>
+                <th>category2</th>
+                <th>category3</th>
+                <th>category4</th>
+                <th>category5</th>
+            </tr>
+            </thead>
+            <tbody class="classification_labels">
+                <tr>
+
+                    <td class="category1" style="overflow:scroll;">
+                        <ul>
+                            {% for category in cate1_list %}
+                                {% for cate in category.values %}
+                                    <ol class="category1_class"><input type="radio" id="{{ cate }}" onclick="abd()" name="cate1" value="{{cate}}" >{{ cate }}</ol>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="category2">
+                        <ul>
+                            {% for category in cate2_list %}
+                                {% for cate in category.values %}
+                                    <ol class="category2_class"><input id="{{ cate }}" type="radio" name="cate2"  value="{{cate}}">{{ cate }}</ol>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="category3">
+                        <ul>
+                            {% for category in cate3_list %}
+                                {% for cate in category.values %}
+                                    <ol class="category3_class"><input id="{{ cate }}" type="radio" name="cate3"  value="{{cate}}">{{ cate }}</ol>
+                                {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="category4">
+                        <ul>
+                            {% for category in cate4_list %}
+                                {% for cate in category.values %}
+                                    <ol class="category4_class"><input id="{{ cate }}" type="radio" name="cate4" value="{{cate}}">{{ cate }}</ol>
+                                {% endfor%}
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td class="category5">
+                        <ul>
+                            {% for category in cate5_list %}
+                                {% for cate in category.values %}
+                                    <ol class="category5_class"><input id="{{ cate }}" type="radio" name="cate5" value="{{cate}}" >{{ cate }}</ol>
+                                {% endfor %}
+                            {% endfor %}
+                        <!--
+                            {% for category in cate5_list %}
+                                {% for cate in category.values %}
+                                    <li class="category2_class">{{ cate }}</li>
+                                {% endfor%}
+                            {% endfor %}
+                            -->
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            <input type="hidden" value="${list}">
+          <a href="{% url 'categoryresult'%}">  <input type="submit" style="background-color:#1f95ff" value="찾아보기"/></a>
+        </form>
+    </div>
+<!-- classification ends -->
+
+<div class="alllectureArea">
+    {% comment %} {% for category in cate1_list %}
+        <li>{{ category.category_id }}</li>
+    {% endfor %} {% endcomment %}
+</div>
+<!-- boxes -->
+    <div class="container box">
+    <!-- controls -->
+        <div class="row controls justify-content-center">
+            <div class="col-2">
+                {% comment %} <span class="lectures_in_total">총 {{ Category.objects.all.count }}건의 강의</span> {% endcomment %}
+            </div>
+            <div class="col-5">
+            </div>
+            <div class="col-3 standards">
+                <span>낮은 가격순</span>
+                <span>높은 가격순</span>
+                <span>조회수순</span>
+            </div>
+        </div>
+        <div class="row lecture_boxes">
+            <div class="col-8">
+            {% for item in lecture_list %}
+                <span>{{ item }}</span>
+            {% endfor %}
+            </div>
+                <div class="lecture_box">
+                    <div class="row">
+                        <div class="col-1">
+                            <img class="download" src="{% static 'img/ebs.png' %}">
+                        </div>
+                        <div class="col-8">
+                            <span>{{ Lecture.lecture_title }}</span>
+                        </div>
+                        <div class="col-1">
+                            <img class="heart_blue" src="{% static 'img/heart_blue.svg' %}" onclick=()>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7">
+                            <span>{{ Lecture.lecture_totalnum }}</span>
+                            <span>{{ Lecture.lecture_day }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="keyword_box">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <span class=""><span>
+                    </div>
+                </div>
+            </div>
+                <div class="lecture_box_liked">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock content %}
+<!-- script -->
+<!-- change lecture_box to change lecture_box_liked -->
+
+
