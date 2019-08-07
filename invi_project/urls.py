@@ -14,12 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf.urls import url
 from django.urls import path, include
 import main.views
 import invi_app.views
 import hier.views
 
-urlpatterns=[
+urlpatterns = [
     url(r'^hier/', include('hier.urls')),
     path('admin/', admin.site.urls),
     path('search/highhits/', invi_app.views.search_highhits, name="search_highhits"),
