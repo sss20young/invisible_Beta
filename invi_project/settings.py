@@ -97,7 +97,7 @@ DATABASES = {
         'NAME': 'invisible_db',
         'USER': 'invisibleFamily',
         'PASSWORD': 'GOgetMONEY',
-        'HOST': 'ec2-3-87-64-77.compute-1.amazonaws.com',
+        'HOST': '3.224.195.224',
         'PORT': '3306'
     }
 }
