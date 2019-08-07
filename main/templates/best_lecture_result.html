@@ -2,14 +2,7 @@
 {% load staticfiles %}
 {% block styles %}
 <style>
-    section {
-            padding: 4.625rem 0rem 0rem 0rem; 
-            background:  linear-gradient( to bottom, #1f95ff 15.625rem,#f5f8fa 15.625rem );
-            position: relative;
-            padding-bottom: 15.625rem;
-        }
     .letcure_result_box {
-        
         object-fit: contain;
         border-radius: 0.375rem;
         box-shadow: 0 0 1.875rem 0 rgba(206, 206, 206, 0.16);
@@ -102,7 +95,7 @@
         text-align: left;
         color: #323232;
     }
-    div > .lecture_text {
+    .lecture_text {
         text-align:center;
         color: #6e6e6e;
     }
@@ -127,11 +120,23 @@
         background-color: #f5f8fa;
         box-shadow: 0 5px 10px 0 #cecece;
     }
+    .feature_box {
+        font-family: SpoqaHanSans;
+        font-size: 0.875rem;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.43;
+        letter-spacing: -0.0656rem;
+        text-align: center;
+        color: #1f95ff;
+    }
 </style>
 {% endblock styles %}
 
+
+
 {% block content %}
-<section>
 <div class="container">
     <div class="row no-gutter justify-content-center">
         <div class="col-12 letcure_result_box" style="margin-bottom:4rem">
@@ -187,11 +192,11 @@
         <div class="col-3" style="font-size:1.563rem"> 총 <span style="font-weight: bold; color: #1f95ff">{{ lecture_list |length }}</span>건의 강의</div>
         <div class="col-4"></div>
         <div class="col-3 order" style="text-align: right;">
-            <a>낮은 가격순</a>
-            <a>높은 가격순</a>
-            <a>조회수 순</a>
+            <a href="{% url 'result_lowprice' %}" style="text-decoration: none; color: #323232;">낮은 가격순</a>
+            <a href="{% url 'result_highprice' %}" style="text-decoration: none; color: #323232;">높은 가격순</a>
+            <a href="{% url 'result_highhits' %}" style="text-decoration: none; color: #323232;">조회수 순</a>
         </div>
-        
+
     </div>
     <br>
     {% for one, two, three in lec_feat %} 
@@ -275,5 +280,5 @@
     </div>
 -->
 </div>
-</section>
 {% endblock %}
+

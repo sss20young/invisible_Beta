@@ -4,6 +4,10 @@
 {% block styles %}
 
     <style>
+    section {
+        background:none;
+        padding-top:0;
+    }
     html {
         position: relative;
         min-height: 100vh;
@@ -97,8 +101,6 @@
         object-fit: contain;
     }
     .content_box_text {
-        width: 23.563rem;
-        height: 3.483rem;
         font-size: 1.938rem;    /* 37px */
         font-weight: bold;
         font-style: normal;
@@ -199,6 +201,7 @@
         border-radius: 1.563rem;
         background-image: url("{% static 'img/check.png' %}") ;
         background-color: #1f95ff;
+        z-index:100;
     }
     .price {
         width: 6.75rem;
@@ -253,7 +256,7 @@
     }
     /* 제출 */
     .submit_button {
-        width: 21.88rem;
+        width:21.88rem;
         height: 4.563rem;
         object-fit: contain;
         border-radius: 0.375rem;
@@ -276,7 +279,7 @@
 {% endblock styles %}
 {% block content %}
 
-<section>
+
     <!-- banner -->
     <div class="banner">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -307,27 +310,43 @@
     </div>
 </div>
 <!-- main -->
+<script>
+    function check(form){
+        var sub_chk = document.getElementsByName('subject[]');
+        var sub_num = 0;
+        for (var i=0; i<sub_chk.length; i++){
+            if(sub_chk[i].checked){
+                sub_num++;
+            }
+        }
+        if(!sub_num){
+            alert('하나 이상 선택해주세요.');
+            return false;
+        }
+    }
+</script>
 <div class="container">
-<form method="GET" action="{% url 'result' %}">
+<form method="GET" action="{% url 'result' %}" onsubmit="return check(this);">
     {% csrf_token %}
     <div class="content_box">
             <div class="content_box_title">
                 <div class="row no-gutter" style="margin-top:1.6rem; margin-bottom:0">
-                    <div class="col-5"></div>
-                    <div class="col-2" style="text-align:center;"><img src="{% static 'img/best.png' %}" class="content_best" alt="best"></div>
-                    <div class="col-5"></div>  
+                    <div class="col-12" style="text-align:center;"><img src="{% static 'img/best.png' %}" class="content_best" alt="best"></div>
                 </div>
                 <div class="row no-gutter" style="margin-top:0; margin-bottom:1.6rem">
-                    <div class="col-4"></div>
-                    <div class="col-4" style="text-align:center;"><div class="row content_box_text">나의 BEST 인터넷 강의는?</div></div>
-                    <div class="col-4"></div>
+                    <div class="col-12" style="text-align:center;"><div class="content_box_text">나의 BEST 인터넷 강의는?</div></div>
                 </div>
             </div>
+    <div class="row">
+        <div class="col-4"></div>
+        <h5 class="col-4" style="color:#cecece; padding-top:1rem; text-align:center;">모두 1개이상의 키워드를 선택해주세요.</h5>
+        <div class="col-4"></div>
+    </div>
     <div class="row no-gutter">
         <div class="col-4"></div>
         <div class="col-4">
         <!-- 강의 분야 -->
-            <div class="question" style="margin-top:4rem">원하는 강의 분야를 선택하세요</div>
+            <div class="question">원하는 강의 분야를 선택하세요</div>
         </div>
         <div class="col-4"></div>
     </div>
@@ -340,19 +359,19 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="0" value="TOEIC" onClick="subject_bgColor(this);"><label for="0">TOEIC</label></span>
+                <span><input type="checkbox" name="subject[]" id="0" value="TOEIC" onClick="subject_bgColor(this);"><label for="0">TOEIC</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="1" value="TOFEL" onClick="subject_bgColor(this);"><label for="1">TOFEL</label></span>
+                <span><input type="checkbox" name="subject[]" id="1" value="TOFEL" onClick="subject_bgColor(this);"><label for="1">TOFEL</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="2" value="TEPS" onClick="subject_bgColor(this);"><label for="2">TEPS</label></span>
+                <span><input type="checkbox" name="subject[]" id="2" value="TEPS" onClick="subject_bgColor(this);"><label for="2">TEPS</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="3" value="Toeic Speaking" onClick="subject_bgColor(this);"><label for="3">Toeic Speaking</label></span>
+                <span><input type="checkbox" name="subject[]" id="3" value="Toeic Speaking" onClick="subject_bgColor(this);"><label for="3">Toeic Speaking</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject" id="4" value="OPIC" onClick="subject_bgColor(this);"><label for="4">OPIC</label></span>
+                <span><input type="checkbox" name="subject[]" id="4" value="OPIC" onClick="subject_bgColor(this);"><label for="4">OPIC</label></span>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -747,21 +766,21 @@
         </script>
         <!-- 나의 BEST강의 보러가기 -->
         <div class="row justify-content-center">
-            <div class="col-4">
-                <button type="submit" class="submit_button" onclick="selectChkBox()">나의 BEST강의 보러가기</button>
+            <div class="col-4"></div>
+            <div class="col-4" style="text-align: center">
+                <button type="button" class="submit_button">나의 BEST강의 보러가기</button>
             </div>
+            <div class="col-4"></div>
         </div>
         <br><br>
     </div>
     </form>
 </div>
-</script>
-
 <!---
      카카오톡 고객센터
     <img src="{% static 'img/kakaotalk.png' %}"
      class="kakaotalk" alt="kakaotalk">
 --->
-</section>
+
 
 {% endblock %}
