@@ -36,6 +36,7 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 # Application definition
 
 INSTALLED_APPS = [
+    'mypage.apps.MypageConfig',
     'invi_app.apps.InviAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -43,6 +44,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #provider 구글 페이스북 카톡 깃허브 등 소셜로그인 제공업체
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.google',
 
 ]
 
@@ -86,7 +97,7 @@ DATABASES = {
         'NAME': 'invisible_db',
         'USER': 'invisibleFamily',
         'PASSWORD': 'GOgetMONEY',
-        'HOST': 'ec2-3-87-64-77.compute-1.amazonaws.com',
+        'HOST': '3.224.195.224',
         'PORT': '3306'
     }
 }
@@ -131,8 +142,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'invi_app', 'static')
+    os.path.join(BASE_DIR, 'invi_app', 'static'),
+    os.path.join(BASE_DIR, 'mypage', 'static')
 ]
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')
+
+AUTHENTICATION_BACKENDS = (
+    #Needed to login by username in Django admin, regardless of 'allauth'
+    'django.contrib.auth.backends.ModelBackend',
+    
+    # 'allauth' specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
+SOCIALACCOUNT_AUTO_SIGNUP = True
 

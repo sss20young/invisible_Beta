@@ -1,0 +1,117 @@
+<!-- 나의 강의 타입 페이지-->
+{% extends 'base_rh.html' %}
+
+{% block content %}
+{% load staticfiles %}
+
+
+
+  <div class="row" style="text-align: center; font-size: 1.250rem;  padding: 0.438rem 0rem 0.500rem 0rem; background-color: #f7f7f7">
+            <div class="col-4" style="border-right: solid  0.10rem #cecece; ">
+                <a style="color: #6e6e6e;">좋아요한 강의</a>
+            </div>
+            <div class="col-4" style="border-right: solid  0.10rem #cecece; ">
+                <a href="{% url 'selectkeyword' %}" style="color: #6e6e6e;">선호 키워드 선택</a>
+            </div>
+            <div class="col-4" style = "border-bottom : solid #1f95ff;">
+                <a href="{% url 'mytype' %}" style="color: #1f95ff; font-weight: bold;">나의 강의타입</a>
+            </div>
+        </div>
+
+<div class="row" style="
+    text-align: center; 
+    padding: 2.188rem 0rem 0rem 0rem;">
+        <div class="col-4" style="border-right: solid  0.10rem #cecece;">
+            <img src="../static/img/lecture.svg">
+        </div>
+        <div class="col-4" style="border-right: solid  0.10rem #cecece;">
+            <img src="../static/img/teacher.svg">
+        </div>
+        <div class="col-4">
+            <img src="../static/img/subject.svg">
+        </div>
+</div>
+
+<div class="row" style="   
+    text-align: center;
+    font-size: 1.250rem;
+    font-weight: bold;
+    color: #6e6e6e;">
+        <div class="col-4 left_border" style="
+        padding: 0.625rem 0rem 0rem 0rem;">
+            나의 관심 강좌키워드
+        </div>
+        <div class="col-4 left_border" style="
+        padding: 0.625rem 0rem 0rem 0rem;">
+            나의 관심 선생님키워드
+        </div>
+        <div class="col-4" style="
+        padding: 0.625rem 0rem 0rem 0rem;">
+            나의 관심 강의분야
+        </div>
+</div>
+
+<div class="row" >
+    <div class="col-4 left_border" style="
+    padding: 1.563rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+                {{lecture_chars.0}}
+        </div>
+    </div>
+    <div class="col-4 left_border" style="
+    padding: 1.563rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+        {{teacher_chars.0}}
+        </div>
+    </div>
+    <div class="col-4" style="
+    padding: 1.563rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+
+        </div>
+    </div>
+</div>
+
+<div class="row" style="text-align: center;">
+    <div class="col-4 left_border" style="
+    padding: 1.875rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+        {{lecture_chars.1}}  
+        </div>
+    </div>
+    <div class="col-4 left_border" style="
+    padding: 1.875rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+        {{teacher_chars.1}}
+        </div>
+    </div>
+    <div class="col-4" style="
+    padding: 1.875rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+
+        </div>
+    </div>
+</div>
+
+<div class="row" style="text-align: center;">
+    <div class="col-4 left_border" style="
+    padding: 1.875rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+        {{lecture_chars.2}}  
+        </div>
+    </div>
+    <div class="col-4 left_border" style="
+    padding: 1.875rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox">
+        {{teacher_chars.2}}
+        </div>
+    </div>
+    <div class="col-4" style="
+    padding: 1.875rem 3.906rem 0rem 3.906rem;">
+        <div class="typebox"></div>
+    </div>
+</div>
+
+<div class="row" style="padding: 0rem 0rem 22.813rem 0rem;"></div>
+{% endblock content%}  
+
