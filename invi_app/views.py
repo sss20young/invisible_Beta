@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Lecture, Lecturefeature, Userlecture, Feature, Lectureteacher, User, Teacher
 from django.contrib import auth
-# from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-from .models import User
 from .forms import SigninForm, SignupForm 
 from django.contrib.auth import login,logout
+
 q='' # 정렬을 위한 전역 변수 선언
+getuser='' # 유저사용을 위한 전역 변수 선언
 
 def about(request):
     return render(request, 'about.html')
@@ -260,7 +260,8 @@ def search_highhits(request):
 
 def main(request):
     return render(request, 'main.html')
-    
+
+
 def signup(request):#역시 GET/POST 방식을 사용하여 구현한다.
     if request.method == "GET":
         return render(request, 'signup.html', {'f':SignupForm()} )
@@ -318,14 +319,31 @@ def changepw(request):
 def auth_number(request):
     return render(request, 'auth_number.html')
 
-def mypage(request):
+def like_save(request):
+    global getuser
+    getlec = Lecture.objects.get(lecture_id=int(request.GET['lecture_id']))
+    getuser = User.objects.get(user_email=str(request.GET['user_email']))
+
+    # 좋아요한 lecture_id와 user_email 저장
+    like = Userlecture(lecture=getlec, user_email=getuser)
+    like.save()
+
+    # if like in Userlecture:
+    #     like.delete()
+
+    return render(request, 'main.html')
+
+
+def likedlecture(request):
+
+    # 좋아요한 강의 보여주기
     lec_list=[]
     lec_company=[]
     feature=[]
     teacher=[]
 
-    user = userLecture.objects.filter(user_email=유저)
-    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture=lecture.lecture_id AND userLecture.user_email = %s'%user])
+    user = User.objects.extra(tables=['userLecture'], where=['userLecture.user_email=user.user_email AND userLecture.user_email = %s'%getuser])
+    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id'])
     
     for lec in lecture:
         lec_list.append(lec.lecture_id)
@@ -361,20 +379,7 @@ def mypage(request):
      
     lec_like=zip(lecture, feature, teacher)
 
-    return render(request, 'mypage.html', {'count' : len(user), 'lec_like': lec_like})
-
-def save(request):
-    getlec = Lecture.objects.get(lecture_id=int(request.GET['lecture_id']))
-    getuser = User.objects.get(user_email=str(request.GET['user_email']))
-
-    # 좋아요한 lecture_id와 user_email 저장
-    like = Userlecture(lecture=getlec, user_email=getuser)
-    like.save()
-
-    return render(request, 'mypage.html')
-
-def likedlecture(request):
-    return render(request, 'likedlecture.html')
+    return render(request, 'likedlecture.html', {'count' : len(lecture), 'lec_like': lec_like})
 
 def mytype(request):
     return render(request, 'mytype.html')
