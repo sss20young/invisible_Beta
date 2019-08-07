@@ -55,6 +55,9 @@ INSTALLED_APPS = [
     #provider 구글 페이스북 카톡 깃허브 등 소셜로그인 제공업체
     'allauth.socialaccount.providers.naver',
     'allauth.socialaccount.providers.google',
+
+    #category
+    'categories',
 ]
 
 MIDDLEWARE = [

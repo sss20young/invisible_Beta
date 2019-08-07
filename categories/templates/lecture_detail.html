@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block styles%}
+
+<style>
+
+* {font-family: spoqa han sans, }
+
+.html {
+    min-height: 100vh;
+}
+
+.container {
+    object-fit: contain;
+    box-shadow: 10px 10px 30px 0 rgba(206, 206, 206, 0.52);
+    background-color: #ffffff;
+}
+
+.title > span {
+    width: 100%;
+    white-space: nowrap;
+    line-height: 2.875rem;
+    margin-bottom: 1.9rem;
+    font-family: SpoqaHanSans;
+    height: 43px;
+    font-size: 1.813em;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.59;
+    letter-spacing: -1.74px;
+    text-align: left;
+    color: #323232;
+
+    }
+
+.recommendations {
+  width: 100%;
+  height: 43px;
+  font-size: 29px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.59;
+  letter-spacing: -1.74px;
+  text-align: left;
+  color: #323232;
+}
+
+/* contents */
+.box {
+
+}
+
+.row {
+    justify-content: center;
+}
+
+.col-2, .col-6 {
+    white-space: nowrap;
+    margin-bottom: 0.438em;
+}
+
+.lecture_box {
+    margin-top: 1.219rem;
+}
+
+.button {
+    width: 100%;
+}
+
+
+</style>
+{% endblock styles %}
+
+{% block content %}
+<!-- from db -->
+<section>
+
+    <div class="container box">
+
+        <div class="row">
+            <div class="col-1">
+            <!-- thumbnail -->
+            </div>
+            <div class="col-9 title">
+                <span>{{ lecture.lecture_title }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li class="lecture_teacher">강사명</li>
+            </div>
+            <div class="col-6">
+            {% for post in lectureteacher.objects.all %}
+                <span>{{ lectureteacher.teacher }}</span>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li class="lecture_totalnum">전체강의</li>
+            </div>
+            <div class="col-6">
+                <span>{{ lecture.lecture_totalnum }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li class="lecture_day">수강기간</li>
+            </div>
+            <div class="col-6">
+                <span>{{ lecture.lecture_day }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li>평균강의</li>
+            </div>
+            <div class="col-6">
+                <span></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li>교재명</li>
+            </div>
+            <div class="col-6">
+                <span>{{ book.book_name }}</span>
+                <span>{{ book.book_price }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li>강의스타일</li>
+            </div>
+            <div class="col-6">
+                <span>{{ lecturefeature.feature }}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">
+                <li>선생님스타일</li>
+            </div>
+            <div class="col-6">
+                <span>{{ teacherfeature.feature }}</span>
+            </div>
+            <div class="col-2">
+                <span class="lecture_price">{{ lecture.lecture_price }}</span>
+        <!-- url -->
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 3.438rem; margin-top: 1.875rem">
+            <div class="col-8">
+                <a href="{{ lecture.lecture_url }}">
+                    <button class="btn btn-primary" style="width:100%; text-align: center;">
+                        <span class="lecture_url">강의 보러가기</span>
+                    </button>
+                </a>
+            </div>
+            <div class="col-1">
+                <!-- heart button :like-->
+            </div>
+        </div>
+        <!-- hr -->
+        <div class="row">
+            <div class="col-9">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <span class="recommendations">이런 강의는 어떠세요?<span>
+            </div>
+        </div>
+        <!-- for문 돌면서 같은 lecturefeature 강의들 box 표시 -->
+        <div class="row">
+            <div class="col-9 lecture_box">
+            </div>
+        </div>
+        <!-- endfor -->
+
+    <!-- end container box -->
+    </div>
+
+</section>
+<!-- return same -->
+{% endblock content %}
+
