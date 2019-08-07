@@ -1,0 +1,24 @@
+{% extends 'base_sj.html' %}
+{% block content %}
+
+{% load staticfiles %}
+<style>
+    body {
+        background-color: #f5f8fa;
+    }
+    section{
+        padding: 0rem 0rem 0rem 0rem;
+        background: none;
+        position: relative;
+    }
+    .about {
+        width: 100%;
+        margin: 3.125rem 0rem 3.125rem 0rem;
+    }
+</style>
+
+<div class="container">
+    <img src="{% static 'img/about.jpg' %}" class ="about">
+</div>
+  
+{% endblock %}

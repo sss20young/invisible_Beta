@@ -38,6 +38,8 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 INSTALLED_APPS = [
     'mypage.apps.MypageConfig',
     'invi_app.apps.InviAppConfig',
+    'main.apps.MainConfig',
+    'hier.apps.HierConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +56,6 @@ INSTALLED_APPS = [
     #provider 구글 페이스북 카톡 깃허브 등 소셜로그인 제공업체
     'allauth.socialaccount.providers.naver',
     'allauth.socialaccount.providers.google',
-
 ]
 
 MIDDLEWARE = [
@@ -72,7 +73,7 @@ ROOT_URLCONF = 'invi_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['invi_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,7 +144,8 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'invi_app', 'static'),
-    os.path.join(BASE_DIR, 'mypage', 'static')
+    os.path.join(BASE_DIR, 'mypage', 'static'),
+    os.path.join(BASE_DIR, 'main/static'),
 ]
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')
@@ -156,10 +158,12 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 300
 SOCIALACCOUNT_AUTO_SIGNUP = True
-

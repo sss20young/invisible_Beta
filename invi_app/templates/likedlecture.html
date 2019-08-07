@@ -1,0 +1,68 @@
+<!--좋아요한 강의 페이지-->  
+{% extends 'base_sj.html' %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="container section_box">
+    <!-- Image and text -->
+
+    <div class="row" style=" padding: 2.688rem 0rem 3.125rem 0rem">
+        <div class="col-1" style="padding: 0rem 0rem 0rem 0rem;"></div>
+        <div class="col-1" style="padding: 0rem 0rem 0rem 0rem;">
+                <img src="{% static 'img/profile.svg'%}">        
+        </div>
+        <div class="col-8" style="
+        padding: 1.125rem 0rem 1.125rem 0rem; 
+        font-size: 1.250rem;
+        color: #323232;">
+            {{request.session.user_email}}
+        </div>
+        <div class="col-1" style="
+        padding: 1.125rem 0rem 1.125rem 0rem; 
+        font-weight: bold; 
+        font-size: 1.125em; 
+        text-align: right;
+        color: #6e6e6e;
+        margin: 0rem 0.938rem 0rem 0rem;">
+            <a href="javascript:{document.getElementById('logout').submit()}" style="color: #6e6e6e; text-decoration: none;" >로그아웃</a>
+            <form id="logout" method="POST" action="{% url 'logout' %}">
+                {% csrf_token %} <input type="hidden" />
+            </form>
+        </div>
+        <div class="col-1"style="padding: 0rem 0rem 0rem 0rem;"></div>
+    </div>
+    
+    <div class="row" style="text-align: center; font-size: 1.250rem;  padding: 0.438rem 0rem 0.250rem 0rem; background-color: #f7f7f7; ">
+        <div class="col-4" style="border-right: solid  0.10rem #cecece;" >
+            <a href="{% url 'likedlecture' %}" style="color: #6e6e6e; text-decoration: none;">
+                <div class="liked_click" style="
+                border-bottom: thick solid #1f95ff;
+                border-width : 0.125rem;
+                font-weight: bold;
+                color: #1f95ff;">
+                    좋아요한 강의
+                </div>
+            </a>
+        </div>
+        <div class="col-4 ketword_click" style="border-right: solid  0.10rem #cecece; ">
+            <a href="{% url 'selectkeyword' %}" style="color: #6e6e6e; text-decoration: none;"><div class="liked_click">선호 키워드 선택</div></a>
+        </div>
+        <div class="col-4 type_click">
+            <a href="{% url 'mytype' %}" style="color: #6e6e6e; text-decoration: none;"><div class="liked_click">나의 강의타입</div></a>
+        </div>
+    </div>
+
+    <div class="row" >
+        <div class="col-1"></div>
+        <div class="col-7" style="padding: 3.438rem 0rem 1.875rem 0rem; font-size: 1.563rem;">
+            총 123건의 강의     
+        </div>
+        <div class="col-3" style="padding: 4.250rem 0rem 1.875rem 0rem; text-align: right; font-size: 1rem;">
+            <a href="" style="text-decoration: none; color: #323232;  margin: 0rem 0.744rem 0rem 0rem">낮은 가격순</a>
+            <a href="" style="text-decoration: none; color: #323232; margin: 0rem 0.744rem 0rem 0rem">높은 가격순</a>
+            <a href="" style="text-decoration: none; color: #323232;">조회수 순</a>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+{% endblock content%} 

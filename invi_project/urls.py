@@ -31,10 +31,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import mypage.views
+from django.conf.urls import url
+import main.views
+import invi_app.views
+import hier.views
 
-
-urlpatterns = [
+urlpatterns=[
+    path('', include('main.urls')), # 메인페이지
+    path('invi_app/', include('invi_app.urls')),
+    path('hier/', include('hier.urls')),
     path('admin/', admin.site.urls),
     path('mypage/', include('mypage.urls')),
-    path('main/', mypage.views.main, name = "main"),
 ]

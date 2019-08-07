@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager,AbstractUser
 
 class Book(models.Model):
     book_id = models.AutoField(primary_key=True)
@@ -128,12 +128,33 @@ class Teacherfeature(models.Model):
         managed = False
         db_table = 'teacherFeature'
 
+class UserManager(BaseUserManager):
+    def _create_user(self, user_email, password):
+        if not user_email:
+            raise ValueError('이메일은 필수입니다.')
+        user = self.model(user_email=self.normalize_email(user_email),password=password)
+        #user.set_password(password)
+        user.save(using=self._db)
 
+    def create_user(self, user_email, password):
+        """
+        일반 유저 생성
+        """
+        #kwargs.setdefault('is_admin', False)
+        return self._create_user(user_email, password)
+
+    def create_superuser(self, user_email, password):
+        """
+        관리자 유저 생성
+        """
+        #kwargs.setdefault('is_admin', True)
+        return self._create_user(user_email, password)
 class User(models.Model):
     user_email = models.CharField(primary_key=True, max_length=320)
     user_name = models.CharField(max_length=23)
-    user_pwd = models.CharField(max_length=64)
-
+    password= models.CharField(max_length=64)
+   
+    objects=UserManager() 
     class Meta:
         managed = False
         db_table = 'user'

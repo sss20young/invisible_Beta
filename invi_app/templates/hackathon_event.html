@@ -1,0 +1,23 @@
+{% extends 'base_sj.html' %}
+{% block content %}
+
+{% load staticfiles %}
+<style>
+    body {
+        background-color: #f5f8fa;
+    }
+    section{
+        padding: 0rem 0rem 0rem 0rem;
+        background: none;
+        position: relative;
+    }
+    .hackathon_event {
+        width: 100%;
+        margin: 3.125rem 0rem 3.125rem 0rem;
+    }
+</style>
+<div class="container">
+    <img src="{% static 'img/hackathon_event.png' %}" class ="hackathon_event">
+</div>
+  
+{% endblock %}

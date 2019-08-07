@@ -2,9 +2,6 @@ from django.shortcuts import render
 from invi_app.models import *
 # Create your views here.
 
-def main(request):
-    return render(request, 'main.html')
-
 def selectkeyword(request):
     return render(request, 'selectkeyword.html')
 
