@@ -36,6 +36,7 @@ SILENCED_SYSTEM_CHECKS = ['mysql.E001']
 # Application definition
 
 INSTALLED_APPS = [
+    'mypage.apps.MypageConfig',
     'invi_app.apps.InviAppConfig',
     'main.apps.MainConfig',
     'hier.apps.HierConfig',
@@ -145,7 +146,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'invi_app/static'),
+    os.path.join(BASE_DIR, 'invi_app', 'static'),
+    os.path.join(BASE_DIR, 'mypage', 'static'),
     os.path.join(BASE_DIR, 'main/static'),
 ]
 
