@@ -1,10 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import Lecture, Lecturefeature, Userlecture, Feature, Lectureteacher, User, Teacher
-from django.contrib import auth
-from django.contrib.auth import login
+from .models import *
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from .forms import SigninForm, SignupForm 
-from django.contrib.auth import login,logout
 
 q='' # 정렬을 위한 전역 변수 선언
 getuser='' # 유저사용을 위한 전역 변수 선언
@@ -261,11 +258,9 @@ def search_highhits(request):
 def main(request):
     return render(request, 'main.html')
 
-
 def signup(request):#역시 GET/POST 방식을 사용하여 구현한다.
     if request.method == "GET":
         return render(request, 'signup.html', {'f':SignupForm()} )
-    
     
     elif request.method == "POST":
         form = SignupForm(request.POST)
@@ -288,6 +283,7 @@ def signup(request):#역시 GET/POST 방식을 사용하여 구현한다.
         else: #form.is_valid()가 아닐 경우, 즉 유효한 값이 들어오지 않았을 경우는
 
             return render(request, 'signup.html',{'f':form})
+
 def login(request):#로그인 기능
     if request.method == "GET":
         return render(request, 'login.html', {'f':SigninForm()} )
@@ -326,10 +322,21 @@ def like_save(request):
 
     # 좋아요한 lecture_id와 user_email 저장
     like = Userlecture(lecture=getlec, user_email=getuser)
-    like.save()
 
-    # if like in Userlecture:
+    all_user = User.objects.extra(tables=['userLecture'], where=['userLecture.user_email=user.user_email'])
+    all_lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id'])
+
+    # if Userlecture(lecture=getlec, user_email=getuser) is None:
+    #     like.save()
+    # else:
     #     like.delete()
+
+    if getlec in all_lecture:
+        if getuser in all_user:
+            # like.delete()
+            return render(request, 'main.html')
+    else:
+        like.save()
 
     return render(request, 'main.html')
 
@@ -341,11 +348,13 @@ def likedlecture(request):
     lec_company=[]
     feature=[]
     teacher=[]
-
+    # getuser=request.session['user_email']
     user = User.objects.extra(tables=['userLecture'], where=['userLecture.user_email=user.user_email AND userLecture.user_email = %s'%getuser])
+    # lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id AND userLecture.user_email=%s'%getuser])
     lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id'])
-    
+
     for lec in lecture:
+        print(lec)
         lec_list.append(lec.lecture_id)
         lec_company.append(lec.lecture_company)
 
@@ -353,6 +362,7 @@ def likedlecture(request):
     for i in range(len(lec_list)):
         # 강의 특징 조인
         featu=Feature.objects.extra(tables=['lectureFeature'], where=['lectureFeature.feature_id=feature.feature_id and lectureFeature.lecture_id=%s'%lec_list[i]]).values('feature_name')
+        print(featu)
         try:
             feature.append(featu.get())
         except ObjectDoesNotExist:
