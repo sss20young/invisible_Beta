@@ -27,7 +27,7 @@ def result(request):
     
     # 강의 폼 필터
     result = Lecture.objects.filter(Q(lecturecategory__category__category2__in=subjects) | Q(lecturecategory__category__category3__in=subjects)).filter(lecturefeature__feature__feature_name__in=lecture_chars).filter(lectureteacher__teacher__teacherfeature__feature__feature_name__in=teacher_chars).filter(lecture_price__range=(0,(price+1))).filter(Q(lecturecategory__category__category4__in=grades) | Q(lecturecategory__category__category5__in=grades))
-
+    print(len(result))
     # 필터 결과 중복 제거
     #result = list(set(result))
 
