@@ -1,61 +1,81 @@
-<!-- {% extends "base_ej.html" %} -->
+{% extends "base_categories.html" %}
 
 {% load staticfiles %}
 
 {% block styles %}
-
 <style>
 
-/* page layout */
-.html {
-    width: 100vw;
-    min-height: 100vh;
-}
-
-header {
-    background-color: #ffffff;
-    height: 5.625rem;
-    display: flex;
-    align-items: center;
-}
-
-.container {
-    width: 75rem;
-    margin: 0 auto;
-}
-
-
-section {
-    justify-content: center;
-    width: 100%;
-    background-color: #f5f8fa;
-    padding-bottom: 15.625rem;
-    position: absolute;
-}
-
-
-/* categories classification */
-
+/* container above 
 .category_boxes {
     margin-bottom: 3.4375rem;
     border-radius: 0.375rem;
 }
+*/
+* {box-sizing: border-box;}
+table {
+    width: 100%;
+    height: 350px;
+    box-shadow: 10px 10px 30px 0 rgba(206, 206, 206, 0.52);
+    border-radius: 6px;
+    border-collapse: collapse;
+    overflow: hidden;
 
-thead > tr > th {
-    background-color: #dbf1ff;
-    text-align: center;
-    height: 
     }
 
-
-ul  {
-    background-color: #ffffff;
-    overflow: scroll;
-    word-break: break-all;
-    height: 21.875em;
+thead {
+    background-color: #f5f8fa;
+    height: 37px;
+    font-family: SpoqaHanSans;
+    font-size: 25px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.48;
+    letter-spacing: -1.5px;
+    text-align: left;
+    color: #323232;
+    padding: 9px 0;
+    text-align: center;
+    border: 1px solid #ffffff;
 }
 
+tbody {
+    border: 1px solid #f5f8fa;
 
+}
+th {
+    padding: 9px 0;
+}
+
+td {
+    word-break:break-all;
+}
+ul {
+    height: 95%;
+    width: 100%;
+    overflow-y: scroll;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.75;
+    letter-spacing: -1.2px;
+    text-align: left;
+    color: #6e6e6e;
+    word-wrap: break-all;
+}
+
+li {
+    width: 175px;
+}
+
+label {
+    display: inline-block;
+    word-wrap: break-word;
+    max-width: 98%;
+}
+
+/* scrollbar */
 ::-webkit-scrollbar {
   width: 0.625rem;
   height: 4.6875rem;
@@ -72,11 +92,7 @@ ul  {
 }
 
 
-/* categories boxes */
-
-.categories {
-}
-
+/* container below */
 .controls {
     justify-content: space-between;
     padding-top: 3.4375rem;
@@ -85,36 +101,83 @@ ul  {
 }
 
 .lectures_in_total {
-    white-space: nowrap;
-    font-size: 2.3125rem;
+    font-size: 25px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.48;
+    letter-spacing: -1.5px;
+    text-align: center;
+    color: #000000;
 }
 
 .standards {
     justify-content: space-between;
     white-space: nowrap;
     align-items: baseline;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.5;
+    letter-spacing: -0.96px;
+    text-align: center;
+    color: #323232;
 }
 
 .box {
     margin-bottom: 4.375rem;
     box-shadow: 0.625rem 0.625rem 1.875rem 0 rgba(206, 206, 206, 0.52);
     background-color: #ffffff;
-}
-
-.box {
-    width: 75rem;
-    
+    padding-bottom: 55px;
+    width: 100%;
+    border-radius: 6px;
 }
 
 .lecture_box {
-    width: 75rem;
     height: 100%;
     border: 1px solid black;
-    background-color: #cecece;
+    object-fit: contain;
+    opacity: 0.67;
+    border: solid 1px #cecece;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 6px;
     }
 
+.lecture_title {
+    font-size: 25px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.4;
+    letter-spacing: -1.88px;
+    text-align: left;
+    color: #323232;
+}
+
+.lecture_text {
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -1.13px;
+    text-align: left;
+    color: #6e6e6e;
+}
+
+.lecture_price {
+    font-size: 35px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.57;
+    letter-spacing: -2.28px;
+    text-align: right;
+    color: #323232;
+}
 .lecture_box_liked {
-    width: 75rem;
     height: 11.75rem;
     object-fit: contain;
     opacity: 0.67;
@@ -130,178 +193,155 @@ ul  {
   border: solid 1px #1f95ff;
   background-color: #ffffff;
 }
-/* footer */
-footer {
-    bottom: 0;
-    position: absolute;
-    min-height: 15.625rem;
-}
 
-footer > .container {
-    height: 15.625rem;
-    bottom: 0
-    
-}
 
 </style>
-
 {% endblock styles %}
 
 <script>
-    function abd(obj) {
-        console.log(obj.getAttribute("value"));
-        var sua;
-        sua=document.getElementByclass('cate1').value;
-        console.log(sua);
+//    function abd(obj) {
+//        console.log(obj.getAttribute("value"));
+//        var sua;
+//        sua=document.getElementByclass('cate1').value;
+//        console.log(sua);
         
     }              
 </script>
 
 {% block content %}
 
-<section>
-
-<!-- classification -->
-
-    <div class="container category_boxes">
-        <form action="{% url 'categoryresult' %}" method="POST">
-        {% csrf_token %}
-        <table class="categories">
-            <thead class="classification_depths">
-            <tr>
-                <th>category1</th>
-                <th>category2</th>
-                <th>category3</th>
-                <th>category4</th>
-                <th>category5</th>
-            </tr>
-            </thead>
-            <tbody class="classification_labels">
-                <tr>
-
-                    <td class="category1" style="overflow:scroll;">
-                        <ul>
-                            {% for category in cate1_list %}
-                                {% for cate in category.values %}
-                                    <ol class="category1_class"><input type="radio" id="{{ cate }}" onclick="abd()" name="cate1" value="{{cate}}" >{{ cate }}</ol>
-                                {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td class="category2">
-                        <ul>
-                            {% for category in cate2_list %}
-                                {% for cate in category.values %}
-                                    <ol class="category2_class"><input id="{{ cate }}" type="radio" name="cate2"  value="{{cate}}">{{ cate }}</ol>
-                                {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td class="category3">
-                        <ul>
-                            {% for category in cate3_list %}
-                                {% for cate in category.values %}
-                                    <ol class="category3_class"><input id="{{ cate }}" type="radio" name="cate3"  value="{{cate}}">{{ cate }}</ol>
-                                {% endfor %}
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td class="category4">
-                        <ul>
-                            {% for category in cate4_list %}
-                                {% for cate in category.values %}
-                                    <ol class="category4_class"><input id="{{ cate }}" type="radio" name="cate4" value="{{cate}}">{{ cate }}</ol>
-                                {% endfor%}
-                            {% endfor %}
-                        </ul>
-                    </td>
-                    <td class="category5">
-                        <ul>
-                            {% for category in cate5_list %}
-                                {% for cate in category.values %}
-                                    <ol class="category5_class"><input id="{{ cate }}" type="radio" name="cate5" value="{{cate}}" >{{ cate }}</ol>
-                                {% endfor %}
-                            {% endfor %}
-                        <!--
-                            {% for category in cate5_list %}
-                                {% for cate in category.values %}
-                                    <li class="category2_class">{{ cate }}</li>
-                                {% endfor%}
-                            {% endfor %}
-                            -->
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-            <input type="hidden" value="${list}">
-          <a href="{% url 'categoryresult'%}">  <input type="submit" style="background-color:#1f95ff" value="찾아보기"/></a>
-        </form>
+<!--categories -->
+    <div class="container category" style="border-radius:6px;">
+        <div class="row justify-content-center">
+            <div class="col-12" style="padding: 0;">
+                <form action="{% url 'categoryresult' %}" method="POST">
+                    {% csrf_token %}
+                    <table class="categories">
+                        <thead class="cate_classification">
+                            <tr>
+                                <th>category1</th>
+                                <th>category2</th>
+                                <th>category3</th>
+                                <th>category4</th>
+                                <th>category5</th>
+                            </tr>
+                        </thead>
+                        <tbody class="cate_items" style="background-color: #ffffff;">
+                            <tr>
+                                <td class="category1" style="">
+                                    <ul style="list-style-type: none;">
+                                        {% for category in cate1_list %}
+                                            {% for cate in category.values %}
+                                                <li><input type="radio" id="{{ cate }}" onclick="abd()" name="cate1" value="{{cate}}" ><label for="{{ cate }}">{{cate}}</label></li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td class="category2" style="">
+                                    <ul style="list-style-type: none;">
+                                        {% for category in cate2_list %}
+                                            {% for cate in category.values %}
+                                                <li><input id="{{ cate }}" type="radio" name="cate2"  value="{{cate}}"><label for="{{ cate }}">{{cate}}</label></li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td class="category3" style="">
+                                    <ul style="list-style-type: none;">
+                                        {% for category in cate3_list %}
+                                            {% for cate in category.values %}
+                                                <li><input id="{{ cate }}" type="radio" name="cate3"  value="{{cate}}"><label for="{{cate}}">{{ cate }}</label></li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td class="category4" style="">
+                                    <ul style="list-style-type: none;">
+                                        {% for category in cate4_list %}
+                                            {% for cate in category.values %}
+                                                <li><input id="{{ cate }}" type="radio" name="cate4" value="{{cate}}"><label for="{{ cate }}">{{ cate }}</label></li>
+                                            {% endfor%}
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td class="category5" style="">
+                                    <ul style="list-style-type: none;">
+                                        {% for category in cate5_list %}
+                                            {% for cate in category.values %}
+                                                <li><input id="{{ cate }}" type="radio" name="cate5" value="{{cate}}" ><label for="{{cate}}">{{ cate }}</label></li>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="row" style="height: 2.5rem; margin: 2rem 0;">
+                        <div class="col-8">
+                        </div>
+                        <div class="col-4" style="text-align: right; padding: 0;">
+                            <!--input type="hidden" value="${list}"-->
+                            <input class="btn" type="submit" style="background-color:#1f95ff" value="찾아보기" style="border: none; border-color: transparent; border-radius: 6px; background-color: #1f95ff; text-align: center; width: 100%; padding: 2rem 0;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-<!-- classification ends -->
+<!-- category container ends -->
 
-<div class="alllectureArea">
-    {% comment %} {% for category in cate1_list %}
-        <li>{{ category.category_id }}</li>
-    {% endfor %} {% endcomment %}
-</div>
 <!-- boxes -->
     <div class="container box">
     <!-- controls -->
         <div class="row controls justify-content-center">
             <div class="col-2">
-                {% comment %} <span class="lectures_in_total">총 {{ Category.objects.all.count }}건의 강의</span> {% endcomment %}
+                <span class="lectures_in_total">총 {{ lec_name|length }}건의 강의</span>
             </div>
             <div class="col-5">
             </div>
-            <div class="col-3 standards">
+            <div class="col-3 standards" style="display: flex; justify-content: space-between;">
                 <span>낮은 가격순</span>
                 <span>높은 가격순</span>
                 <span>조회수순</span>
             </div>
         </div>
-        <div class="row lecture_boxes">
-            <div class="col-8">
-                <span>{{ item }}</span>
+    <!------------------------------------------------- for문 ----------------------------------------------------------->
+    {% for lec_name in lec_list %}
+        <div class="row" style="margin-bottom: 30px;">
+            <div class="col-1">
             </div>
-                <div class="lecture_box">
-                    <div class="row">
-                        <div class="col-1">
-                            <img class="download" src="{% static 'img/ebs.png' %}">
+            <div class="col-10">
+                <div class="lecture_box"> {% comment %} OnClick="location.href ='{% url 'detail' pk=item.pk %}' style="cursor:pointer;" {% endcomment %}
+                    <div class="row" style="padding-top:1.2rem; height:37px; overflow: visible; ">
+                        <div class="col-1" style="padding-left:2rem; vertical-align:top;">
+                            <img class="download" src="{% static 'img/ebs.png' %}" style="width: 65px; height: 65px;">
                         </div>
-                        <div class="col-8">
-                        {% for lec_name in lecture_list %}
-                            <span>{{ lec_name.lecture_title }}</span>
-                        {% endfor %}
+                        <div class="col-9" style="padding-left:2rem;">
+                            <span class="lecture_title">{{ lec_name.results }}</span>
                         </div>
-                        <div class="col-1">
-                            <img class="heart_blue" src="{% static 'img/heart_blue.svg' %}" onclick=()>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-7">
-                            <span>{{ Lecture.lecture_totalnum }}</span>
-                            <span>{{ Lecture.lecture_day }}</span>
+                        <div class="col-2" style="text-align: right; padding-right: 30px;">
+                            <img class="image" src="{% static 'unlike.png' %}" style="width: 45px; height: 45px; :overflow: visible;">
                         </div>
                     </div>
                     <div class="row">
-                        <div class="keyword_box">
-                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-11 lecture_text" style="padding-left:2rem; margin-top:27px;">
+                            {{ lec_name.lectureteacher.teacher.teacher_name }} 선생님|총 {{ lec_name.lecture_totalnum }}강|수강기간 {% if post.lecture_day == None %} 0 {% else %} {{ lec_name.lecture_day }} {% endif %}일</div>
                     </div>
-                    <div class="col-2">
-                        <span class=""><span>
+                    <div class="row" style="justify-content: flex-end; margin-top: 15px;">
+                        <div class="col-9"></div>
+                        <div class="col-3" style="text-align:right; margin-right: 30px; padding:0;"><span class="lecture_price" style="text-align: right;">{{ lec_name.lecture_price }}원</span></div>
                     </div>
                 </div>
             </div>
-                <div class="lecture_box_liked">
-                </div>
+            <div class="col-1">
             </div>
-
         </div>
-
+    {% endfor %}
+    <!---------------------------------------------------endfor -------------------------------------------------------------->
+    <!-- end container -->
     </div>
 
-</section>
 
 {% endblock content %}
 <!-- script -->
