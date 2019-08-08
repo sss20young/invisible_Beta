@@ -351,16 +351,21 @@ def likedlecture(request):
     lec_company=[]
     feature=[]
     teacher=[]
-    # getuser=request.session['user_email']
+    getuser=request.session['user_email']
     user = User.objects.extra(tables=['userLecture'], where=['userLecture.user_email=user.user_email AND userLecture.user_email = %s'%getuser])
     # lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id AND userLecture.user_email=%s'%getuser])
-    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id'])
+    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id' ])
 
-    for lec in lecture:
-        print(lec)
-        lec_list.append(lec.lecture_id)
-        lec_company.append(lec.lecture_company)
+    try:
+        for lec in lecture:
+            print(lec)
+            lec_list.append(lec.lecture_id)
+            lec_company.append(lec.lecture_company)
 
+    except ObjectDoesNotExist:
+            print("없어")
+
+    
     # 강의 특징 조인 & 강의 선생님 조인
     for i in range(len(lec_list)):
         # 강의 특징 조인
