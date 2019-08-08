@@ -312,7 +312,7 @@
 <!-- main -->
 <script>
     function check(form){
-        var sub_chk = document.getElementsByName('subject[]');
+        var sub_chk = document.getElementsByName('subject');
         var sub_num = 0;
         for (var i=0; i<sub_chk.length; i++){
             if(sub_chk[i].checked){
@@ -326,7 +326,7 @@
     }
 </script>
 <div class="container">
-<form method="GET" action="{% url 'result' %}" onsubmit="return check(this);">
+<form method="GET" action="{% url 'result' %}" >
     {% csrf_token %}
     <div class="content_box">
             <div class="content_box_title">
@@ -339,14 +339,14 @@
             </div>
     <div class="row">
         <div class="col-4"></div>
-        <h5 class="col-4" style="color:#cecece; padding-top:1rem; text-align:center;">모두 1개이상의 키워드를 선택해주세요.</h5>
+        <h5 class="col-4" style="color:#cecece; padding-top:1rem; margin-bottom:0; text-align:center;">모두 1개이상의 키워드를 선택해주세요.</h5>
         <div class="col-4"></div>
     </div>
     <div class="row no-gutter">
         <div class="col-4"></div>
         <div class="col-4">
         <!-- 강의 분야 -->
-            <div class="question">원하는 강의 분야를 선택하세요</div>
+            <div class="question" style="margin-top:0">원하는 강의 분야를 선택하세요</div>
         </div>
         <div class="col-4"></div>
     </div>
@@ -359,19 +359,19 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject[]" id="0" value="TOEIC" onClick="subject_bgColor(this);"><label for="0">TOEIC</label></span>
+                <span><input type="checkbox" name="subject" id="0" value="TOEIC" onClick="subject_bgColor(this);"><label for="0">TOEIC</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject[]" id="1" value="TOFEL" onClick="subject_bgColor(this);"><label for="1">TOFEL</label></span>
+                <span><input type="checkbox" name="subject" id="1" value="TOFEL" onClick="subject_bgColor(this);"><label for="1">TOFEL</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject[]" id="2" value="TEPS" onClick="subject_bgColor(this);"><label for="2">TEPS</label></span>
+                <span><input type="checkbox" name="subject" id="2" value="TEPS" onClick="subject_bgColor(this);"><label for="2">TEPS</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject[]" id="3" value="Toeic Speaking" onClick="subject_bgColor(this);"><label for="3">Toeic Speaking</label></span>
+                <span><input type="checkbox" name="subject" id="3" value="Toeic Speaking" onClick="subject_bgColor(this);"><label for="3">Toeic Speaking</label></span>
             </div>
             <div class="col-2 round">
-                <span><input type="checkbox" name="subject[]" id="4" value="OPIC" onClick="subject_bgColor(this);"><label for="4">OPIC</label></span>
+                <span><input type="checkbox" name="subject" id="4" value="OPIC" onClick="subject_bgColor(this);"><label for="4">OPIC</label></span>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -768,7 +768,7 @@
         <div class="row justify-content-center">
             <div class="col-4"></div>
             <div class="col-4" style="text-align: center">
-                <button type="button" class="submit_button">나의 BEST강의 보러가기</button>
+                <button type="submit" class="submit_button">나의 BEST강의 보러가기</button>
             </div>
             <div class="col-4"></div>
         </div>
@@ -776,11 +776,5 @@
     </div>
     </form>
 </div>
-<!---
-     카카오톡 고객센터
-    <img src="{% static 'img/kakaotalk.png' %}"
-     class="kakaotalk" alt="kakaotalk">
---->
-
 
 {% endblock %}

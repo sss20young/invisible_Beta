@@ -85,52 +85,125 @@
         width: 100%;
         background-color: #f5f8fa;
     }
-    .lecture_title {
-        font-size: 1.563rem;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.4;
-        letter-spacing: -0.0625rem;
-        text-align: left;
-        color: #323232;
-    }
-    .lecture_text {
-        text-align:center;
-        color: #6e6e6e;
-    }
-    .lecture_price {
-        height: 52px;
-        font-family: SpoqaHanSans;
-        font-size: 35px;
-        font-weight: bold;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 0.57;
-        letter-spacing: -2.28px;
-        text-align: right;
-        color: #323232;
-    }
-    .lecture_box {
-        border: solid 1px #cecece;
-        margin-top: 0.7rem;
-        margin-bottom: 0.7rem;
-    }
-    .lecture_box:hover{
-        background-color: #f5f8fa;
-        box-shadow: 0 5px 10px 0 #cecece;
-    }
-    .feature_box {
-        font-family: SpoqaHanSans;
-        font-size: 0.875rem;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.43;
-        letter-spacing: -0.0656rem;
-        text-align: center;
-        color: #1f95ff;
-    }
+    section{
+            padding-bottom: 4.375rem;
+        }
+        .box {
+            width: 69.375rem;
+            box-shadow: 0.625rem 0.625rem 1.875rem 0 rgba(206, 206, 206, 0.52);
+            background-color: #ffffff;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 30px;
+        }
+        .lecture {
+            font-family: SpoqaHanSans;
+            font-size: 1.5625rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.48;
+            letter-spacing: -0.0938rem;
+            text-align: left;
+            color: #000000;
+            display: block;
+            /* margin-left: 11%;
+            margin-right: auto; */
+        }
+        .order {
+            font-family: SpoqaHanSans;
+            font-size: 1rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: -0.06rem;
+            color: #323232;
+        }
+        .lecture_box {
+            width: 57.5rem;
+            object-fit: contain;
+            border: solid 0.0625rem #cecece;
+            background-color: #f5f8fa;
+            display: block;
+            margin: auto auto 1.875rem auto;
+            padding: 1.25rem;
+            text-align: center;
+        }
+        .lecture_box:hover{
+            box-shadow: 0 0.3125rem 0.625rem 0 #cecece;
+        }
+        .download {
+            width: 4rem;
+            height: 4rem;
+            object-fit: contain;
+            border-radius: 0.375rem;
+        }
+        .title {
+            font-family: SpoqaHanSans;
+            font-size: 1.25rem;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.4;
+            letter-spacing: -0.1175rem;
+            text-align: left;
+            color: #323232;
+        }
+        .info {
+            font-family: SpoqaHanSans;
+            font-size: 0.9375rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: -0.0706rem;
+            text-align: left;
+            color: #6e6e6e;
+        }
+        .keyword_box {
+            display: inline-block;
+            padding:0.3125rem;
+            object-fit: contain;
+            border-radius: 1.125rem;
+            border: solid 0.0625rem #1f95ff;
+            background-color: #ffffff;
+            text-align: left;
+        }
+        .keyword_box_info {
+            font-family: SpoqaHanSans;
+            font-size: 0.875rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.43;
+            letter-spacing: -0.0656rem;
+            text-align: center;
+            color: #1f95ff;
+        }
+        .heart {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 2.5rem;
+            height: 2.5rem;
+            object-fit: contain;
+            background-repeat: no-repeat;
+            cursor:pointer;
+            outline: 0;
+        }
+        .price {
+            font-family: SpoqaHanSans;
+            font-size: 1.875rem;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 0.57;
+            letter-spacing: -0.1425rem;
+            text-align: right;
+            color: #323232;
+        }
 </style>
 {% endblock styles %}
 
@@ -185,100 +258,63 @@
             <div class="col-1"></div>
         </div>
     </div>
-    <div class="row no-gutter justify-content-center">
-    <div class="col-12 letcure_result_box" style="padding-top:2.5rem">
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-3" style="font-size:1.563rem"> 총 <span style="font-weight: bold; color: #1f95ff">{{ lecture_list |length }}</span>건의 강의</div>
-        <div class="col-4"></div>
-        <div class="col-3 order" style="text-align: right;">
-            <a href="{% url 'result_lowprice' %}" style="text-decoration: none; color: #323232;">낮은 가격순</a>
-            <a href="{% url 'result_highprice' %}" style="text-decoration: none; color: #323232;">높은 가격순</a>
-            <a href="{% url 'result_highhits' %}" style="text-decoration: none; color: #323232;">조회수 순</a>
-        </div>
-
-    </div>
-    <br>
-    {% for one, two, three in lec_feat %} 
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-10">
-            <div class="lecture_box">
-                <div class="row" style="padding-top:1.2rem; padding-bottom:0">
-                    <div class="col-1" style="padding-left:2rem;"><img class="download" src="{% static 'img/ebs.png' %}" style="width:4rem; height:4rem;"></div>
-                    <div class="col-10 lecture_title" style="padding-left:2rem;">{{ one.lecture_title }}</div>
-                    <div class="col-1"><img class="image" src="{% static 'like.png' %}"></div>
+    <div class="box">
+            <div class="row" style="padding: 3.438rem 0rem 1.785rem 0rem;">
+                <div class="col-1"></div>
+                <div class="col-5 lecture">
+                    총 <span style=" font-weight: bold; color: #1f95ff">{{ count }}</span>건의 강의
                 </div>
-                <div class="row">
-                    <div class="col-1"></div>
-                    <div class="col-2 lecture_text">{{ three.teacher_name }} 선생님</div>|
-                    <div class="col-2 lecture_text" >총 {{ one.lecture_totalnum }}강</div>|
-                    <div class="col-2 lecture_text">수강기간 {% if post.lecture_day == None %} 0 {% else %} {{ one.lecture_day }} {% endif %}일</div>
-                    <div class="col-6"></div>
+                <div class="col-5 order" style="text-align: right;">
+                    <a href="#" style="text-decoration: none; color: #323232;">낮은 가격순</a>
+                    <a href="#" style="text-decoration: none; color: #323232">높은 가격순</a>
+                    <a href="#" style="text-decoration: none; color: #323232">조회수 순</a>
                 </div>
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-2 feature_box">{{ two.feature_name }}</div>
-                    <div class="col-8"></div>
-                </div>
-                <div class="row">
-                    <div class="col-9"></div>
-                    <div class="col-2 lecture_price" id="lecture_price" style="display:inline-block;text-align:right">{{ one.lecture_price }}원</div>
-                    <div class="col-1"></div>
-                </div>
+                <div class="co1-1"></div>
             </div>
+            
+           {% for one, two, three in lec_feat %}
+            <div class="row" style="padding: 0rem 0rem 0rem 0rem;">
+                 
+                <div class="col-1"></div>
+                <div class="col-10 lecture_box">
+                    <table style="display: inline; text-align: center;">
+                        <tbody>
+                            <tr>
+                                <td width="80px" align="left" rowspan="2"><img class="download" style="display: inline-block" src="{% static 'img/ebs.png' %}"></td>
+                                <td class="title" width="500px">{{ one.lecture_title }}</td>
+                                <td align="right">
+                                    <form action="{% url 'save' %}" method="GET">
+                                        <input type="hidden" value="{{one.lecture_id}}" name="lecture_id">
+                                        <input type="hidden" value="{{user.email}}" name="user_email">
+                                        <input type="image" src="{% static 'unlike.png'%}" class="heart" name="submit" value="" onclick="heart(this)" >
+                                    </form>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="info">{{three.teacher_name}} 선생님  |  총 {{one.lecture_totalnum}}강  |  수강기간 365일</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td align="left" height="50">
+                                    <div class="keyword_box">
+                                        <div class="keyword_box_info">
+                                            {{two.feature_name}}
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="price" align="right" height="50"><div style="display: inline-block;">{{ one.lecture_price }}</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-1"></div>
+            
+            </div>
+            {% endfor %}
+
         </div>
-        <div class="col-1"></div>
-    </div>
-    {% endfor %}
-</div>
-    <!--
-    <div class="lecture_box">
-        <div class="row">
-            <div class="col"
-        </div>
-        <table style="display: inline; text-align: center;">
-            <tbody>
-                                    <tr>
-                                        <td width="80px" align="left" rowspan="2"><img class="download" style="display: inline-block" src="{% static 'download.png' %}"></td>
-                                        <td class="title" width="500px">한 달 안에 끝내는 해커스 토익 기출 보카</td>
-                                        <td align="right"><img class="image" style="display: inline-block" src="{% static 'like.png' %}"></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="info">모지연 선생님  |  총 30강  |  수강기간 45일  |  평균 50분</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td align="left">
-                                            <div class="keyword_box">
-                                                <div class="keyword_box_info">
-                                                    개념꼼꼼
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="price" rowspan="2" align="right"><div style="display: inline-block">99,000원</div></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                            {% for post in lecture_list %} 
-                                <div>
-                                    {{ post.lecture_title }}
-                                    {{ post.lecture_price }}원
-                                    {{ post.lecture_company }}
-                                    {{ post.lecture_totalnum }}강
-                                    {{ post.lectureteacher.teacher.teacher_name }} 선생님
-                                </div>
-                            {% endfor %}
-                        
-                    </div>
-        </div>
-    </div>
--->
-</div>
 {% endblock %}
 

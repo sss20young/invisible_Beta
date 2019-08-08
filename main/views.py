@@ -2,21 +2,23 @@ from django.shortcuts import render
 from invi_app.models import Feature, Lecture, Lecturefeature, Teacherfeature, Teacher, Lectureteacher, Lecturecategory, Category
 from django.db.models import Q
 from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+'''
 subjects = '' # 정렬을 위한 전역 변수 선언
 grades = ''
 lecture_chars = ''
 teacher_chars = ''
 price = int()
+'''
 def main(request):
     return render(request, 'main.html')
 
 def result(request):
-    global subjects, grades, lecture_chasr, teacher_chars, price # 전역 변수로 사용
-    subjects = request.GET.getlist('subject', '')
-    grades = request.GET.getlist('grade', '')
-    lecture_chars = request.GET.getlist('lecture_char', '')
-    teacher_chars = request.GET.getlist('teacher_char', '')
-    price = request.GET.get('price', '')
+    # global subjects, grades, lecture_chasr, teacher_chars, price # 전역 변수로 사용
+    subjects = request.GET.getlist('subject')
+    grades = request.GET.getlist('grade')
+    lecture_chars = request.GET.getlist('lecture_char')
+    teacher_chars = request.GET.getlist('teacher_char')
+    price = int(request.GET.get('price'))
     
     lec_list=[]
     lec_company=[]
