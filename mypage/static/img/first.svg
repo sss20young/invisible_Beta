@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="255" height="45" viewBox="0 0 255 45">
+    <defs>
+        <style>
+            .cls-1,.cls-5{fill:none}.cls-1{stroke:#1f95ff;stroke-linejoin:round;stroke-width:2px}.cls-2{fill:#1f95ff}.cls-3{fill:#fff;font-size:12px;font-family:SpoqaHanSans-Bold,SpoqaHanSans;font-weight:700;letter-spacing:-.06em}.cls-4{stroke:none}
+        </style>
+    </defs>
+    <g id="first" transform="translate(-833 -517)">
+        <g id="그룹_236" data-name="그룹 236" transform="translate(.5 52)">
+            <g id="keywordbox_click" class="cls-1" transform="translate(832.5 465)">
+                <rect width="255" height="45" class="cls-4" rx="22"/>
+                <rect width="253" height="43" x="1" y="1" class="cls-5" rx="21"/>
+            </g>
+            <g id="그룹_232" data-name="그룹 232" transform="translate(861.5 465)">
+                <path id="사각형_270" d="M0 0h22.955v20.085H0z" class="cls-2" data-name="사각형 270"/>
+                <path id="다각형_1" d="M7.173 0l7.173 12.912H0z" class="cls-2" data-name="다각형 1" transform="rotate(90 0 12.912)"/>
+                <path id="다각형_2" d="M7.173 0l7.173 12.912H0z" class="cls-2" data-name="다각형 2" transform="rotate(-90 18.651 8.608)"/>
+            </g>
+            <text id="_1" class="cls-3" data-name="1" transform="translate(872.5 480.435)">
+                <tspan x="-3.576" y="0">1</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

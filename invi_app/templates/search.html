@@ -185,9 +185,9 @@
                                 <td width="80px" align="left" rowspan="2"><img class="download" style="display: inline-block" src="{% static 'img/ebs.png' %}"></td>
                                 <td class="title" width="500px">{{ one.lecture_title }}</td>
                                 <td align="right">
-                                    <form action="{% url 'save' %}" method="GET">
+                                    <form action="{% url 'like_save' %}" method="GET">
                                         <input type="hidden" value="{{one.lecture_id}}" name="lecture_id">
-                                        <input type="hidden" value="{{user.email}}" name="user_email">
+                                        <input type="hidden" value="{{request.session.user_email}}" name="user_email">
                                         <input type="image" src="{% static 'unlike.png'%}" class="heart" name="submit" value="" onclick="heart(this)" >
                                     </form>
                                 </td>
