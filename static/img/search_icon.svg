@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#fff}
+        </style>
+    </defs>
+    <g id="search_icon" transform="translate(-930 -150)">
+        <path id="사각형_212" d="M0 0h60v60H0z" class="cls-1" data-name="사각형 212" transform="translate(930 150)"/>
+        <path id="search_icon-2" d="M70.114 82.129h-2.285l-.857-.857a17.883 17.883 0 0 0 4.571-12 18.571 18.571 0 1 0-18.572 18.571 17.883 17.883 0 0 0 12-4.571l.857.857v2.286L80.114 100.7l4.286-4.286zm-17.143 0a12.857 12.857 0 1 1 12.858-12.858 12.8 12.8 0 0 1-12.858 12.858z" class="cls-2" data-name="search_icon" transform="translate(900.6 104.3)"/>
+    </g>
+</svg>
