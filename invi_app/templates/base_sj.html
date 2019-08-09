@@ -2,6 +2,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144913432-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-144913432-2');
+    </script>
     <link rel="stylesheet" type="text/css" href="default.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
@@ -194,7 +203,12 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <header>
+    <!--01)인비저블 팀원들이 밤을 새면서 가장 많이 먹은 야식은?-->
+    <!--(1)떡볶이-(2)사자고기-(3)두리안볶음밥-->
+
         <div class="container"  style="text-align: center;">
+<!--03)인비저블이 사용하는 서버는?-->
+<!--(1)김서버-(2)aws EC2서버-(3)박서버-->
         <div class="row" >
             <div class="col-3">
                 <a href="{% url 'main' %}">
@@ -211,7 +225,8 @@
                 </a>
             </div>
             <div class="col-2" style="margin: 2.250rem 0rem 1.563rem 0rem;">
-                <a  style="
+                <a  href="{%url 'category' %}"
+                    style="
                     text-decoration: none; 
                     color: #323232;
                     font-size: 1.250rem;">
