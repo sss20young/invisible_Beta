@@ -4,7 +4,6 @@ from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from .forms import SigninForm, SignupForm 
 
 q='' # 정렬을 위한 전역 변수 선언
-getuser='' # 유저사용을 위한 전역 변수 선언
 
 def about(request):
     return render(request, 'about.html')
@@ -319,30 +318,26 @@ def auth_number(request):
     return render(request, 'auth_number.html')
 
 def like_save(request):
-    global getuser
     getlec = Lecture.objects.get(lecture_id=int(request.GET['lecture_id']))
     getuser = User.objects.get(user_email=str(request.GET['user_email']))
 
     # 좋아요한 lecture_id와 user_email 저장
     like = Userlecture(lecture=getlec, user_email=getuser)
 
-    all_user = User.objects.extra(tables=['userLecture'], where=['userLecture.user_email=user.user_email'])
-    all_lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id'])
+    getuser=str(request.session['user_email']) # getuser의 타입 바꿈. Queryset -> str
+    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id AND userLecture.user_email=%s'], params=[getuser])
+    if getlec in lecture:
+        #like.delete()
+        return render(request, 'main.html')
+    else:
+        like.save()    
 
     # if Userlecture(lecture=getlec, user_email=getuser) is None:
     #     like.save()
     # else:
     #     like.delete()
 
-    if getlec in all_lecture:
-        if getuser in all_user:
-            # like.delete()
-            return render(request, 'main.html')
-    else:
-        like.save()
-
     return render(request, 'main.html')
-
 
 def likedlecture(request):
 
@@ -351,20 +346,13 @@ def likedlecture(request):
     lec_company=[]
     feature=[]
     teacher=[]
-    getuser=request.session['user_email']
-    user = User.objects.extra(tables=['userLecture'], where=['userLecture.user_email=user.user_email AND userLecture.user_email = %s'%getuser])
-    # lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id AND userLecture.user_email=%s'%getuser])
-    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id' ])
 
-    try:
-        for lec in lecture:
-            print(lec)
-            lec_list.append(lec.lecture_id)
-            lec_company.append(lec.lecture_company)
+    getuser=str(request.session['user_email'])
+    lecture = Lecture.objects.extra(tables=['userLecture'], where=['userLecture.lecture_id=lecture.lecture_id AND userLecture.user_email=%s'], params=[getuser])
 
-    except ObjectDoesNotExist:
-            print("없어")
-
+    for lec in lecture:
+        lec_list.append(lec.lecture_id)
+        lec_company.append(lec.lecture_company)
     
     # 강의 특징 조인 & 강의 선생님 조인
     for i in range(len(lec_list)):

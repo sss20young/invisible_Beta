@@ -56,6 +56,9 @@ INSTALLED_APPS = [
     #provider 구글 페이스북 카톡 깃허브 등 소셜로그인 제공업체
     'allauth.socialaccount.providers.naver',
     'allauth.socialaccount.providers.google',
+
+    #category
+    'categories',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +149,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'invi_app', 'static'),
     os.path.join(BASE_DIR, 'mypage', 'static'),
     os.path.join(BASE_DIR, 'main/static'),
+    os.path.join(BASE_DIR, 'categories/static'),
 ]
 
 STATIC_ROOT = os.path.join (BASE_DIR, 'static')

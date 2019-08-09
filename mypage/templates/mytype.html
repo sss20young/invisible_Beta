@@ -87,8 +87,8 @@
                     나의 관심 강의분야
                 </div>
         </div>
-    
-    
+
+{% if lecture_chars %}
 <div class="row" >
     <div class="col-4 left_border" style="
     padding: 1.563rem 3.906rem 0rem 3.906rem;">
@@ -149,6 +149,29 @@
         <div class="typebox"></div>
     </div>
 </div>
+
+{% else %}
+    {% for feat in features %}
+    <div class="row" style="text-align: center;">
+        <div class="col-4 left_border" style="
+        padding: 1.875rem 3.906rem 0rem 3.906rem;">
+            <div class="typebox">
+            {{feat.feature_name}}  
+            </div>
+        </div>
+        <div class="col-4 left_border" style="
+        padding: 1.875rem 3.906rem 0rem 3.906rem;">
+            <div class="typebox">
+            {{feat.feature_name}}
+            </div>
+        </div>
+        <div class="col-4" style="
+        padding: 1.875rem 3.906rem 0rem 3.906rem;">
+            <div class="typebox"></div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
 
 <div class="row" style="padding: 0rem 0rem 22.813rem 0rem;"></div>
 {% endblock content%}  

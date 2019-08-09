@@ -27,9 +27,9 @@ def result(request):
     
     # 강의 폼 필터
     result = Lecture.objects.filter(Q(lecturecategory__category__category2__in=subjects) | Q(lecturecategory__category__category3__in=subjects)).filter(lecturefeature__feature__feature_name__in=lecture_chars).filter(lectureteacher__teacher__teacherfeature__feature__feature_name__in=teacher_chars).filter(lecture_price__range=(0,(price+1))).filter(Q(lecturecategory__category__category4__in=grades) | Q(lecturecategory__category__category5__in=grades))
-
+    print(len(result))
     # 필터 결과 중복 제거
-    #result = list(set(result))
+    result = list(set(result))
 
     for f in result:
         lec_list.append(f.lecture_id)
@@ -66,6 +66,7 @@ def result(request):
     lec_feat=zip(result, feature, teacher)
     return render(request, 'best_lecture_result.html', {'subjects':subjects, 'grades':grades, 'lecture_chars':lecture_chars, 'teacher_chars':teacher_chars, 'price':price, 'result':result, 'count':len(result), 'len':len(lec_list), 'lec_feat':lec_feat})
 
+# TODO: 조회수순, 높은가격순, 낮은가격순
 # TODO: 특징이 2개 이상일 때 값을 불러오지 못해서 임시로 예외처리문 발생하게 설정해놓음. (선생님의 경우도 마찬가지)
 
 def result_lowprice(request):

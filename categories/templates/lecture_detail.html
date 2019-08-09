@@ -1,0 +1,267 @@
+{% extends "base_categories.html" %}
+{% load staticfiles %}
+
+{% block styles %}
+<style>
+
+.html {
+    min-height: 100vh;
+}
+
+.box {
+    object-fit: contain;
+    box-shadow: 0 0 30px 0 rgba(206, 206, 206, 0.16);
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.title {
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    font-size: 2.188rem;
+    letter-spacing: -2.1px;
+    vertical-align: bottom;
+    color: #323232;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+.labels > col-2, col-6, col-5 > span {
+    font-size: 1.25rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2;
+    color: #323232;
+    align-items: flex-start;
+}
+
+.items {
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: -1.2px;
+    color: #323232;
+}
+
+
+.price {
+    width: 132px;
+    height: 52px;
+    font-size: 35px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.77;
+    letter-spacing: -2.1px;
+    color: #323232;
+    float: right;
+    text-align: right;
+    color: #323232;
+    white-space: nowrap;
+
+}
+.btn {
+    width: 100%;
+    background-color: #1f95ff;
+    height: 65px;
+}
+
+hr {
+    color: #cecece;
+
+}
+
+.recommendations {
+  width: 100%;
+  height: 43px;
+  font-size: 29px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.59;
+  letter-spacing: -1.74px;
+  text-align: left;
+  color: #323232;
+}
+
+.box {
+
+}
+
+
+.lecture_box {
+    margin-top: 1.219rem;
+}
+
+.btn > span {
+    width: 100%;
+    padding-top: 1.875rem;
+    padding-bottom: 3.438em;
+
+}
+
+
+
+
+</style>
+{% endblock styles %}
+
+{% block content %}
+<!-- from db -->
+
+    <div class="container box">
+        <div class="row" style="padding-top:2.188rem; padding-bottom:1.875em; align-items: baseline;">
+            <div class="col-1">
+            </div>
+            <div class="col-1" style="height: 100%;">
+                <img src="{% static 'img/ebs.png' %}" class="download" style="max-width: 65px; position: bottom;">
+            </div>
+            <div class="col-8" style="display: flex; align-items: bottom;">
+                <span class="title" style="position: bottom; bottom: 0;">{{ lecture.lecture_title }}</span>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+        <div class="row labels">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 강사명</span>
+            </div>
+            <div class="col-6">
+            {% for post in lectureteacher.objects.all %}
+                <span class="items">{{ lectureteacher.teacher }}</span>
+            {% endfor %}
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row labels">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 전체강의</span>
+            </div>
+            <div class="col-6">
+                <span class="items">{{ lecture.lecture_totalnum }}</span>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row labels">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 수강기간</span>
+            </div>
+            <div class="col-6">
+                <span class="items">365일</span>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row labels">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 평균강의</span>
+            </div>
+            <div class="col-6">
+                <span class="items"></span>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row labels">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 교재명</span>
+            </div>
+            <div class="col-6">
+                <span class="items">{{ book.book_name }}</span>
+                <!--
+                <span class="items">{{ book.book_price }}원</span>
+                -->
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row labels">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 강의스타일</span>
+            </div>
+            <div class="col-6">
+                <span class="items">{{ lecturefeature.feature }}</span>
+            </div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row labels" style="margin-bottom: 2rem;">
+            <div class="col-2">
+            </div>
+            <div class="col-2">
+                <span class="items">• 선생님스타일</span>
+            </div>
+            <div class="col-5">
+                <span class="items">{{ teacherfeature.feature }}</span>
+            </div>
+            <div class="col-2">
+                <span class="price">{{ lecture.lecture_price }}원</span>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+        <div class="row labels" style="margin-bottom: 3.438rem;">
+            <div class="col-2">
+            </div>
+            <div class="col-8">
+                <a href="{{ lecture.lecture_url }}">
+                    <button class="btn btn-primary" style="width:100%; text-align: center;">
+                        <span class="lecture_url" style="font-size: 25px;">강의 보러가기</span>
+                    </button>
+                </a>
+            </div>
+            <div class="col-1">
+                <img class="heart" src="{% static 'img/like.png' }" style="width: 100%;">
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+        <!-- hr -->
+        <div class="row">
+            <div class="col-1">
+            </div>
+            <div class="col-10">
+                <hr>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+        <div class="row title">
+            <div class="col-2">
+            </div>
+            <div class="col-9">
+                <span style="color:#6e6e6e; letter-spacing: -2.1px; font-weight: bold; font-size: 35px; line-height: 1.46;">이런 강의는 어떠세요?<span>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+        <!-- for문 돌면서 같은 lecturefeature 강의들 box 표시 -->
+        <div class="row">
+            <div class="col-9 lecture_box">
+            </div>
+        </div>
+    </div>
+        <!-- endfor -->
+
+    <!-- end container box -->
+    </div>
+<!-- return same -->
+{% endblock content %}
+
