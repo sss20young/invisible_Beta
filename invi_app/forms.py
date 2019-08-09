@@ -8,13 +8,9 @@ class SignupForm(forms.ModelForm):
         model=User
         fields=('user_email','password')
         widgets = {
-            'password' : forms.PasswordInput
+            'password' : forms.PasswordInput 
         }
-        labels = {
-           
-            'user_email': '이메일',
-            'password': '패스워드'
-        }
+    
        
 class SigninForm(forms.ModelForm): #로그인을 제공하는 class이다.
     class Meta:
